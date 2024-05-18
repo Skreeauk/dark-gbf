@@ -20,6 +20,8 @@ const Circle = forwardRef(
 	}
 )
 
+Circle.displayName = "Circle"
+
 export function AnimatedBeamDemo() {
 	const containerRef = useRef(null)
 	const div1Ref = useRef(null)
