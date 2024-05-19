@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-export const BackgroundCellCore = () => {
+export function BackgroundCellCore() {
 	const [mousePosition, setMousePosition] = useState({
 		x: 0,
 		y: 0,
@@ -61,7 +61,7 @@ export const BackgroundCellCore = () => {
 	)
 }
 
-const Pattern = ({ className, cellClassName }) => {
+function Pattern({ className, cellClassName }) {
 	const x = new Array(47).fill(0)
 	const y = new Array(30).fill(0)
 	const matrix = x.map((_, i) => y.map((_, j) => [i, j]))
@@ -75,56 +75,88 @@ const Pattern = ({ className, cellClassName }) => {
 			)}
 		>
 			{matrix.map((row, rowIdx) => (
-				<div
+				<Row
 					key={`matrix-row-${rowIdx}`}
-					className="relative z-20 flex flex-col border-b"
-				>
-					{row.map((column, colIdx) => {
-						const controls = useAnimation()
-
-						useEffect(() => {
-							if (clickedCell) {
-								const distance = Math.sqrt(
-									Math.pow(clickedCell[0] - rowIdx, 2) +
-										Math.pow(clickedCell[1] - colIdx, 2)
-								)
-								controls.start({
-									opacity: [0, 1 - distance * 0.1, 0],
-									transition: { duration: distance * 0.2 },
-								})
-							}
-						}, [clickedCell])
-
-						return (
-							<div
-								key={`matrix-col-${colIdx}`}
-								className={cn(
-									"bg-transparent border-l border-b border-neutral-600",
-									cellClassName
-								)}
-								onClick={() =>
-									setClickedCell([rowIdx, colIdx])
-								}
-							>
-								<motion.div
-									initial={{
-										opacity: 0,
-									}}
-									whileHover={{
-										opacity: [0, 1, 0.5],
-									}}
-									transition={{
-										duration: 0.5,
-										ease: "backOut",
-									}}
-									animate={controls}
-									className="bg-[rgba(14,165,233,0.3)] size-12" //  rgba(14, 165, 233, 0.15) for a more subtle effect
-								></motion.div>
-							</div>
-						)
-					})}
-				</div>
+					row={row}
+					rowIdx={rowIdx}
+					clickedCell={clickedCell}
+					setClickedCell={setClickedCell}
+					cellClassName={cellClassName}
+				></Row>
 			))}
+		</div>
+	)
+}
+
+function Row({
+	row,
+	rowIdx,
+	clickedCell,
+	setClickedCell,
+	cellClassName,
+}) {
+	return (
+		<div className="relative z-20 flex flex-col border-b">
+			{row.map((column, colIdx) => {
+				return (
+					<Cell
+						key={`matrix-col-${colIdx}`}
+						rowIdx={rowIdx}
+						colIdx={colIdx}
+						clickedCell={clickedCell}
+						setClickedCell={setClickedCell}
+						cellClassName={cellClassName}
+					></Cell>
+				)
+			})}
+		</div>
+	)
+}
+
+function Cell({
+	rowIdx,
+	colIdx,
+	clickedCell,
+	setClickedCell,
+	cellClassName,
+}) {
+	const controls = useAnimation()
+
+	useEffect(() => {
+		if (clickedCell) {
+			const distance = Math.sqrt(
+				Math.pow(clickedCell[0] - rowIdx, 2) +
+					Math.pow(clickedCell[1] - colIdx, 2)
+			)
+			controls.start({
+				opacity: [0, 1 - distance * 0.1, 0],
+				transition: { duration: distance * 0.2 },
+			})
+		}
+	}, [clickedCell])
+
+	return (
+		<div
+			className={cn(
+				"bg-transparent border-l border-b border-neutral-600",
+				cellClassName
+			)}
+			onClick={() => setClickedCell([rowIdx, colIdx])}
+		>
+			<motion.div
+				initial={{
+					opacity: 0,
+				}}
+				whileHover={{
+					opacity: [0, 1, 0.5],
+				}}
+				transition={{
+					duration: 0.5,
+					ease: "backOut",
+				}}
+				animate={controls}
+				className="bg-[rgba(14,165,233,0.3)] size-12" //  rgba(14, 165, 233, 0.15) for a more subtle effect
+			></motion.div>
 		</div>
 	)
 }
