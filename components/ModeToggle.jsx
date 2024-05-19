@@ -32,9 +32,9 @@ export function ModeToggle() {
 			}
 		>
 			{resolvedTheme === "dark" ? (
-				<MoonIcon className="size-6 text-primary" />
+				<MoonIcon className="size-8 text-primary" />
 			) : (
-				<SunIcon className="size-6 text-primary" />
+				<SunIcon className="size-8 text-primary" />
 			)}
 		</Button>
 	)

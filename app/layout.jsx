@@ -3,6 +3,7 @@ import "@/css/globals.css"
 
 import { ThemeProvider } from "@/components/providers/ThemeProvider"
 
+import { BackgroundCellCore } from "@/components/BackgroundRipple"
 import DockBar from "@/components/DockBar"
 
 import { cn } from "@/lib/utils"
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
 			</head>
 			<body
 				className={cn(
-					"antialiased min-h-screen bg-background flex flex-col",
+					"antialiased min-h-screen bg-background flex flex-col relative md:overflow-hidden",
 					inter.className
 				)}
 			>
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
 				>
 					{children}
 					<DockBar />
+					<BackgroundCellCore />
 				</ThemeProvider>
 			</body>
 		</html>
