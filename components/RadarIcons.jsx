@@ -1,6 +1,13 @@
-import { BoxIcon } from "@radix-ui/react-icons"
 import { Radar } from "./aceternity/Radar"
 import { IconContainer } from "./aceternity/IconContainer"
+
+import Image from "next/image"
+
+import Glory from "@/public/weapon_skill/glory.png"
+import MagnaExalto from "@/public/weapon_skill/magna_exalto.png"
+import Majesty from "@/public/weapon_skill/majesty.png"
+import Seraphic from "@/public/weapon_skill/seraphic.png"
+import Trium from "@/public/weapon_skill/trium.png"
 
 export function RadarIcons() {
 	return (
@@ -8,10 +15,14 @@ export function RadarIcons() {
 			<div className="w-full max-w-3xl mx-auto">
 				<div className="flex items-center justify-center w-full">
 					<IconContainer
-						text="Designing"
 						delay={0.3}
 						icon={
-							<BoxIcon className="w-8 h-8 text-slate-600" />
+							<Image
+								unoptimized
+								src={Glory}
+								alt="Glory"
+								className="rounded-lg"
+							/>
 						}
 					/>
 				</div>
@@ -19,16 +30,24 @@ export function RadarIcons() {
 			<div className="w-full max-w-md mx-auto">
 				<div className="flex items-center justify-between w-full space-x-10 md:justify-between md:space-x-0 ">
 					<IconContainer
-						text="Maintenence"
 						delay={0.5}
 						icon={
-							<BoxIcon className="w-8 h-8 text-slate-600" />
+							<Image
+								unoptimized
+								src={MagnaExalto}
+								alt="MagnaExalto"
+								className="rounded-lg"
+							/>
 						}
 					/>
 					<IconContainer
-						text="Server management"
 						icon={
-							<BoxIcon className="w-8 h-8 text-slate-600" />
+							<Image
+								unoptimized
+								src={Trium}
+								alt="Trium"
+								className="rounded-lg"
+							/>
 						}
 						delay={0.8}
 					/>
@@ -38,16 +57,24 @@ export function RadarIcons() {
 				<div className="flex items-center w-full space-x-10 justify-evenly md:space-x-0 ">
 					<IconContainer
 						delay={0.6}
-						text="GitHub Integration"
 						icon={
-							<BoxIcon className="w-8 h-8 text-slate-600" />
+							<Image
+								unoptimized
+								src={Majesty}
+								alt="Majesty"
+								className="rounded-lg"
+							/>
 						}
 					/>
 					<IconContainer
 						delay={0.7}
-						text="CMS Integration"
 						icon={
-							<BoxIcon className="w-8 h-8 text-slate-600" />
+							<Image
+								unoptimized
+								src={Seraphic}
+								alt="Seraphic"
+								className="rounded-lg"
+							/>
 						}
 					/>
 				</div>

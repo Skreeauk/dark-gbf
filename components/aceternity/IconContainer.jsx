@@ -23,7 +23,7 @@ export const IconContainer = ({ icon, delay }) => {
 				"relative z-50 flex flex-col items-center justify-center space-y-2"
 			)}
 		>
-			<div className="flex items-center justify-center border shadow-inner size-12 rounded-2xl border-slate-700 bg-slate-800">
+			<div className="flex items-center justify-center shadow-inner size-12 rounded-2xl">
 				{icon}
 			</div>
 		</motion.div>

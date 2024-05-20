@@ -3,9 +3,10 @@ import {
 	BentoGridItem,
 } from "@/components/BentoGrid"
 
+import { RadarIcons } from "@/components/RadarIcons"
+import { WordCycle } from "@/components/WordCycle"
 import { OrbitingIcons } from "@/components/OrbitingIcons"
 import { AnimatedBeams } from "@/components/Beams"
-import { RadarIcons } from "@/components/RadarIcons"
 
 import { Label } from "@/components/ui/label"
 
@@ -21,7 +22,7 @@ const items = [
 	{
 		title: "Multiattack Calculator",
 		description: "Make your life easier with this tool.",
-		header: <Skeleton />,
+		header: <WordCycle />,
 		className: "md:col-span-1",
 		url: "/multiattack-calculator",
 	},
