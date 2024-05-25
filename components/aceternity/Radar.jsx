@@ -27,9 +27,7 @@ export const Radar = ({ className }) => {
 					style={{
 						height: `${(idx + 1) * 5}rem`,
 						width: `${(idx + 1) * 5}rem`,
-						border: `1px solid rgba(71, 85, 105, ${
-							1 - (idx + 1) * 0.1
-						})`,
+						border: `1px solid rgba(71, 85, 105, ${1 - (idx + 1) * 0.1})`,
 					}}
 					key={`motion-${idx}`}
 					idx={idx}
@@ -42,12 +40,7 @@ export const Radar = ({ className }) => {
 {
 	/* Creating circles */
 }
-export const Circle = ({
-	className,
-	children,
-	idx,
-	...rest
-}) => {
+export const Circle = ({ className, children, idx, ...rest }) => {
 	return (
 		<motion.div
 			{...rest}

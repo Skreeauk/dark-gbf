@@ -103,12 +103,10 @@ module.exports = {
 				},
 			},
 			animation: {
-				"border-beam":
-					"border-beam calc(var(--duration)*1s) infinite linear",
+				"border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
 				"radar-spin": "radar-spin 7s linear infinite",
 				ripple: "ripple 3400ms ease infinite",
-				orbit:
-					"orbit calc(var(--duration)*1s) linear infinite",
+				orbit: "orbit calc(var(--duration)*1s) linear infinite",
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},

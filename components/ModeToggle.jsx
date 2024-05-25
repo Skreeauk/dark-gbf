@@ -25,16 +25,12 @@ export function ModeToggle() {
 			variant="ghost"
 			size="icon"
 			className="p-2 hover:bg-transparent"
-			onClick={() =>
-				setTheme(
-					resolvedTheme === "dark" ? "light" : "dark"
-				)
-			}
+			onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
 		>
 			{resolvedTheme === "dark" ? (
-				<MoonIcon className="size-10 text-primary" />
+				<MoonIcon className="size-12 text-primary" />
 			) : (
-				<SunIcon className="size-10 text-primary" />
+				<SunIcon className="size-12 text-primary" />
 			)}
 		</Button>
 	)

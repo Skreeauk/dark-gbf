@@ -12,6 +12,8 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip"
 
+import { HomeIcon } from "@radix-ui/react-icons"
+
 import Contact from "@/public/features/contact.png"
 import GridBuilder from "@/public/features/grid_building.png"
 import MultiAttack from "@/public/features/multiattack.png"
@@ -23,18 +25,26 @@ export default function DockBar() {
 		<TooltipProvider delayDuration={400}>
 			<Dock className="fixed inset-x-0 z-50 bottom-6">
 				<DockIcon>
-					<ModeToggle />
+					<Tooltip>
+						<TooltipTrigger asChild className="size-10 hover:size-14">
+							<div className="flex items-center justify-center w-full h-full">
+								<ModeToggle />
+							</div>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Light / Dark Mode</p>
+						</TooltipContent>
+					</Tooltip>
+					{/* <div className="flex items-center justify-center size-10">
+						<ModeToggle />
+					</div> */}
+					{/* <ModeToggle /> */}
 				</DockIcon>
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger asChild>
 							<Link href="/about">
-								<Image
-									src={Contact}
-									alt="Contact"
-									unoptimized
-									className=""
-								/>
+								<Image src={Contact} alt="Contact" unoptimized className="" />
 							</Link>
 						</TooltipTrigger>
 						<TooltipContent>
@@ -42,10 +52,21 @@ export default function DockBar() {
 						</TooltipContent>
 					</Tooltip>
 				</DockIcon>
-				<Separator
-					orientation="vertical"
-					className="w-1"
-				/>
+				<Separator orientation="vertical" className="w-1" />
+				<DockIcon>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Link href="/" className="size-10 hover:size-14">
+								<div className="flex items-center justify-center w-full h-full">
+									<HomeIcon className="m-2 size-6" />
+								</div>
+							</Link>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Home</p>
+						</TooltipContent>
+					</Tooltip>
+				</DockIcon>
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger asChild>

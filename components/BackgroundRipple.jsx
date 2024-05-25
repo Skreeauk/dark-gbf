@@ -12,8 +12,7 @@ export function BackgroundCellCore() {
 	const ref = useRef(null)
 
 	const handleMouseMove = (event) => {
-		const rect =
-			ref.current && ref.current.getBoundingClientRect()
+		const rect = ref.current && ref.current.getBoundingClientRect()
 		setMousePosition({
 			x: event.clientX - rect.left,
 			y: event.clientY - rect.top,
@@ -40,9 +39,9 @@ export function BackgroundCellCore() {
           ${size / 4}px circle at center,
           white, transparent
         )`,
-						WebkitMaskPosition: `${
-							mousePosition.x - size / 2
-						}px ${mousePosition.y - size / 0.65}px`,
+						WebkitMaskPosition: `${mousePosition.x - size / 2}px ${
+							mousePosition.y - size / 0.65
+						}px`,
 						WebkitMaskSize: `${size}px`,
 						maskSize: `${size}px`,
 						pointerEvents: "none",
@@ -52,10 +51,7 @@ export function BackgroundCellCore() {
 				>
 					<Pattern cellClassName="border-blue-600 relative z-[100]" />
 				</div>
-				<Pattern
-					className="opacity-[0.5]"
-					cellClassName="border-neutral-700"
-				/>
+				<Pattern className="opacity-[0.5]" cellClassName="border-neutral-700" />
 			</div>
 		</div>
 	)
@@ -68,12 +64,7 @@ function Pattern({ className, cellClassName }) {
 	const [clickedCell, setClickedCell] = useState(null)
 
 	return (
-		<div
-			className={cn(
-				"flex flex-row relative z-30",
-				className
-			)}
-		>
+		<div className={cn("flex flex-row relative z-30", className)}>
 			{matrix.map((row, rowIdx) => (
 				<Row
 					key={`matrix-row-${rowIdx}`}
@@ -88,13 +79,7 @@ function Pattern({ className, cellClassName }) {
 	)
 }
 
-function Row({
-	row,
-	rowIdx,
-	clickedCell,
-	setClickedCell,
-	cellClassName,
-}) {
+function Row({ row, rowIdx, clickedCell, setClickedCell, cellClassName }) {
 	return (
 		<div className="relative z-20 flex flex-col border-b">
 			{row.map((column, colIdx) => {
@@ -113,13 +98,7 @@ function Row({
 	)
 }
 
-function Cell({
-	rowIdx,
-	colIdx,
-	clickedCell,
-	setClickedCell,
-	cellClassName,
-}) {
+function Cell({ rowIdx, colIdx, clickedCell, setClickedCell, cellClassName }) {
 	const controls = useAnimation()
 
 	useEffect(() => {

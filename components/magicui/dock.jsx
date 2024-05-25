@@ -1,12 +1,7 @@
 "use client"
 import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"
-import {
-	motion,
-	useMotionValue,
-	useSpring,
-	useTransform,
-} from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import React, { useRef } from "react"
 
 const DEFAULT_MAGNIFICATION = 60
@@ -45,10 +40,7 @@ const Dock = React.forwardRef(
 				onMouseMove={(e) => mousex.set(e.pageX)}
 				onMouseLeave={() => mousex.set(Infinity)}
 				{...props}
-				className={cn(
-					dockVariants({ className }),
-					className
-				)}
+				className={cn(dockVariants({ className }), className)}
 			>
 				{renderChildren()}
 			</motion.div>
