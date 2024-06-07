@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
-import Link from "next/link"
+// import Link from "next/link"
+import { Link } from "next-view-transitions"
 import { BorderBeam } from "./magicui/border-beam"
 
 export const BentoGrid = ({ className, children }) => {

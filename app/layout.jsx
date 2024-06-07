@@ -8,6 +8,8 @@ import DockBar from "@/components/DockBar"
 
 import { cn } from "@/lib/utils"
 
+import { ViewTransitions } from "next-view-transitions"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
@@ -17,27 +19,29 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
-				<link rel="icon" href="/favicon.ico" />
-			</head>
-			<body
-				className={cn(
-					"antialiased min-h-screen bg-background flex flex-col relative md:overflow-hidden",
-					inter.className
-				)}
-			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
+		<ViewTransitions>
+			<html lang="en" suppressHydrationWarning>
+				<head>
+					<link rel="icon" href="/favicon.ico" />
+				</head>
+				<body
+					className={cn(
+						"antialiased min-h-screen bg-background flex flex-col relative md:overflow-hidden",
+						inter.className
+					)}
 				>
-					{children}
-					<DockBar />
-					<BackgroundCellCore />
-				</ThemeProvider>
-			</body>
-		</html>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
+						{children}
+						<DockBar />
+						<BackgroundCellCore />
+					</ThemeProvider>
+				</body>
+			</html>
+		</ViewTransitions>
 	)
 }

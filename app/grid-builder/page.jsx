@@ -69,11 +69,11 @@ export default function Page() {
 		// Active - Draggable
 		// Over - Droppbale
 
-		console.log("Active - Draggable")
-		console.log(active)
+		// console.log("Active - Draggable")
+		// console.log(active)
 
-		console.log("Over - Droppable")
-		console.log(over)
+		// console.log("Over - Droppable")
+		// console.log(over)
 
 		if (over) {
 			const newGrid = grid.slice(0, grid.length)
@@ -82,12 +82,12 @@ export default function Page() {
 			newGrid[active.id - 1] = newGrid[over.id - 1]
 			newGrid[over.id - 1] = copy
 
-			console.log("New Grid:")
-			console.log(newGrid)
+			// console.log("New Grid:")
+			// console.log(newGrid)
 			setGrid(newGrid)
 		}
 		setHover(true)
-		console.log("------")
+		// console.log("------")
 	}
 
 	function handleDragStart(event) {
@@ -200,8 +200,8 @@ export default function Page() {
 				</Droppable>
 				<span
 					className={cn(
-						"text-xs md:text-base text-center truncate w-full",
-						mh && "w-[112px] md:w-[168px]"
+						"text-xs md:text-base text-center truncate w-full md:w-[168px]",
+						mh && "w-[112px]"
 					)}
 				>
 					{slot != 0 ? weapons.find((e) => e.id == slot).name : "Empty"}

@@ -3,7 +3,9 @@ import { ModeToggle } from "./ModeToggle"
 import { Separator } from "./ui/separator"
 
 import Image from "next/image"
-import Link from "next/link"
+// import Link from "next/link"
+
+import { Link } from "next-view-transitions"
 
 import {
 	Tooltip,
