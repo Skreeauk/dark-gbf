@@ -26,6 +26,7 @@ export function ModeToggle() {
 			size="icon"
 			className="p-2 hover:bg-transparent"
 			onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+			aria-label="Toggle Light / Dark mode"
 		>
 			{resolvedTheme === "dark" ? (
 				<MoonIcon className="size-12 text-primary" />

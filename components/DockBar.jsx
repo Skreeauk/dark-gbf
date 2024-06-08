@@ -25,7 +25,7 @@ import GridScore from "@/public/features/grid_score.png"
 export default function DockBar() {
 	return (
 		<TooltipProvider delayDuration={400}>
-			<Dock className="fixed inset-x-0 z-50 bottom-6">
+			<Dock className="fixed inset-x-0 z-50 bottom-6 bg-white/10 backdrop-blur-2xl">
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger asChild className="size-10 hover:size-14">
@@ -44,8 +44,8 @@ export default function DockBar() {
 				</DockIcon>
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger asChild>
-							<Link href="/about">
+						<TooltipTrigger>
+							<Link href="/about" aria-label="About Page">
 								<Image src={Contact} alt="Contact" unoptimized className="" />
 							</Link>
 						</TooltipTrigger>
@@ -57,8 +57,12 @@ export default function DockBar() {
 				<Separator orientation="vertical" className="w-1" />
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger asChild>
-							<Link href="/" className="size-10 hover:size-14">
+						<TooltipTrigger>
+							<Link
+								href="/"
+								className="size-10 hover:size-14"
+								aria-label="Home Page"
+							>
 								<div className="flex items-center justify-center w-full h-full">
 									<HomeIcon className="m-2 size-6" />
 								</div>
@@ -71,8 +75,8 @@ export default function DockBar() {
 				</DockIcon>
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger asChild>
-							<Link href="/grid-builder">
+						<TooltipTrigger>
+							<Link href="/grid-builder" aria-label="Grid Builder Page">
 								<Image
 									src={GridBuilder}
 									alt="Grid Builder"
@@ -88,8 +92,11 @@ export default function DockBar() {
 				</DockIcon>
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger asChild>
-							<Link href="/multiattack-calculator">
+						<TooltipTrigger>
+							<Link
+								href="/multiattack-calculator"
+								aria-label="Multiattack Calculator Page"
+							>
 								<Image
 									src={MultiAttack}
 									alt="MultiAttack"
@@ -105,8 +112,11 @@ export default function DockBar() {
 				</DockIcon>
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger asChild>
-							<Link href="/critical-calculator">
+						<TooltipTrigger>
+							<Link
+								href="/critical-calculator"
+								aria-label="Crit Calculator Page"
+							>
 								<Image
 									src={Critical}
 									alt="Critical"
@@ -122,8 +132,8 @@ export default function DockBar() {
 				</DockIcon>
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger asChild>
-							<Link href="/grid-score">
+						<TooltipTrigger>
+							<Link href="/grid-score" aria-label="Grid Score Page">
 								<Image
 									src={GridScore}
 									alt="Grid Score"

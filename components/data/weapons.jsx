@@ -372,7 +372,7 @@ export const weapons = [
 		skills: [102, 55, 35],
 	},
 	{
-		id: 1040008700,
+		id: 1040415800,
 		name: "Scales of Dominion",
 		weapon_type: "Staff",
 		skills: [32, 2],
@@ -423,7 +423,7 @@ export const weapons = [
 		id: 1040407000,
 		name: "Staff of Bahamut Coda",
 		weapon_type: "Staff",
-		skills: [191, 206],
+		skills: [192, 206],
 	},
 	{
 		id: 1040811800,

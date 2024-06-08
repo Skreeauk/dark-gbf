@@ -2,15 +2,27 @@
 
 import { useState } from "react"
 
-import { CommandDialog, CommandEmpty, CommandInput, CommandList } from "@/components/ui/command"
+import {
+	CommandDialog,
+	CommandEmpty,
+	CommandInput,
+	CommandList,
+} from "@/components/ui/command"
 
-import { weapons } from "@/components/data/weapons"
+// import { weapons } from "@/components/data/weapons"
 import { weapon_types } from "@/components/data/weapon_types"
 
 import WeaponCommandGroup from "./WeaponCommandGroup"
 import WeaponFilter from "./WeaponFilter"
 
-export default function WeaponCommand({ grid, setGrid, selectedID, open, setOpen }) {
+export default function WeaponCommand({
+	grid,
+	setGrid,
+	selectedID,
+	open,
+	setOpen,
+	weapons,
+}) {
 	const [filters, setFilters] = useState(weapon_types)
 
 	function handleSelection(val, weapon_id) {
@@ -24,7 +36,11 @@ export default function WeaponCommand({ grid, setGrid, selectedID, open, setOpen
 	return (
 		<CommandDialog open={open || false} onOpenChange={setOpen}>
 			<CommandInput placeholder="Search..." />
-			<WeaponFilter weapon_types={weapon_types} filters={filters} setFilters={setFilters} />
+			<WeaponFilter
+				weapon_types={weapon_types}
+				filters={filters}
+				setFilters={setFilters}
+			/>
 			<CommandList>
 				<CommandEmpty>No results found.</CommandEmpty>
 				{filters.map((weapon_type, i, { length }) => {

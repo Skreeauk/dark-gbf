@@ -28,8 +28,6 @@ import {
 } from "@/components/ui/hover-card"
 import { Label } from "@/components/ui/label"
 
-import { weapons } from "@/components/data/weapons"
-import { weapon_skills } from "@/components/data/weapon_skills"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function Page() {
@@ -42,6 +40,9 @@ export default function Page() {
 	const [showNumeric, setShowNumeric] = useState(false)
 	const [hover, setHover] = useState(true)
 	const [selectedID, setSelectedID] = useState(-1)
+
+	const [weapons, setWeapons] = useState([])
+	const [weapon_skills, setWeaponSkills] = useState([])
 
 	const sensors = useSensors(
 		useSensor(MouseSensor, {
@@ -58,10 +59,32 @@ export default function Page() {
 
 	useEffect(() => {
 		setMount(true)
+		getData()
 	}, [])
 
 	if (!mounted) {
 		return null
+	}
+
+	async function getWeapons() {
+		const res = await fetch("/api/weapons")
+		return res.json()
+	}
+
+	async function getWeaponSkills() {
+		const res = await fetch("/api/weapon_skills")
+		return res.json()
+	}
+
+	async function getData() {
+		const weaponFetch = getWeapons()
+		const weaponSkillFetch = getWeaponSkills()
+		const [weaponData, weaponSkillData] = await Promise.all([
+			weaponFetch,
+			weaponSkillFetch,
+		])
+		setWeapons(weaponData)
+		setWeaponSkills(weaponSkillData)
 	}
 
 	function handleDragEnd(event) {
@@ -267,6 +290,7 @@ export default function Page() {
 				selectedID={selectedID}
 				open={open}
 				setOpen={setOpen}
+				weapons={weapons}
 			/>
 		</>
 	)

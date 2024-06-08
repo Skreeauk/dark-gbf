@@ -1,57 +1,14 @@
 "use client"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 export function BackgroundCellCore() {
-	const [mousePosition, setMousePosition] = useState({
-		x: 0,
-		y: 0,
-	})
-
-	const ref = useRef(null)
-
-	const handleMouseMove = (event) => {
-		const rect = ref.current && ref.current.getBoundingClientRect()
-		setMousePosition({
-			x: event.clientX - rect.left,
-			y: event.clientY - rect.top,
-		})
-	}
-
-	const size = 300
 	return (
-		<div
-			ref={ref}
-			onMouseMove={handleMouseMove}
-			className="absolute inset-0 hidden h-full md:block"
-		>
+		<div className="absolute inset-0 hidden h-full md:block">
 			<div className="absolute inset-y-0 h-full overflow-hidden">
 				<div className="absolute h-full w-full pointer-events-none -bottom-2 z-40 bg-background [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
-				<div
-					className="absolute inset-0 z-20 bg-transparent"
-					style={{
-						maskImage: `radial-gradient(
-            ${size / 4}px circle at center,
-           white, transparent
-          )`,
-						WebkitMaskImage: `radial-gradient(
-          ${size / 4}px circle at center,
-          white, transparent
-        )`,
-						WebkitMaskPosition: `${mousePosition.x - size / 2}px ${
-							mousePosition.y - size / 0.65
-						}px`,
-						WebkitMaskSize: `${size}px`,
-						maskSize: `${size}px`,
-						pointerEvents: "none",
-						maskRepeat: "no-repeat",
-						WebkitMaskRepeat: "no-repeat",
-					}}
-				>
-					<Pattern cellClassName="border-blue-600 relative z-[100]" />
-				</div>
-				<Pattern className="opacity-[0.5]" cellClassName="border-neutral-700" />
+				<Pattern className="opacity-[0.6]" cellClassName="border-neutral-700" />
 			</div>
 		</div>
 	)
@@ -134,7 +91,7 @@ function Cell({ rowIdx, colIdx, clickedCell, setClickedCell, cellClassName }) {
 					ease: "backOut",
 				}}
 				animate={controls}
-				className="bg-[rgba(14,165,233,0.3)] size-12" //  rgba(14, 165, 233, 0.15) for a more subtle effect
+				className="bg-[rgba(14,165,233,0.45)] size-12" //  rgba(14, 165, 233, 0.15) for a more subtle effect
 			></motion.div>
 		</div>
 	)
