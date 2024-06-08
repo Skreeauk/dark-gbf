@@ -2,11 +2,11 @@
 import React from "react"
 
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 export const IconContainer = ({ icon, delay }) => {
 	return (
-		<motion.div
+		<m.div
 			initial={{
 				opacity: 0,
 				scale: 0.95,
@@ -26,6 +26,6 @@ export const IconContainer = ({ icon, delay }) => {
 			<div className="flex items-center justify-center shadow-inner size-12 rounded-2xl">
 				{icon}
 			</div>
-		</motion.div>
+		</m.div>
 	)
 }

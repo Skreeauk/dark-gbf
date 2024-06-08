@@ -1,7 +1,14 @@
 "use client"
 import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import {
+	m,
+	LazyMotion,
+	domAnimation,
+	useMotionValue,
+	useSpring,
+	useTransform,
+} from "framer-motion"
 import React, { useRef } from "react"
 
 const DEFAULT_MAGNIFICATION = 60
@@ -35,15 +42,17 @@ const Dock = React.forwardRef(
 		}
 
 		return (
-			<motion.div
-				ref={ref}
-				onMouseMove={(e) => mousex.set(e.pageX)}
-				onMouseLeave={() => mousex.set(Infinity)}
-				{...props}
-				className={cn(dockVariants({ className }), className)}
-			>
-				{renderChildren()}
-			</motion.div>
+			<LazyMotion features={domAnimation}>
+				<m.div
+					ref={ref}
+					onMouseMove={(e) => mousex.set(e.pageX)}
+					onMouseLeave={() => mousex.set(Infinity)}
+					{...props}
+					className={cn(dockVariants({ className }), className)}
+				>
+					{renderChildren()}
+				</m.div>
+			</LazyMotion>
 		)
 	}
 )
@@ -83,7 +92,7 @@ const DockIcon = ({
 	})
 
 	return (
-		<motion.div
+		<m.div
 			ref={ref}
 			style={{ width }}
 			className={cn(
@@ -93,7 +102,7 @@ const DockIcon = ({
 			{...props}
 		>
 			{children}
-		</motion.div>
+		</m.div>
 	)
 }
 

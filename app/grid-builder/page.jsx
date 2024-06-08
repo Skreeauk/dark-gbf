@@ -58,6 +58,17 @@ export default function Page() {
 	)
 
 	useEffect(() => {
+		async function getData() {
+			const weaponFetch = getWeapons()
+			const weaponSkillFetch = getWeaponSkills()
+			const [weaponData, weaponSkillData] = await Promise.all([
+				weaponFetch,
+				weaponSkillFetch,
+			])
+			setWeapons(weaponData)
+			setWeaponSkills(weaponSkillData)
+		}
+
 		setMount(true)
 		getData()
 	}, [])
@@ -74,17 +85,6 @@ export default function Page() {
 	async function getWeaponSkills() {
 		const res = await fetch("/api/weapon_skills")
 		return res.json()
-	}
-
-	async function getData() {
-		const weaponFetch = getWeapons()
-		const weaponSkillFetch = getWeaponSkills()
-		const [weaponData, weaponSkillData] = await Promise.all([
-			weaponFetch,
-			weaponSkillFetch,
-		])
-		setWeapons(weaponData)
-		setWeaponSkills(weaponSkillData)
 	}
 
 	function handleDragEnd(event) {

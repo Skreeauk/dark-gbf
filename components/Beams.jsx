@@ -13,6 +13,8 @@ import MultiAttack from "@/public/features/multiattack.png"
 import Critical from "@/public/features/critical.png"
 import GridScore from "@/public/features/grid_score.png"
 
+import { LazyMotion, domAnimation } from "framer-motion"
+
 const Circle = forwardRef(({ className, children }, ref) => {
 	return (
 		<div
@@ -65,68 +67,70 @@ export function AnimatedBeams() {
 	}, [])
 
 	return (
-		<div
-			className="relative flex items-center justify-center w-full p-5 overflow-hidden border rounded-lg bg-background"
-			ref={containerRef}
-		>
-			<div className="flex flex-col justify-between w-full h-full">
-				<div className="flex flex-row items-center justify-between">
-					<FeatureCircle ref={div1Ref} src={GridBuilder} alt="Grid Builder" />
-					<FeatureCircle
-						ref={div5Ref}
-						src={MultiAttack}
-						alt="Multiattack Calculator"
-					/>
-				</div>
-				<div className="flex flex-row items-center justify-center">
-					<Circle ref={div4Ref} className="size-20">
-						<VercelGauge
-							value={gaugeValue}
-							size="lg"
-							gapPercent={6}
-							strokeWidth={11}
-							showValue
-							showAnimation
-							variant="ascending"
+		<LazyMotion features={domAnimation}>
+			<div
+				className="relative flex items-center justify-center w-full p-5 overflow-hidden border rounded-lg bg-background"
+				ref={containerRef}
+			>
+				<div className="flex flex-col justify-between w-full h-full">
+					<div className="flex flex-row items-center justify-between">
+						<FeatureCircle ref={div1Ref} src={GridBuilder} alt="Grid Builder" />
+						<FeatureCircle
+							ref={div5Ref}
+							src={MultiAttack}
+							alt="Multiattack Calculator"
 						/>
-					</Circle>
+					</div>
+					<div className="flex flex-row items-center justify-center">
+						<Circle ref={div4Ref} className="size-20">
+							<VercelGauge
+								value={gaugeValue}
+								size="lg"
+								gapPercent={6}
+								strokeWidth={11}
+								showValue
+								showAnimation
+								variant="ascending"
+							/>
+						</Circle>
+					</div>
+					<div className="flex flex-row items-center justify-between">
+						<FeatureCircle
+							ref={div2Ref}
+							src={Critical}
+							alt="Critical Calculator"
+						/>
+						<FeatureCircle ref={div6Ref} src={GridScore} alt="Grid Score" />
+					</div>
 				</div>
-				<div className="flex flex-row items-center justify-between">
-					<FeatureCircle
-						ref={div2Ref}
-						src={Critical}
-						alt="Critical Calculator"
-					/>
-					<FeatureCircle ref={div6Ref} src={GridScore} alt="Grid Score" />
-				</div>
-			</div>
 
-			<AnimatedBeam
-				containerRef={containerRef}
-				fromRef={div1Ref}
-				toRef={div4Ref}
-				curvature={25}
-			/>
-			<AnimatedBeam
-				containerRef={containerRef}
-				fromRef={div2Ref}
-				toRef={div4Ref}
-				curvature={-25}
-			/>
-			<AnimatedBeam
-				containerRef={containerRef}
-				fromRef={div5Ref}
-				toRef={div4Ref}
-				curvature={25}
-				reverse
-			/>
-			<AnimatedBeam
-				containerRef={containerRef}
-				fromRef={div6Ref}
-				toRef={div4Ref}
-				curvature={-25}
-				reverse
-			/>
-		</div>
+				<AnimatedBeam
+					containerRef={containerRef}
+					fromRef={div1Ref}
+					toRef={div4Ref}
+					curvature={25}
+				/>
+				<AnimatedBeam
+					containerRef={containerRef}
+					fromRef={div2Ref}
+					toRef={div4Ref}
+					curvature={-25}
+				/>
+				<AnimatedBeam
+					containerRef={containerRef}
+					fromRef={div5Ref}
+					toRef={div4Ref}
+					curvature={25}
+					reverse
+				/>
+				<AnimatedBeam
+					containerRef={containerRef}
+					fromRef={div6Ref}
+					toRef={div4Ref}
+					curvature={-25}
+					reverse
+				/>
+			</div>
+		</LazyMotion>
 	)
 }

@@ -1,9 +1,15 @@
 "use client"
+
 import React, { useEffect, useState } from "react"
-import { motion, useAnimation } from "framer-motion"
+import {
+	m,
+	LazyMotion,
+	domAnimation,
+	useAnimationControls,
+} from "framer-motion"
 import { cn } from "@/lib/utils"
 
-export function BackgroundCellCore() {
+export default function BackgroundCellCore() {
 	return (
 		<div className="absolute inset-0 hidden h-full md:block">
 			<div className="absolute inset-y-0 h-full overflow-hidden">
@@ -15,24 +21,26 @@ export function BackgroundCellCore() {
 }
 
 function Pattern({ className, cellClassName }) {
-	const x = new Array(47).fill(0)
-	const y = new Array(30).fill(0)
+	const x = new Array(30).fill(0)
+	const y = new Array(18).fill(0)
 	const matrix = x.map((_, i) => y.map((_, j) => [i, j]))
 	const [clickedCell, setClickedCell] = useState(null)
 
 	return (
-		<div className={cn("flex flex-row relative z-30", className)}>
-			{matrix.map((row, rowIdx) => (
-				<Row
-					key={`matrix-row-${rowIdx}`}
-					row={row}
-					rowIdx={rowIdx}
-					clickedCell={clickedCell}
-					setClickedCell={setClickedCell}
-					cellClassName={cellClassName}
-				></Row>
-			))}
-		</div>
+		<LazyMotion features={domAnimation}>
+			<div className={cn("flex flex-row relative z-30", className)}>
+				{matrix.map((row, rowIdx) => (
+					<Row
+						key={`matrix-row-${rowIdx}`}
+						row={row}
+						rowIdx={rowIdx}
+						clickedCell={clickedCell}
+						setClickedCell={setClickedCell}
+						cellClassName={cellClassName}
+					></Row>
+				))}
+			</div>
+		</LazyMotion>
 	)
 }
 
@@ -56,7 +64,7 @@ function Row({ row, rowIdx, clickedCell, setClickedCell, cellClassName }) {
 }
 
 function Cell({ rowIdx, colIdx, clickedCell, setClickedCell, cellClassName }) {
-	const controls = useAnimation()
+	const controls = useAnimationControls()
 
 	useEffect(() => {
 		if (clickedCell) {
@@ -73,26 +81,23 @@ function Cell({ rowIdx, colIdx, clickedCell, setClickedCell, cellClassName }) {
 
 	return (
 		<div
-			className={cn(
-				"bg-transparent border-l border-b border-neutral-600",
-				cellClassName
-			)}
+			className={cn("bg-transparent border-l border-b", cellClassName)}
 			onClick={() => setClickedCell([rowIdx, colIdx])}
 		>
-			<motion.div
+			<m.div
 				initial={{
 					opacity: 0,
 				}}
 				whileHover={{
-					opacity: [0, 1, 0.5],
+					opacity: 1,
 				}}
 				transition={{
 					duration: 0.5,
 					ease: "backOut",
 				}}
 				animate={controls}
-				className="bg-[rgba(14,165,233,0.45)] size-12" //  rgba(14, 165, 233, 0.15) for a more subtle effect
-			></motion.div>
+				className="bg-[rgba(14,91,233,0.7)] dark:bg-[rgba(14,165,233,0.4)] size-16"
+			></m.div>
 		</div>
 	)
 }

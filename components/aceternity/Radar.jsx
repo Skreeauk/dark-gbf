@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 export const Radar = ({ className }) => {
 	const circles = new Array(8).fill(1)
@@ -42,7 +42,7 @@ export const Radar = ({ className }) => {
 }
 export const Circle = ({ className, children, idx, ...rest }) => {
 	return (
-		<motion.div
+		<m.div
 			{...rest}
 			initial={{
 				opacity: 0,
@@ -58,6 +58,6 @@ export const Circle = ({ className, children, idx, ...rest }) => {
 				"absolute inset-0 left-1/2 top-1/2 size-10 -translate-x-1/2 -translate-y-1/2 transform rounded-full border border-neutral-200",
 				className
 			)}
-		></motion.div>
+		></m.div>
 	)
 }

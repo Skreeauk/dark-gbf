@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { useEffect, useId, useState } from "react"
 
 export const AnimatedBeam = ({
@@ -134,7 +134,7 @@ export const AnimatedBeam = ({
 				strokeLinecap="round"
 			/>
 			<defs>
-				<motion.linearGradient
+				<m.linearGradient
 					className="transform-gpu"
 					id={id}
 					gradientUnits={"userSpaceOnUse"}
@@ -153,7 +153,7 @@ export const AnimatedBeam = ({
 					transition={{
 						delay,
 						duration,
-						ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
+						ease: [0.16, 1, 0.3, 1],
 						repeat: Infinity,
 						repeatDelay: 0,
 					}}
@@ -166,7 +166,7 @@ export const AnimatedBeam = ({
 						stopColor={gradientStopColor}
 						stopOpacity="0"
 					></stop>
-				</motion.linearGradient>
+				</m.linearGradient>
 			</defs>
 		</svg>
 	)

@@ -3,14 +3,19 @@ import "@/css/globals.css"
 
 import { ThemeProvider } from "@/components/providers/ThemeProvider"
 
-import { BackgroundCellCore } from "@/components/BackgroundRipple"
 import DockBar from "@/components/DockBar"
 
 import { cn } from "@/lib/utils"
 
 import { ViewTransitions } from "next-view-transitions"
 
+import dynamic from "next/dynamic"
+
 const inter = Inter({ subsets: ["latin"] })
+
+const BackgroundCellCore = dynamic(() =>
+	import("@/components/BackgroundRipple")
+)
 
 export const metadata = {
 	title: "Dark GBF",
