@@ -1,1 +1,12 @@
-export const weapon_types = ["Sabre", "Dagger", "Spear", "Axe", "Staff", "Gun", "Melee", "Bow", "Harp", "Katana"].sort()
+export const weapon_types = [
+	"Axe",
+	"Bow",
+	"Dagger",
+	"Gun",
+	"Harp",
+	"Katana",
+	"Melee",
+	"Sabre",
+	"Spear",
+	"Staff",
+]

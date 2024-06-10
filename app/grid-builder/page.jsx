@@ -11,15 +11,16 @@ import {
 	MouseSensor,
 } from "@dnd-kit/core"
 
-import Draggable from "./components/Draggable"
-import Droppable from "./components/Droppable"
+import Draggable from "./components/dnd/Draggable"
+import Droppable from "./components/dnd/Droppable"
 
 import WeaponCommand from "./components/WeaponCommand"
 import WeaponSkillHover from "./components/WeaponSkillHover"
 import WeaponSkillIcon from "./components/WeaponSkillIcon"
 
+import { KeyTrigger } from "./components/keyModal/KeyTrigger"
+
 import Image from "next/image"
-import { cn } from "@/lib/utils"
 import { Switch } from "@/components/ui/switch"
 import {
 	HoverCard,
@@ -27,11 +28,23 @@ import {
 	HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { Label } from "@/components/ui/label"
-
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+
+import useDataStore from "@/store/dataStore"
+import { cn } from "@/lib/utils"
+import { checkWeapon, whichOpus } from "@/lib/checkWeapon"
+import { getOpusKey, getUltimaKey } from "@/lib/getKeys"
 
 export default function Page() {
-	const [grid, setGrid] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+	// const [grid, setGrid] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+	const grid = useDataStore((state) => state.grid)
+	const swapGridSlot = useDataStore((state) => state.swapGridSlot)
+
+	const opus_key = useDataStore((state) => state.opus_key)
+	const draco_key = useDataStore((state) => state.draco_key)
+	const ultima_key = useDataStore((state) => state.ultima_key)
 
 	const [mounted, setMount] = useState(false)
 
@@ -99,15 +112,16 @@ export default function Page() {
 		// console.log(over)
 
 		if (over) {
-			const newGrid = grid.slice(0, grid.length)
+			// const newGrid = grid.slice(0, grid.length)
 
-			const copy = newGrid[active.id - 1]
-			newGrid[active.id - 1] = newGrid[over.id - 1]
-			newGrid[over.id - 1] = copy
+			// const copy = newGrid[active.id - 1]
+			// newGrid[active.id - 1] = newGrid[over.id - 1]
+			// newGrid[over.id - 1] = copy
 
 			// console.log("New Grid:")
 			// console.log(newGrid)
-			setGrid(newGrid)
+			// setGrid(newGrid)
+			swapGridSlot(active.id, over.id)
 		}
 		setHover(true)
 		// console.log("------")
@@ -125,6 +139,36 @@ export default function Page() {
 	function handleButtonClick(id) {
 		setSelectedID(id)
 		setOpen(true)
+	}
+
+	function getSkillData(
+		weapon_check,
+		i,
+		correctOpusKey,
+		correctUltimaKey,
+		skillID
+	) {
+		// Index varies due to checkWeapon for highlighting purposes
+		if (weapon_check == "opus") {
+			// Opus index only 1, 2
+			if (i < 2) {
+				return weapon_skills.find((e) => e.id == opus_key[i - 1])
+			} else {
+				return weapon_skills.find((e) => e.id == correctOpusKey)
+			}
+		} else if (weapon_check == "draconic") {
+			// Draco index = 1 , 2
+			return weapon_skills.find((e) => e.id == draco_key[i - 1])
+		} else if (weapon_check == "ultima") {
+			// Ultima index = 0, 1, 2
+			if (i == 0) {
+				return weapon_skills.find((e) => e.id == correctUltimaKey)
+			} else {
+				return weapon_skills.find((e) => e.id == ultima_key[i])
+			}
+		} else {
+			return weapon_skills.find((e) => e.id == skillID)
+		}
 	}
 
 	function DraggableItem({ id, weapon_id, className }) {
@@ -154,10 +198,12 @@ export default function Page() {
 						/>
 						{hover && showSkill && (
 							<div className="absolute bottom-0 left-0 flex flex-row items-center justify-center w-full gap-1 bg-transparent/40 h-1/2 md:h-2/5">
-								{weapon.skills.map((skillID, i) => {
+								{weapon?.skills.map((skillID, i) => {
+									const weapon_check = checkWeapon(weapon.id, i)
 									return (
 										<WeaponSkillIcon
 											key={i}
+											weapon={weapon_check}
 											skillData={weapon_skills.find((e) => e.id == skillID)}
 										/>
 									)
@@ -169,14 +215,30 @@ export default function Page() {
 				{hover && (
 					<HoverCardContent
 						side={id > 10 ? "top" : "right"}
-						className="h-auto w-96"
+						className="h-auto p-0 w-96"
 					>
-						<div className="flex flex-col items-center justify-center w-full h-full gap-2 md:gap-4">
-							{weapon.skills.map((skillID, i) => {
+						<div className="flex flex-col items-center justify-center w-full h-full">
+							{weapon?.skills.map((skillID, i) => {
+								const weapon_check = checkWeapon(weapon.id, i)
+								const selectedOpus = whichOpus(weapon.id)
+								const correctOpusKey = getOpusKey(opus_key[1], selectedOpus)
+								const correctUltimaKey = getUltimaKey(
+									ultima_key[0],
+									weapon.weapon_type
+								)
+								const skillData = getSkillData(
+									weapon_check,
+									i,
+									correctOpusKey,
+									correctUltimaKey,
+									skillID
+								)
 								return (
 									<WeaponSkillHover
 										key={i}
-										skillData={weapon_skills.find((e) => e.id == skillID)}
+										order={i}
+										weapon={weapon_check}
+										skillData={skillData}
 										showNumeric={showNumeric}
 									/>
 								)
@@ -193,6 +255,7 @@ export default function Page() {
 			<button
 				className="w-full h-full text-4xl hover:bg-primary/50"
 				onClick={() => handleButtonClick(id)}
+				aria-label="Add Weapon"
 			>
 				+
 			</button>
@@ -227,7 +290,7 @@ export default function Page() {
 						mh && "w-[112px]"
 					)}
 				>
-					{slot != 0 ? weapons.find((e) => e.id == slot).name : "Empty"}
+					{slot != 0 ? weapons.find((e) => e.id == slot)?.name : "Empty"}
 				</span>
 			</div>
 		)
@@ -243,14 +306,25 @@ export default function Page() {
 							id="skill-mode"
 							checked={showSkill}
 							onCheckedChange={() => setShowSkill(!showSkill)}
-						></Switch>
+						/>
 						<Label htmlFor="skill-mode">Show Skills</Label>
 						<Switch
 							id="numeric-mode"
 							checked={showNumeric}
 							onCheckedChange={() => setShowNumeric(!showNumeric)}
-						></Switch>
+						/>
 						<Label htmlFor="numeric-mode">Show Details</Label>
+					</div>
+					<div className="flex flex-col items-center w-1/3 gap-6 mx-auto md:hidden *:w-full">
+						<KeyTrigger weapon="opus">
+							<Button aria-label="Set Opus">Set Opus</Button>
+						</KeyTrigger>
+						<KeyTrigger weapon="draconic">
+							<Button aria-label="Set Draco">Set Draco</Button>
+						</KeyTrigger>
+						<KeyTrigger weapon="ultima">
+							<Button aria-label="Set Ultima">Set Ultima</Button>
+						</KeyTrigger>
 					</div>
 				</div>
 				<Card className="w-[95%] md:w-full max-w-5xl md:mx-auto mb-28">
@@ -261,10 +335,10 @@ export default function Page() {
 							sensors={sensors}
 						>
 							<div className="flex flex-col gap-3 mx-auto md:gap-6 md:flex-row w-fit touch-none">
-								<DroppableSlot id={1} slot={grid[0]} mh />
+								<DroppableSlot id={1} slot={grid && grid[0]} mh />
 
 								<div className="grid grid-cols-3 gap-3 mx-auto md:gap-6 w-fit">
-									{grid.map((slot, i) => {
+									{grid?.map((slot, i) => {
 										return (i + 1 > 1) & (i + 1 <= 10) ? (
 											<DroppableSlot key={i + 1} id={i + 1} slot={slot} />
 										) : (
@@ -285,8 +359,6 @@ export default function Page() {
 				</Card>
 			</div>
 			<WeaponCommand
-				grid={grid}
-				setGrid={setGrid}
 				selectedID={selectedID}
 				open={open}
 				setOpen={setOpen}

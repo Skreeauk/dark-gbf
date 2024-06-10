@@ -7,6 +7,9 @@ import {
 	CommandEmpty,
 	CommandInput,
 	CommandList,
+	CommandGroup,
+	CommandItem,
+	CommandSeparator,
 } from "@/components/ui/command"
 
 // import { weapons } from "@/components/data/weapons"
@@ -15,20 +18,18 @@ import { weapon_types } from "@/components/data/weapon_types"
 import WeaponCommandGroup from "./WeaponCommandGroup"
 import WeaponFilter from "./WeaponFilter"
 
-export default function WeaponCommand({
-	grid,
-	setGrid,
-	selectedID,
-	open,
-	setOpen,
-	weapons,
-}) {
+import useDataStore from "@/store/dataStore"
+
+export default function WeaponCommand({ selectedID, open, setOpen, weapons }) {
+	const updateGridSlot = useDataStore((state) => state.updateGridSlot)
+
 	const [filters, setFilters] = useState(weapon_types)
 
 	function handleSelection(val, weapon_id) {
-		const newGrid = grid.slice(0, grid.length)
-		newGrid[selectedID - 1] = weapon_id
-		setGrid(newGrid)
+		// const newGrid = grid.slice(0, grid.length)
+		// newGrid[selectedID - 1] = weapon_id
+		// setGrid(newGrid)
+		updateGridSlot(selectedID - 1, weapon_id)
 
 		setOpen(false)
 	}
@@ -43,6 +44,12 @@ export default function WeaponCommand({
 			/>
 			<CommandList>
 				<CommandEmpty>No results found.</CommandEmpty>
+				<CommandGroup heading={"Empty"}>
+					<CommandItem onSelect={(val) => handleSelection(val, 0)}>
+						<span>Empty</span>
+					</CommandItem>
+				</CommandGroup>
+				<CommandSeparator className="mx-4" />
 				{filters.map((weapon_type, i, { length }) => {
 					return (
 						<WeaponCommandGroup

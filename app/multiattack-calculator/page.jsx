@@ -79,6 +79,7 @@ export default function Page() {
 												role="combobox"
 												aria-expanded={open}
 												className="justify-between flex-1"
+												aria-label="Select Character"
 											>
 												{value
 													? frameworks.find(
@@ -112,7 +113,7 @@ export default function Page() {
 											</Command>
 										</PopoverContent>
 									</Popover>
-									<Button onClick={() => handleReset()}>
+									<Button aria-label="Reset" onClick={() => handleReset()}>
 										<ResetIcon className="size-6" />
 									</Button>
 								</div>
@@ -153,6 +154,7 @@ export default function Page() {
 												role="combobox"
 												aria-expanded={open}
 												className="justify-between flex-1"
+												aria-label="Select Primal"
 											>
 												{primal1
 													? primals.find((primal) => primal.value === primal1)
@@ -201,6 +203,7 @@ export default function Page() {
 												role="combobox"
 												aria-expanded={open}
 												className="justify-between flex-1"
+												aria-label="Select Primal"
 											>
 												{primal2
 													? primals.find((primal) => primal.value === primal2)
@@ -243,7 +246,11 @@ export default function Page() {
 											<Label>Awakening</Label>
 											<Popover className="">
 												<PopoverTrigger asChild>
-													<Button variant="outline" className="col-span-2">
+													<Button
+														variant="outline"
+														className="col-span-2"
+														aria-label="Set Awakening"
+													>
 														Set Awakening
 													</Button>
 												</PopoverTrigger>
@@ -332,7 +339,11 @@ export default function Page() {
 											<Label>Mastery</Label>
 											<Popover className="">
 												<PopoverTrigger asChild>
-													<Button variant="outline" className="col-span-2">
+													<Button
+														variant="outline"
+														className="col-span-2"
+														aria-label="Set Masteries"
+													>
 														Set Masteries
 													</Button>
 												</PopoverTrigger>
