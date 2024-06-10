@@ -8,7 +8,6 @@ const useDataStore = create(
 			opus_key: ["224", "none"],
 			draco_key: ["226", "227"],
 			ultima_key: ["none", "229", "230"],
-			updateGrid: (newGrid) => set({ grid: newGrid }),
 			updateGridSlot: (i, weaponID) =>
 				set((state) => {
 					const updatedGrid = [...state.grid]
@@ -25,13 +24,25 @@ const useDataStore = create(
 
 					return { grid: newGrid }
 				}),
+			updateGrid: (newGrid) => set({ grid: newGrid }),
 			updateOpus: (newKeys) => set({ opus_key: newKeys }),
 			updateDraco: (newKeys) => set({ draco_key: newKeys }),
 			updateUltima: (newKeys) => set({ ultima_key: newKeys }),
+			updateKeys: (newOpusKeys, newDracoKeys, newUltimaKeys) => {
+				get().updateOpus(newOpusKeys)
+				get().updateDraco(newDracoKeys)
+				get().updateUltima(newUltimaKeys)
+			},
 			resetGrid: () => set({ grid: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }),
 			resetOpus: () => set({ magna_opus_key: ["224", "none"] }),
 			resetDraco: () => set({ draco_key: ["226", "227"] }),
 			resetUltima: () => set({ ultima_key: ["none", "229", "230"] }),
+			resetAll: () => {
+				get().resetGrid()
+				get().resetOpus()
+				get().resetDraco()
+				get().resetUltima()
+			},
 		}),
 		{
 			name: "weaponData",

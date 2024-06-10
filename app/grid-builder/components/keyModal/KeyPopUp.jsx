@@ -26,9 +26,11 @@ export function KeyPopUp({ weapon }) {
 	const dracoKeys = useDataStore((state) => state.draco_key)
 	const ultimaKeys = useDataStore((state) => state.ultima_key)
 
-	const updateOpus = useDataStore((state) => state.updateOpus)
-	const updateDraco = useDataStore((state) => state.updateDraco)
-	const updateUltima = useDataStore((state) => state.updateUltima)
+	// const updateOpus = useDataStore((state) => state.updateOpus)
+	// const updateDraco = useDataStore((state) => state.updateDraco)
+	// const updateUltima = useDataStore((state) => state.updateUltima)
+
+	const updateKeys = useDataStore((state) => state.updateKeys)
 
 	const [opus, setOpus] = useState(opusKeys)
 	const [draco, setDraco] = useState(dracoKeys)
@@ -53,9 +55,11 @@ export function KeyPopUp({ weapon }) {
 	}
 
 	function handleSubmit() {
-		updateOpus(opus)
-		updateDraco(draco)
-		updateUltima(ultima)
+		// updateOpus(opus)
+		// updateDraco(draco)
+		// updateUltima(ultima)
+
+		updateKeys(opus, draco, ultima)
 	}
 
 	return (

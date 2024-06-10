@@ -31,6 +31,8 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
+import { ResetIcon } from "@radix-ui/react-icons"
+
 import useDataStore from "@/store/dataStore"
 import { cn } from "@/lib/utils"
 import { checkWeapon, whichOpus } from "@/lib/checkWeapon"
@@ -45,6 +47,8 @@ export default function Page() {
 	const opus_key = useDataStore((state) => state.opus_key)
 	const draco_key = useDataStore((state) => state.draco_key)
 	const ultima_key = useDataStore((state) => state.ultima_key)
+
+	const resetAll = useDataStore((state) => state.resetAll)
 
 	const [mounted, setMount] = useState(false)
 
@@ -299,23 +303,35 @@ export default function Page() {
 	return (
 		<>
 			<div className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-8 mx-auto">
-				<div className="flex flex-col items-center justify-center w-full max-w-4xl gap-5 pt-6 md:pt-0">
+				<div className="flex flex-col items-center justify-center w-full max-w-4xl gap-8 pt-6 md:gap-5 md:pt-0">
 					<Label className="text-5xl font-semibold">Grid Builder</Label>
-					<div className="flex flex-row items-center gap-6">
-						<Switch
-							id="skill-mode"
-							checked={showSkill}
-							onCheckedChange={() => setShowSkill(!showSkill)}
-						/>
-						<Label htmlFor="skill-mode">Show Skills</Label>
-						<Switch
-							id="numeric-mode"
-							checked={showNumeric}
-							onCheckedChange={() => setShowNumeric(!showNumeric)}
-						/>
-						<Label htmlFor="numeric-mode">Show Details</Label>
+					<div className="flex flex-row items-center gap-14">
+						<div className="flex flex-row items-center gap-6">
+							<Switch
+								id="skill-mode"
+								checked={showSkill}
+								aria-label="Toggle Skills"
+								onCheckedChange={() => setShowSkill(!showSkill)}
+							/>
+							<Label htmlFor="skill-mode">Show Skills</Label>
+							<Switch
+								id="numeric-mode"
+								aria-label="Toggle Details"
+								checked={showNumeric}
+								onCheckedChange={() => setShowNumeric(!showNumeric)}
+							/>
+							<Label htmlFor="numeric-mode">Show Details</Label>
+						</div>
+						<Button
+							aria-label="Reset"
+							variant="destructive"
+							onClick={() => resetAll()}
+							className="hidden md:inline-flex"
+						>
+							<ResetIcon className="mr-2 size-4" /> Reset
+						</Button>
 					</div>
-					<div className="flex flex-col items-center w-1/3 gap-6 mx-auto md:hidden *:w-full">
+					<div className="flex flex-col items-center w-1/3 gap-8 mx-auto md:hidden *:w-full">
 						<KeyTrigger weapon="opus">
 							<Button aria-label="Set Opus">Set Opus</Button>
 						</KeyTrigger>
@@ -325,6 +341,14 @@ export default function Page() {
 						<KeyTrigger weapon="ultima">
 							<Button aria-label="Set Ultima">Set Ultima</Button>
 						</KeyTrigger>
+						<Button
+							aria-label="Reset"
+							variant="destructive"
+							onClick={() => resetAll()}
+							className="md:hidden"
+						>
+							Reset
+						</Button>
 					</div>
 				</div>
 				<Card className="w-[95%] md:w-full max-w-5xl md:mx-auto mb-28">
