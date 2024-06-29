@@ -20,14 +20,7 @@ export function RadarIcons() {
 					<div className="flex items-center justify-center w-full">
 						<IconContainer
 							delay={0.3}
-							icon={
-								<Image
-									unoptimized
-									src={Glory}
-									alt="Glory"
-									className="rounded-lg"
-								/>
-							}
+							icon={<Image src={Glory} alt="Glory" className="rounded-lg" />}
 						/>
 					</div>
 				</div>
@@ -37,7 +30,6 @@ export function RadarIcons() {
 							delay={0.5}
 							icon={
 								<Image
-									unoptimized
 									src={MagnaExalto}
 									alt="MagnaExalto"
 									className="rounded-lg"
@@ -45,14 +37,7 @@ export function RadarIcons() {
 							}
 						/>
 						<IconContainer
-							icon={
-								<Image
-									unoptimized
-									src={Trium}
-									alt="Trium"
-									className="rounded-lg"
-								/>
-							}
+							icon={<Image src={Trium} alt="Trium" className="rounded-lg" />}
 							delay={0.8}
 						/>
 					</div>
@@ -62,23 +47,13 @@ export function RadarIcons() {
 						<IconContainer
 							delay={0.6}
 							icon={
-								<Image
-									unoptimized
-									src={Majesty}
-									alt="Majesty"
-									className="rounded-lg"
-								/>
+								<Image src={Majesty} alt="Majesty" className="rounded-lg" />
 							}
 						/>
 						<IconContainer
 							delay={0.7}
 							icon={
-								<Image
-									unoptimized
-									src={Seraphic}
-									alt="Seraphic"
-									className="rounded-lg"
-								/>
+								<Image src={Seraphic} alt="Seraphic" className="rounded-lg" />
 							}
 						/>
 					</div>

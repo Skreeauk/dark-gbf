@@ -114,6 +114,7 @@ export default function Page() {
 								{/* Twitter / X */}
 								<Link
 									href="https://x.com/Skreeauk"
+									aria-label="Twitter / X"
 									className="w-full h-40 transition duration-500 md:h-full grayscale hover:grayscale-0"
 									onMouseOver={() => setSocialIndex(1)}
 									onMouseOut={() => setSocialIndex(0)}
@@ -144,6 +145,7 @@ export default function Page() {
 								{/* Youtube */}
 								<Link
 									href="https://www.youtube.com/@YogGBF"
+									aria-label="Youtube"
 									className="w-full h-40 transition duration-500 md:h-full grayscale hover:grayscale-0"
 									onMouseOver={() => setSocialIndex(3)}
 									onMouseOut={() => setSocialIndex(0)}
@@ -167,6 +169,7 @@ export default function Page() {
 								{/* Github */}
 								<Link
 									href="https://github.com/Skreeauk/dark-gbf"
+									aria-label="Github"
 									className="w-full h-40 transition duration-500 md:h-full grayscale hover:grayscale-0"
 									onMouseOver={() => setSocialIndex(4)}
 									onMouseOut={() => setSocialIndex(0)}
