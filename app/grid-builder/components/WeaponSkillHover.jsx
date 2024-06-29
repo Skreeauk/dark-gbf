@@ -19,12 +19,13 @@ export default function WeaponSkillHover({
 						"hover:bg-black/15 dark:hover:bg-white/15 cursor-pointer"
 				)}
 			>
-				<div className="relative rounded-lg size-9">
+				<div className="relative rounded-lg size-7 md:size-10">
 					<Image
-						src="/weapon_skill/grid/aegis.png"
-						alt="aegis"
+						src={`/weapon_skill/grid/${skillData.icon_path}.png`}
+						alt={skillData.icon_path}
 						fill
-						className="rounded-lg"
+						sizes="(max-width: 768px) 28px, 40px"
+						className=""
 					/>
 				</div>
 				<div className="flex flex-col flex-1">

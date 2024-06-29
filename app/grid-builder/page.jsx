@@ -195,7 +195,7 @@ export default function Page() {
 							src={img_path}
 							width={280}
 							height={160}
-							sizes="(max-width: 768px) 60vw, 40vw"
+							sizes="(max-width: 768px) 112px, 168px"
 							alt={weapon_id}
 							onClick={() => handleButtonClick(id)}
 							className=""
@@ -204,11 +204,24 @@ export default function Page() {
 							<div className="absolute bottom-0 left-0 flex flex-row items-center justify-center w-full gap-1 bg-transparent/40 h-1/2 md:h-2/5">
 								{weapon?.skills.map((skillID, i) => {
 									const weapon_check = checkWeapon(weapon.id, i)
+									const selectedOpus = whichOpus(weapon.id)
+									const correctOpusKey = getOpusKey(opus_key[1], selectedOpus)
+									const correctUltimaKey = getUltimaKey(
+										ultima_key[0],
+										weapon.weapon_type
+									)
+									const skillData = getSkillData(
+										weapon_check,
+										i,
+										correctOpusKey,
+										correctUltimaKey,
+										skillID
+									)
 									return (
 										<WeaponSkillIcon
 											key={i}
 											weapon={weapon_check}
-											skillData={weapon_skills.find((e) => e.id == skillID)}
+											skillData={skillData}
 										/>
 									)
 								})}
@@ -358,10 +371,10 @@ export default function Page() {
 							onDragStart={handleDragStart}
 							sensors={sensors}
 						>
-							<div className="flex flex-col gap-3 mx-auto md:gap-6 md:flex-row w-fit touch-none">
+							<div className="flex flex-col gap-3 mx-auto md:gap-4 md:flex-row w-fit touch-none">
 								<DroppableSlot id={1} slot={grid && grid[0]} mh />
 
-								<div className="grid grid-cols-3 gap-3 mx-auto md:gap-6 w-fit">
+								<div className="grid grid-cols-3 gap-3 mx-auto md:gap-4 w-fit">
 									{grid?.map((slot, i) => {
 										return (i + 1 > 1) & (i + 1 <= 10) ? (
 											<DroppableSlot key={i + 1} id={i + 1} slot={slot} />
