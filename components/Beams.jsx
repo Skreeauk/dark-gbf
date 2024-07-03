@@ -37,7 +37,6 @@ const FeatureCircle = forwardRef(({ className, src, alt }, ref) => {
 			ref={ref}
 			src={src}
 			alt={alt}
-			unoptimized
 			className={cn(
 				"z-10 size-12 bg-white dark:bg-slate-600 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
 				className

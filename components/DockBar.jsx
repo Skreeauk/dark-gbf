@@ -28,35 +28,6 @@ export default function DockBar() {
 			<Dock className="fixed inset-x-0 z-50 bottom-6 bg-white/10 backdrop-blur-2xl">
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger asChild className="size-10 hover:size-14">
-							<div className="flex items-center justify-center w-full h-full">
-								<ModeToggle />
-							</div>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Light / Dark Mode</p>
-						</TooltipContent>
-					</Tooltip>
-					{/* <div className="flex items-center justify-center size-10">
-						<ModeToggle />
-					</div> */}
-					{/* <ModeToggle /> */}
-				</DockIcon>
-				<DockIcon>
-					<Tooltip>
-						<TooltipTrigger>
-							<Link href="/about" aria-label="About Page">
-								<Image src={Contact} alt="Contact" unoptimized className="" />
-							</Link>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Contact</p>
-						</TooltipContent>
-					</Tooltip>
-				</DockIcon>
-				<Separator orientation="vertical" className="w-1" />
-				<DockIcon>
-					<Tooltip>
 						<TooltipTrigger>
 							<Link
 								href="/"
@@ -76,13 +47,8 @@ export default function DockBar() {
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger>
-							<Link href="/grid-builder" aria-label="Grid Builder Page">
-								<Image
-									src={GridBuilder}
-									alt="Grid Builder"
-									unoptimized
-									className=""
-								/>
+							<Link href="/tool/grid-builder" aria-label="Grid Builder Page">
+								<Image src={GridBuilder} alt="Grid Builder" className="" />
 							</Link>
 						</TooltipTrigger>
 						<TooltipContent>
@@ -94,15 +60,10 @@ export default function DockBar() {
 					<Tooltip>
 						<TooltipTrigger>
 							<Link
-								href="/multiattack-calculator"
+								href="/tool/multiattack-calculator"
 								aria-label="Multiattack Calculator Page"
 							>
-								<Image
-									src={MultiAttack}
-									alt="MultiAttack"
-									unoptimized
-									className=""
-								/>
+								<Image src={MultiAttack} alt="MultiAttack" className="" />
 							</Link>
 						</TooltipTrigger>
 						<TooltipContent>
@@ -114,15 +75,10 @@ export default function DockBar() {
 					<Tooltip>
 						<TooltipTrigger>
 							<Link
-								href="/critical-calculator"
+								href="/tool/critical-calculator"
 								aria-label="Crit Calculator Page"
 							>
-								<Image
-									src={Critical}
-									alt="Critical"
-									unoptimized
-									className="scale-105"
-								/>
+								<Image src={Critical} alt="Critical" className="scale-105" />
 							</Link>
 						</TooltipTrigger>
 						<TooltipContent>
@@ -133,19 +89,43 @@ export default function DockBar() {
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger>
-							<Link href="/grid-score" aria-label="Grid Score Page">
-								<Image
-									src={GridScore}
-									alt="Grid Score"
-									unoptimized
-									className=""
-								/>
+							<Link href="/tool/grid-score" aria-label="Grid Score Page">
+								<Image src={GridScore} alt="Grid Score" className="" />
 							</Link>
 						</TooltipTrigger>
 						<TooltipContent>
 							<p>Grid Score</p>
 						</TooltipContent>
 					</Tooltip>
+				</DockIcon>
+				<Separator orientation="vertical" className="w-1" />
+				<DockIcon>
+					<Tooltip>
+						<TooltipTrigger>
+							<Link href="/tool/about" aria-label="About Page">
+								<Image src={Contact} alt="Contact" className="" />
+							</Link>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Contact</p>
+						</TooltipContent>
+					</Tooltip>
+				</DockIcon>
+				<DockIcon>
+					<Tooltip>
+						<TooltipTrigger asChild className="size-10 hover:size-14">
+							<div className="flex items-center justify-center w-full h-full">
+								<ModeToggle />
+							</div>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Light / Dark Mode</p>
+						</TooltipContent>
+					</Tooltip>
+					{/* <div className="flex items-center justify-center size-10">
+						<ModeToggle />
+					</div> */}
+					{/* <ModeToggle /> */}
 				</DockIcon>
 			</Dock>
 		</TooltipProvider>

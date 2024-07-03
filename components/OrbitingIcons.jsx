@@ -21,7 +21,7 @@ export function OrbitingIcons() {
 				delay={20}
 				radius={40}
 			>
-				<Image src={Celere} alt="Celere" className="rounded-lg" unoptimized />
+				<Image src={Celere} alt="Celere" className="rounded-lg" />
 			</OrbitingCircles>
 			<OrbitingCircles
 				className="bg-transparent border-none size-8"
@@ -29,7 +29,7 @@ export function OrbitingIcons() {
 				delay={10}
 				radius={40}
 			>
-				<Image src={Verity} alt="Verity" className="rounded-lg" unoptimized />
+				<Image src={Verity} alt="Verity" className="rounded-lg" />
 			</OrbitingCircles>
 
 			{/* Outer Circles (reverse) */}
@@ -39,12 +39,7 @@ export function OrbitingIcons() {
 				radius={100}
 				duration={20}
 			>
-				<Image
-					src={Restraint}
-					alt="Restraint"
-					className="rounded-lg"
-					unoptimized
-				/>
+				<Image src={Restraint} alt="Restraint" className="rounded-lg" />
 			</OrbitingCircles>
 			<OrbitingCircles
 				className="bg-transparent border-none size-10"
@@ -53,12 +48,7 @@ export function OrbitingIcons() {
 				duration={20}
 				delay={20}
 			>
-				<Image
-					src={Precocity}
-					alt="Precocity"
-					className="rounded-lg"
-					unoptimized
-				/>
+				<Image src={Precocity} alt="Precocity" className="rounded-lg" />
 			</OrbitingCircles>
 		</div>
 	)

@@ -1,62 +1,73 @@
-import { BentoGrid, BentoGridItem } from "@/components/BentoGrid"
-
-import { RadarIcons } from "@/components/RadarIcons"
-import { WordCycle } from "@/components/WordCycle"
-import { OrbitingIcons } from "@/components/OrbitingIcons"
-import { AnimatedBeams } from "@/components/Beams"
-
 import { Label } from "@/components/ui/label"
-
-const items = [
-	{
-		title: "Grid Builder",
-		description: "Discover the beauty of thoughtful and functional design.",
-		header: <RadarIcons />,
-		className: "md:col-span-2",
-		url: "/grid-builder",
-	},
-	{
-		title: "Multiattack Calculator",
-		description: "Make your life easier with this tool.",
-		header: <WordCycle />,
-		className: "md:col-span-1",
-		url: "/multiattack-calculator",
-	},
-	{
-		title: "Critical Calculator",
-		description: "Count on your chances.",
-		header: <OrbitingIcons />,
-		className: "md:col-span-1",
-		url: "#",
-	},
-	{
-		title: "Grid Score",
-		description: "Rate your grid with our own CV rating system.",
-		header: <AnimatedBeams />,
-		className: "md:col-span-2",
-		url: "/grid-score",
-	},
-]
+import { GlareCard } from "@/components/aceternity/GlareCard"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function Home() {
 	return (
-		<main className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-8 mx-auto">
+		<main className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-8 mx-auto md:gap-24">
 			<div className="flex flex-col items-center justify-center w-full max-w-4xl pt-6 md:pt-0">
 				<Label className="text-5xl font-semibold">Dark GBF</Label>
 			</div>
-			<BentoGrid className="max-w-5xl px-4 md:px-0 w-full mx-auto md:auto-rows-[20rem] pb-28">
-				{items.map((item, i) => (
-					<BentoGridItem
-						key={i}
-						title={item.title}
-						description={item.description}
-						header={item.header}
-						url={item.url}
-						className={item.className}
-						highlight={i == 0}
-					/>
-				))}
-			</BentoGrid>
+			<div className="grid grid-cols-1 gap-10 mb-10 md:grid-cols-3 md:mb-0">
+				<Link href={"/docs/celeste"} aria-label="Celeste Guide">
+					<GlareCard className="flex flex-col items-center justify-center gap-6 px-6 py-8">
+						<div className="flex items-center justify-center basis-1/2">
+							<Image
+								src={"/docs/icon/magna.png"}
+								width={80}
+								height={80}
+								className=""
+								alt="Magna"
+							/>
+						</div>
+						<div className="flex flex-col justify-end basis-1/2">
+							<p className="text-lg font-bold text-white">Magna Guide</p>
+							<p className="mt-4 text-base font-normal text-neutral-200">
+								Learn how to be decent as a Celeste user
+							</p>
+						</div>
+					</GlareCard>
+				</Link>
+				<Link href={"/docs/hades"} aria-label="Hades Guide">
+					<GlareCard className="flex flex-col items-center justify-center gap-6 px-6 py-8">
+						<div className="flex items-center justify-center basis-1/2">
+							<Image
+								src={"/docs/icon/primal.png"}
+								width={80}
+								height={80}
+								className=""
+								alt="Primal"
+							/>
+						</div>
+						<div className="flex flex-col justify-end basis-1/2">
+							<p className="text-lg font-bold text-white">Primal Guide</p>
+							<p className="mt-4 text-base font-normal text-neutral-200">
+								Elevate your Hades experience by actually learning
+							</p>
+						</div>
+					</GlareCard>
+				</Link>
+				<Link href={"/tool"} aria-label="Dark Tools">
+					<GlareCard className="flex flex-col items-center justify-center gap-6 px-6 py-8">
+						<div className="flex items-center justify-center basis-1/2">
+							<Image
+								src={"/docs/icon/tool.png"}
+								width={80}
+								height={80}
+								className=""
+								alt="Tools"
+							/>
+						</div>
+						<div className="flex flex-col justify-end basis-1/2">
+							<p className="text-lg font-bold text-white">Tools</p>
+							<p className="mt-4 text-base font-normal text-neutral-200">
+								Tools to help Dark players ability to play GBF
+							</p>
+						</div>
+					</GlareCard>
+				</Link>
+			</div>
 		</main>
 	)
 }

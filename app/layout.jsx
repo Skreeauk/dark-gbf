@@ -1,21 +1,13 @@
 import { Inter } from "next/font/google"
 import "@/css/globals.css"
 
-import { ThemeProvider } from "@/components/providers/ThemeProvider"
-
-import DockBar from "@/components/DockBar"
-
 import { cn } from "@/lib/utils"
 
 import { ViewTransitions } from "next-view-transitions"
 
-import dynamic from "next/dynamic"
+import { RootProvider } from "fumadocs-ui/provider"
 
 const inter = Inter({ subsets: ["latin"] })
-
-const BackgroundCellCore = dynamic(() =>
-	import("@/components/BackgroundRipple")
-)
 
 export const metadata = {
 	title: "Dark GBF",
@@ -31,20 +23,20 @@ export default function RootLayout({ children }) {
 				</head>
 				<body
 					className={cn(
-						"antialiased min-h-screen bg-background flex flex-col relative md:overflow-hidden",
+						"antialiased min-h-screen bg-background flex flex-col relative",
 						inter.className
 					)}
 				>
-					<ThemeProvider
-						attribute="class"
-						defaultTheme="system"
-						enableSystem
-						disableTransitionOnChange
+					<RootProvider
+						theme={{
+							attribute: "class",
+							defaultTheme: "system",
+							enableSystem: true,
+							disableTransitionOnChange: true,
+						}}
 					>
 						{children}
-						<DockBar />
-						<BackgroundCellCore />
-					</ThemeProvider>
+					</RootProvider>
 				</body>
 			</html>
 		</ViewTransitions>
