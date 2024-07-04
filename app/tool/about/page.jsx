@@ -4,7 +4,6 @@ import { useState } from "react"
 
 import { Card, CardContent } from "@/components/ui/card"
 import { AnimatePresence, m, LazyMotion, domAnimation } from "framer-motion"
-import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 
 import Link from "next/link"
@@ -17,7 +16,7 @@ export default function Page() {
 	return (
 		<main className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-6 mx-auto">
 			<div className="flex flex-col items-center justify-center w-full max-w-4xl gap-5 pt-6 md:pt-0">
-				<Label className="text-5xl font-semibold text-center">About</Label>
+				<h1 className="text-5xl font-semibold text-center">About</h1>
 			</div>
 			<Card className="w-[95%] md:w-full max-w-5xl md:mx-auto mb-28">
 				<CardContent className="pt-6">
@@ -25,7 +24,7 @@ export default function Page() {
 						<AnimatePresence mode="wait" initial={false}>
 							<div className="grid items-center w-full h-full grid-cols-2 md:grid-cols-6 *:flex *:items-center *:justify-center *:border">
 								<div className="h-40 col-span-2">
-									<Label className="text-4xl font-semibold basis-[80%]">
+									<span className="text-4xl font-semibold basis-[80%]">
 										Built with <br />
 										<m.span
 											key={stack[stackIndex]}
@@ -41,7 +40,7 @@ export default function Page() {
 										>
 											{stack[stackIndex]}
 										</m.span>
-									</Label>
+									</span>
 								</div>
 								{/* NextJS */}
 								<div
@@ -190,7 +189,7 @@ export default function Page() {
 									</svg>
 								</Link>
 								<div className="h-40 col-span-2 text-right">
-									<Label className="text-4xl font-semibold basis-[80%]">
+									<span className="text-4xl font-semibold basis-[80%]">
 										Reach me <br />
 										<m.span
 											key={social[socialIndex]}
@@ -206,7 +205,7 @@ export default function Page() {
 										>
 											@{social[socialIndex]}
 										</m.span>
-									</Label>
+									</span>
 								</div>
 							</div>
 						</AnimatePresence>

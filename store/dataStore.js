@@ -34,7 +34,7 @@ const useDataStore = create(
 				get().updateUltima(newUltimaKeys)
 			},
 			resetGrid: () => set({ grid: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }),
-			resetOpus: () => set({ magna_opus_key: ["224", "none"] }),
+			resetOpus: () => set({ opus_key: ["224", "none"] }),
 			resetDraco: () => set({ draco_key: ["226", "227"] }),
 			resetUltima: () => set({ ultima_key: ["none", "229", "230"] }),
 			resetAll: () => {

@@ -28,6 +28,15 @@ export default function RootLayout({ children }) {
 					)}
 				>
 					<RootProvider
+						search={{
+							links: [
+								["Celeste / Magna Guide", "/docs/celeste"],
+								["Hades / Primal Guide", "/docs/hades"],
+							],
+							options: {
+								delayMs: 1000,
+							},
+						}}
 						theme={{
 							attribute: "class",
 							defaultTheme: "system",

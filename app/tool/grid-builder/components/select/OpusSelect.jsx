@@ -6,13 +6,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select"
-import { Label } from "@/components/ui/label"
 
 export function OpusSelect({ opus, handleOpusChange }) {
 	return (
 		<div className="grid gap-4 py-4">
 			<div className="flex items-center justify-center gap-4">
-				<Label className="basis-1/2">2nd Pendulum</Label>
+				<span className="basis-1/2">2nd Pendulum</span>
 				<Select
 					defaultValue="224"
 					value={opus ? opus[0] : "224"}
@@ -33,7 +32,7 @@ export function OpusSelect({ opus, handleOpusChange }) {
 				</Select>
 			</div>
 			<div className="flex items-center justify-center gap-4">
-				<Label className="basis-1/2">3rd Pendulum</Label>
+				<span className="basis-1/2">3rd Pendulum</span>
 				<Select
 					defaultValue="none"
 					value={opus ? opus[1] : "none"}

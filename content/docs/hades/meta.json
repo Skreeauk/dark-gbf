@@ -1,11 +1,5 @@
 {
 	"title": "hades",
 	"root": true,
-	"pages": [
-		"index",
-		"---Getting Started---",
-		"introduction",
-		"---Setups---",
-		"...setups"
-	]
+	"pages": ["index", "why", "proper", "---Weapons---", "...weapons"]
 }

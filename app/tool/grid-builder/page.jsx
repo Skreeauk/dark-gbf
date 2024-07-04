@@ -317,7 +317,7 @@ export default function Page() {
 		<>
 			<div className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-8 mx-auto">
 				<div className="flex flex-col items-center justify-center w-full max-w-4xl gap-8 pt-6 md:gap-5 md:pt-0">
-					<Label className="text-5xl font-semibold">Grid Builder</Label>
+					<h1 className="text-5xl font-semibold">Grid Builder</h1>
 					<div className="flex flex-row items-center gap-14">
 						<div className="flex flex-row items-center gap-6">
 							<Switch

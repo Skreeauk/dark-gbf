@@ -2,7 +2,6 @@ import { DocsLayout } from "fumadocs-ui/layout"
 import { RootToggle } from "fumadocs-ui/components/layout/root-toggle"
 import { pageTree } from "@/app/source"
 
-import { ScissorsIcon } from "@radix-ui/react-icons"
 import Image from "next/image"
 
 export default function RootDocsLayout({ children }) {
@@ -12,7 +11,7 @@ export default function RootDocsLayout({ children }) {
 			nav={{
 				title: (
 					<>
-						<Image src={"/favicon.ico"} width={32} height={32} />
+						<Image src={"/favicon.ico"} width={32} height={32} alt="logo" />
 						<span className="font-medium max-md:[header_&]:hidden">
 							Dark GBF
 						</span>
@@ -32,6 +31,7 @@ export default function RootDocsLayout({ children }) {
 										src={"/docs/icon/magna.png"}
 										width={40}
 										height={40}
+										alt="magna"
 										className="p-1 rounded-md bg-purple-400/50 size-10 shrink-0"
 									/>
 								),
@@ -45,6 +45,7 @@ export default function RootDocsLayout({ children }) {
 										src={"/docs/icon/primal.png"}
 										width={40}
 										height={40}
+										alt="primal"
 										className="p-1 rounded-md bg-blue-400/50 size-10 shrink-0"
 									/>
 								),
@@ -58,6 +59,7 @@ export default function RootDocsLayout({ children }) {
 										src={"/docs/icon/tool.png"}
 										width={40}
 										height={40}
+										alt="tool"
 										className="p-1 rounded-md bg-teal-400/50 size-10 shrink-0"
 									/>
 								),

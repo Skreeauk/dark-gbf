@@ -6,13 +6,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select"
-import { Label } from "@/components/ui/label"
 
 export function DracoSelect({ draco, handleDracoChange }) {
 	return (
 		<div className="grid gap-4 py-4">
 			<div className="flex items-center justify-center gap-4">
-				<Label className="basis-1/2">2nd Teluma</Label>
+				<span className="basis-1/2">2nd Teluma</span>
 				<Select
 					defaultValue="226"
 					value={draco ? draco[0] : "226"}
@@ -34,7 +33,7 @@ export function DracoSelect({ draco, handleDracoChange }) {
 				</Select>
 			</div>
 			<div className="flex items-center justify-center gap-4">
-				<Label className="basis-1/2">3rd Teluma</Label>
+				<span className="basis-1/2">3rd Teluma</span>
 				<Select
 					defaultValue="227"
 					value={draco ? draco[1] : "227"}

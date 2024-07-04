@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function Layout({ children }) {
 	return (
-		<div className="relative flex flex-col min-h-screen md:overflow-hidden">
+		<div className="relative flex flex-col flex-1 md:overflow-hidden">
 			{children}
 			<DockBar />
 			<BackgroundCellCore />

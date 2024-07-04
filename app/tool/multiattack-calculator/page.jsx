@@ -61,9 +61,9 @@ export default function Page() {
 		<>
 			<main className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-6 mx-auto">
 				<div className="flex flex-col items-center justify-center w-full max-w-4xl gap-5 pt-6 md:pt-0">
-					<Label className="text-5xl font-semibold text-center">
+					<h1 className="text-5xl font-semibold text-center">
 						MultiAttack Calculator
-					</Label>
+					</h1>
 				</div>
 				<Card className="w-[95%] md:w-full max-w-5xl md:mx-auto mb-28">
 					<CardContent className="flex flex-col items-center w-full h-full gap-6 p-3 pt-3 md:p-6 md:pt-6 md:flex-row">
@@ -126,12 +126,12 @@ export default function Page() {
 											<div className="w-full h-full bg-secondary"></div>
 										)}
 									</div>
-									<Label className="text-xl font-semibold">
+									<span className="text-xl font-semibold">
 										{value ? "Seox" : "Empty"}
-									</Label>
-									<Label className="text-primary/55">
+									</span>
+									<span className="text-primary/55">
 										{value ? "100% DA / 0% TA" : "0% DA / 0% TA"}
-									</Label>
+									</span>
 								</div>
 							</CardContent>
 						</Card>
@@ -463,7 +463,7 @@ export default function Page() {
 									</div>
 									<Separator />
 									<div className="flex items-center justify-between gap-2 md:gap-0">
-										<Label>Total excluding Grid: {50 + "% TA"}</Label>
+										<span>Total excluding Grid: {50 + "% TA"}</span>
 										<DetailDialog
 											awakening={
 												awakening == "balanced"

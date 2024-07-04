@@ -6,13 +6,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select"
-import { Label } from "@/components/ui/label"
 
 export function UltimaSelect({ ultima, handleUltimaChange }) {
 	return (
 		<div className="grid gap-4 py-4">
 			<div className="flex items-center justify-center gap-4">
-				<Label className="basis-1/2">1st Key</Label>
+				<span className="basis-1/2">1st Key</span>
 				<Select
 					defaultValue="none"
 					value={ultima ? ultima[0] : "none"}
@@ -35,7 +34,7 @@ export function UltimaSelect({ ultima, handleUltimaChange }) {
 				</Select>
 			</div>
 			<div className="flex items-center justify-center gap-4">
-				<Label className="basis-1/2">2nd Key</Label>
+				<span className="basis-1/2">2nd Key</span>
 				<Select
 					defaultValue="229"
 					value={ultima ? ultima[1] : "229"}
@@ -56,7 +55,7 @@ export function UltimaSelect({ ultima, handleUltimaChange }) {
 				</Select>
 			</div>
 			<div className="flex items-center justify-center gap-4">
-				<Label className="basis-1/2">3rd Key</Label>
+				<span className="basis-1/2">3rd Key</span>
 				<Select
 					defaultValue="230"
 					value={ultima ? ultima[2] : "230"}

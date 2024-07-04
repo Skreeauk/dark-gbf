@@ -3,9 +3,12 @@
 	"root": true,
 	"pages": [
 		"index",
-		"---Getting Started---",
-		"introduction",
 		"---Setups---",
-		"...setups"
+		"...setups",
+		"---Weapons---",
+		"...weapons",
+		"---Others---",
+		"...others",
+		"[Github](https://github.com/Skreeauk/dark-gbf)"
 	]
 }

@@ -5,8 +5,6 @@ import { WordCycle } from "@/components/WordCycle"
 import { OrbitingIcons } from "@/components/OrbitingIcons"
 import { AnimatedBeams } from "@/components/Beams"
 
-import { Label } from "@/components/ui/label"
-
 const items = [
 	{
 		title: "Grid Builder",
@@ -42,7 +40,7 @@ export default function Page() {
 	return (
 		<main className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-8 mx-auto">
 			<div className="flex flex-col items-center justify-center w-full max-w-4xl pt-6 md:pt-0">
-				<Label className="text-5xl font-semibold">Dark GBF</Label>
+				<h1 className="text-5xl font-semibold">Dark GBF Tool</h1>
 			</div>
 			<BentoGrid className="max-w-5xl px-4 md:px-0 w-full mx-auto md:auto-rows-[20rem] pb-28">
 				{items.map((item, i) => (

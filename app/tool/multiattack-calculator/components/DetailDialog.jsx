@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button"
-
-import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import {
 	Dialog,
@@ -31,43 +29,43 @@ export default function DetailDialog({
 				</DialogHeader>
 				<div className="grid gap-4 py-4">
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Grid</Label>
-						<Label className="col-span-3">asd</Label>
+						<span className="text-right">Grid</span>
+						<span className="col-span-3">asd</span>
 					</div>
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Aura</Label>
-						<Label className="col-span-3">dsa</Label>
+						<span className="text-right">Aura</span>
+						<span className="col-span-3">dsa</span>
 					</div>
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Awakening</Label>
-						<Label className="col-span-3">{awakening}%</Label>
+						<span className="text-right">Awakening</span>
+						<span className="col-span-3">{awakening}%</span>
 					</div>
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Mastery</Label>
-						<Label className="col-span-3">{mastery}%</Label>
+						<span className="text-right">Mastery</span>
+						<span className="col-span-3">{mastery}%</span>
 					</div>
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Passive</Label>
-						<Label className="col-span-3">{passive}%</Label>
+						<span className="text-right">Passive</span>
+						<span className="col-span-3">{passive}%</span>
 					</div>
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Wonder</Label>
-						<Label className="col-span-3">{wonder}%</Label>
+						<span className="text-right">Wonder</span>
+						<span className="col-span-3">{wonder}%</span>
 					</div>
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Buffs</Label>
-						<Label className="col-span-3">{buff}%</Label>
+						<span className="text-right">Buffs</span>
+						<span className="col-span-3">{buff}%</span>
 					</div>
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Other</Label>
-						<Label className="col-span-3">{other}%</Label>
+						<span className="text-right">Other</span>
+						<span className="col-span-3">{other}%</span>
 					</div>
 					<Separator />
 					<div className="grid items-center grid-cols-4 gap-4">
-						<Label className="text-right">Total</Label>
-						<Label className="col-span-3">
+						<span className="text-right">Total</span>
+						<span className="col-span-3">
 							{awakening + mastery + passive + wonder + buff + other}%
-						</Label>
+						</span>
 					</div>
 				</div>
 				<DialogFooter>
