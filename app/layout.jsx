@@ -16,6 +16,11 @@ export const metadata = {
 	alternates: {
 		canonical: "/",
 	},
+	openGraph: {
+		url: new URL("https://dark-gbf.vercel.app"),
+		type: "website",
+		siteName: "Dark GBF",
+	},
 }
 
 export default function RootLayout({ children }) {

@@ -5,10 +5,12 @@ import { notFound } from "next/navigation"
 import { Callout } from "fumadocs-ui/components/callout"
 import { Card, Cards } from "fumadocs-ui/components/card"
 import { Step, Steps } from "fumadocs-ui/components/steps"
-import { MDXTableList } from "@/components/mdx/MDXTableList"
+import { MDXTableList } from "./components/MDXTableList"
 import { ColorCallout } from "./components/ColorCallout"
 
 import { cn } from "@/lib/utils"
+
+import { openGraph } from "@/utils/meta"
 
 export async function generateStaticParams() {
 	return getPages().map((page) => ({
@@ -26,6 +28,13 @@ export function generateMetadata({ params }) {
 		description: page.data.description,
 		alternates: {
 			canonical: page.url,
+		},
+		openGraph: {
+			url: page.url,
+			type: "article",
+			publishedTime: new Date().toISOString(),
+			modifiedTime: new Date().toISOString(),
+			...openGraph,
 		},
 	}
 }
