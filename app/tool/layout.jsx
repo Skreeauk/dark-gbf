@@ -8,7 +8,10 @@ const BackgroundCellCore = dynamic(() =>
 
 export const metadata = {
 	title: "Dark GBF",
-	description: "Tools for Dark Players",
+	description: "Make your Dark better",
+	alternates: {
+		canonical: "/tool",
+	},
 }
 
 export default function Layout({ children }) {

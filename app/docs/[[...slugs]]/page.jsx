@@ -24,6 +24,9 @@ export function generateMetadata({ params }) {
 	return {
 		title: page.data.title,
 		description: page.data.description,
+		alternates: {
+			canonical: page.url,
+		},
 	}
 }
 
@@ -40,7 +43,7 @@ export default async function Page({ params }) {
 		<DocsPage toc={page.data.exports.toc} full={page.data.full}>
 			<DocsBody className="dark:prose-invert">
 				<div className="flex flex-col gap-3 mb-8">
-					<h1 className="p-0 m-0 text-4xl font-extrabold">{page.data.title}</h1>
+					<h1 className="p-0 m-0 text-4xl font-semibold">{page.data.title}</h1>
 					<span className="opacity-70">{page.data.description}</span>
 				</div>
 				<div className="prose-h1:pb-1.5 prose-h1:border-b prose-h2:pb-1.5 prose-h2:border-b">

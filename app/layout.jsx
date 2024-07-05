@@ -11,7 +11,11 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
 	title: "Dark GBF",
-	description: "Tools for Dark Players",
+	description: "Make your Dark better",
+	metadataBase: new URL("https://dark-gbf.vercel.app"),
+	alternates: {
+		canonical: "/",
+	},
 }
 
 export default function RootLayout({ children }) {
