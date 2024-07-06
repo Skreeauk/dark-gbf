@@ -5,7 +5,9 @@ import { notFound } from "next/navigation"
 import { Callout } from "fumadocs-ui/components/callout"
 import { Card, Cards } from "fumadocs-ui/components/card"
 import { Step, Steps } from "fumadocs-ui/components/steps"
+import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 import { MDXTableList } from "./components/MDXTableList"
+import { MDXWeaponGrid } from "./components/MDXWeaponGrid"
 import { ColorCallout } from "./components/ColorCallout"
 
 import { cn } from "@/lib/utils"
@@ -56,12 +58,15 @@ export default async function Page({ params }) {
 					<MDX
 						components={{
 							Callout: (props) => <Callout {...props} />,
-							Card: (props) => <Card {...props} />,
 							Cards: (props) => <Cards {...props} />,
-							Step: (props) => <Step {...props} />,
+							Card: (props) => <Card {...props} />,
 							Steps: (props) => <Steps {...props} />,
+							Step: (props) => <Step {...props} />,
+							Tabs: (props) => <Tabs {...props} />,
+							Tab: (props) => <Tab {...props} />,
 							ColorCallout,
 							MDXTableList,
+							MDXWeaponGrid,
 						}}
 					/>
 				</div>
