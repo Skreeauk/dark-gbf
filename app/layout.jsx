@@ -7,19 +7,21 @@ import { ViewTransitions } from "next-view-transitions"
 
 import { RootProvider } from "fumadocs-ui/provider"
 
+import { openGraph, twitter } from "../utils/meta"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
 	title: "Dark GBF",
 	description: "Make your Dark better",
-	metadataBase: new URL("https://dark-gbf.vercel.app"),
-	alternates: {
-		canonical: "/",
-	},
+	metadataBase: "https://dark-gbf.vercel.app",
 	openGraph: {
-		url: new URL("https://dark-gbf.vercel.app"),
+		url: "https://dark-gbf.vercel.app",
 		type: "website",
-		siteName: "Dark GBF",
+		...openGraph,
+	},
+	twitter: {
+		...twitter,
 	},
 }
 

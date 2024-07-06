@@ -28,7 +28,7 @@ export default function RootDocsLayout({ children }) {
 								url: "/docs/celeste",
 								icon: (
 									<Image
-										src={"/docs/icon/magna.png"}
+										src={"/docs/icon/magna.webp"}
 										width={40}
 										height={40}
 										alt="magna"
@@ -42,7 +42,7 @@ export default function RootDocsLayout({ children }) {
 								url: "/docs/hades",
 								icon: (
 									<Image
-										src={"/docs/icon/primal.png"}
+										src={"/docs/icon/primal.webp"}
 										width={40}
 										height={40}
 										alt="primal"
@@ -56,7 +56,7 @@ export default function RootDocsLayout({ children }) {
 								url: "/tool",
 								icon: (
 									<Image
-										src={"/docs/icon/tool.png"}
+										src={"/docs/icon/tool.webp"}
 										width={40}
 										height={40}
 										alt="tool"

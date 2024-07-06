@@ -6,11 +6,11 @@ import { LazyMotion, domAnimation } from "framer-motion"
 
 import Image from "next/image"
 
-import Glory from "@/public/weapon_skill/glory.png"
-import MagnaExalto from "@/public/weapon_skill/magna_exalto.png"
-import Majesty from "@/public/weapon_skill/majesty.png"
-import Seraphic from "@/public/weapon_skill/seraphic.png"
-import Trium from "@/public/weapon_skill/trium.png"
+import Glory from "@/public/weapon_skill/glory.webp"
+import MagnaExalto from "@/public/weapon_skill/magna_exalto.webp"
+import Majesty from "@/public/weapon_skill/majesty.webp"
+import Seraphic from "@/public/weapon_skill/seraphic.webp"
+import Trium from "@/public/weapon_skill/trium.webp"
 
 export function RadarIcons() {
 	return (

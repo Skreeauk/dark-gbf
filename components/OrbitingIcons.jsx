@@ -2,10 +2,10 @@ import OrbitingCircles from "@/components/magicui/orbiting-circles"
 
 import Image from "next/image"
 
-import Celere from "@/public/weapon_skill/celere.png"
-import Precocity from "@/public/weapon_skill/precocity.png"
-import Restraint from "@/public/weapon_skill/restraint.png"
-import Verity from "@/public/weapon_skill/verity.png"
+import Celere from "@/public/weapon_skill/celere.webp"
+import Precocity from "@/public/weapon_skill/precocity.webp"
+import Restraint from "@/public/weapon_skill/restraint.webp"
+import Verity from "@/public/weapon_skill/verity.webp"
 
 export function OrbitingIcons() {
 	return (

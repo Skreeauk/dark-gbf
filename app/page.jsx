@@ -25,7 +25,7 @@ export default function Home() {
 						<GlareCard className="flex flex-col items-center justify-center gap-6 px-6 py-8">
 							<div className="flex items-center justify-center basis-1/2">
 								<Image
-									src={"/docs/icon/magna.png"}
+									src={"/docs/icon/magna.webp"}
 									width={80}
 									height={80}
 									className=""
@@ -44,7 +44,7 @@ export default function Home() {
 						<GlareCard className="flex flex-col items-center justify-center gap-6 px-6 py-8">
 							<div className="flex items-center justify-center basis-1/2">
 								<Image
-									src={"/docs/icon/primal.png"}
+									src={"/docs/icon/primal.webp"}
 									width={80}
 									height={80}
 									className=""
@@ -63,7 +63,7 @@ export default function Home() {
 						<GlareCard className="flex flex-col items-center justify-center gap-6 px-6 py-8">
 							<div className="flex items-center justify-center basis-1/2">
 								<Image
-									src={"/docs/icon/tool.png"}
+									src={"/docs/icon/tool.webp"}
 									width={80}
 									height={80}
 									className=""

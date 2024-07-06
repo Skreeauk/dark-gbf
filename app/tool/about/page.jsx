@@ -179,8 +179,8 @@ export default function Page() {
 										xmlns="http://www.w3.org/2000/svg"
 									>
 										<path
-											fill-rule="evenodd"
-											clip-rule="evenodd"
+											fillRule="evenodd"
+											clipRule="evenodd"
 											fill="#24292f"
 											className="stroke-2 stroke-black dark:stroke-white fill-black dark:fill-white"
 											strokeDasharray="0 1"

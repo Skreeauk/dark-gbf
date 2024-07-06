@@ -21,7 +21,7 @@ export default function WeaponSkillHover({
 			>
 				<div className="relative rounded-lg size-7 md:size-10">
 					<Image
-						src={`/weapon_skill/grid/${skillData.icon_path}.png`}
+						src={`/weapon_skill/grid/${skillData.icon_path}.webp`}
 						alt={skillData.icon_path}
 						fill
 						sizes="(max-width: 768px) 28px, 40px"

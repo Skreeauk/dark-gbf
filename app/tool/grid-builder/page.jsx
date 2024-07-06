@@ -176,7 +176,7 @@ export default function Page() {
 	}
 
 	function DraggableItem({ id, weapon_id, className }) {
-		const img_path = "/weapon/" + weapon_id + ".jpg"
+		const img_path = "/weapon/" + weapon_id + ".webp"
 
 		const weapon = weapons.find((e) => e.id == weapon_id)
 

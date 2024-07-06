@@ -52,7 +52,7 @@ export default function WeaponFilter({ weapon_types, filters, setFilters }) {
 								className="relative size-10 data-[state=off]:brightness-[0.6] hover:brightness-75 hover:bg-transparent hover:text-transparent data-[state=on]:bg-transparent data-[state=on]:text-transparent"
 							>
 								<Image
-									src={"/weapon_type/" + weapon_type.toLowerCase() + ".png"}
+									src={"/weapon_type/" + weapon_type.toLowerCase() + ".webp"}
 									alt={weapon_type}
 									fill
 									sizes="(max-width: 768px) 100vw, 50vw"

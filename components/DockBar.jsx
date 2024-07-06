@@ -16,11 +16,11 @@ import {
 
 import { HomeIcon } from "@radix-ui/react-icons"
 
-import Contact from "@/public/features/contact.png"
-import GridBuilder from "@/public/features/grid_building.png"
-import MultiAttack from "@/public/features/multiattack.png"
-import Critical from "@/public/features/critical.png"
-import GridScore from "@/public/features/grid_score.png"
+import Contact from "@/public/features/contact.webp"
+import GridBuilder from "@/public/features/grid_building.webp"
+import MultiAttack from "@/public/features/multiattack.webp"
+import Critical from "@/public/features/critical.webp"
+import GridScore from "@/public/features/grid_score.webp"
 
 export default function DockBar() {
 	return (

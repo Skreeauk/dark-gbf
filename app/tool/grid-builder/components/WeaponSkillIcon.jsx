@@ -13,7 +13,7 @@ export default function WeaponSkillIcon({ weapon, skillData }) {
 				)}
 			>
 				<Image
-					src={`/weapon_skill/grid/${skillData.icon_path}.png`}
+					src={`/weapon_skill/grid/${skillData.icon_path}.webp`}
 					alt={skillData.icon_path}
 					fill
 					sizes="(max-width: 768px) 28px, 40px"

@@ -26,14 +26,11 @@ export function generateMetadata({ params }) {
 	return {
 		title: page.data.title,
 		description: page.data.description,
-		alternates: {
-			canonical: page.url,
-		},
 		openGraph: {
 			url: page.url,
 			type: "article",
-			publishedTime: new Date().toISOString(),
-			modifiedTime: new Date().toISOString(),
+			publishedTime: "2024-07-06T00:00:00.000Z",
+			modifiedTime: "2024-07-06T00:00:00.000Z",
 			...openGraph,
 		},
 	}
