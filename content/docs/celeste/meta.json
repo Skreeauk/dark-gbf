@@ -2,7 +2,10 @@
 	"title": "celeste",
 	"root": true,
 	"pages": [
+		"---Getting Started---",
 		"index",
+		"requirements",
+		"changelog",
 		"---Setups---",
 		"...setups",
 		"---Weapons---",

@@ -1,16 +1,17 @@
+import { notFound } from "next/navigation"
+
 import { getPage, getPages } from "@/app/source"
 import { DocsPage, DocsBody } from "fumadocs-ui/page"
-import { notFound } from "next/navigation"
 
 import { Callout } from "fumadocs-ui/components/callout"
 import { Card, Cards } from "fumadocs-ui/components/card"
 import { Step, Steps } from "fumadocs-ui/components/steps"
 import { Tab, Tabs } from "fumadocs-ui/components/tabs"
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion"
+
 import { MDXTableList } from "./components/MDXTableList"
 import { MDXWeaponGrid } from "./components/MDXWeaponGrid"
-import { ColorCallout } from "./components/ColorCallout"
-
-import { cn } from "@/lib/utils"
+import { MDXCallout } from "./components/MDXCallout"
 
 import { openGraph } from "@/utils/meta"
 
@@ -57,16 +58,18 @@ export default async function Page({ params }) {
 				<div className="prose-h1:pb-1.5 prose-h1:border-b prose-h2:pb-1.5 prose-h2:border-b">
 					<MDX
 						components={{
-							Callout: (props) => <Callout {...props} />,
-							Cards: (props) => <Cards {...props} />,
-							Card: (props) => <Card {...props} />,
-							Steps: (props) => <Steps {...props} />,
-							Step: (props) => <Step {...props} />,
-							Tabs: (props) => <Tabs {...props} />,
-							Tab: (props) => <Tab {...props} />,
-							ColorCallout,
+							Callout,
+							Cards,
+							Card,
+							Steps,
+							Step,
+							Tabs,
+							Tab,
+							Accordions,
+							Accordion,
 							MDXTableList,
 							MDXWeaponGrid,
+							MDXCallout,
 						}}
 					/>
 				</div>
