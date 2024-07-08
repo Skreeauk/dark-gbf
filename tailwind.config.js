@@ -1,4 +1,4 @@
-import { createPreset } from "fumadocs-ui/tailwind-plugin"
+import { docsUi } from "fumadocs-ui/tailwind-plugin"
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -117,5 +117,9 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require("@tailwindcss/typography"),
+		docsUi({}),
+	],
 }

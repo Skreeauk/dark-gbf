@@ -1,9 +1,14 @@
 import { Callout } from "fumadocs-ui/components/callout"
 import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"
-import { LightbulbIcon, TriangleAlertIcon, CircleAlertIcon } from "lucide-react"
+import {
+	LightbulbIcon,
+	TriangleAlertIcon,
+	CircleAlertIcon,
+	InfoIcon,
+} from "lucide-react"
 
-const calloutVariants = cva("flex flex-row pl-2 border-l-2", {
+const calloutVariants = cva("flex flex-col pl-4 border-l-2 gap-2", {
 	variants: {
 		type: {
 			default: "border-l-blue-500 [&_span]:text-blue-500",
@@ -21,19 +26,19 @@ export function MDXCallout({ title, type = "default", children }) {
 	return (
 		<Callout icon={<></>}>
 			<div className={cn(calloutVariants({ type }))}>
-				{type === "tip" ? (
-					<LightbulbIcon className="size-5 basis-5 stroke-emerald-500" />
-				) : type === "warning" ? (
-					<TriangleAlertIcon className="size-5 basis-5 stroke-yellow-500" />
-				) : type === "danger" ? (
-					<CircleAlertIcon className="size-5 basis-5 stroke-rose-500" />
-				) : (
-					<CircleAlertIcon className="size-5 basis-5 stroke-blue-500" />
-				)}
-				<div className="flex flex-col ml-2 [&_p]:my-0 flex-1">
+				<div className="flex flex-row items-center gap-2">
+					{type === "tip" ? (
+						<LightbulbIcon className="size-5 basis-5 stroke-emerald-500" />
+					) : type === "warning" ? (
+						<TriangleAlertIcon className="size-5 basis-5 stroke-yellow-500" />
+					) : type === "danger" ? (
+						<CircleAlertIcon className="size-5 basis-5 stroke-rose-500" />
+					) : (
+						<InfoIcon className="size-5 basis-5 stroke-blue-500" />
+					)}
 					<span className="font-semibold">{title}</span>
-					{children}
 				</div>
+				<div className="prose-no-margin">{children}</div>
 			</div>
 		</Callout>
 	)

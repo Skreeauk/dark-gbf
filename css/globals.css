@@ -75,16 +75,42 @@
 	}
 }
 
+/* Remove underline from heading links */
 .prose {
 	h1 > a,
 	h2 > a,
 	h3 > a,
 	h4 > a {
-		@apply no-underline !important;
+		@apply no-underline appearance-none !important;
 	}
 }
 
-.steps {
+/* Remove underline from heading links */
+.prose {
+	h1 > a,
+	h2 > a,
+	h3 > a,
+	h4 > a {
+		text-decoration: none !important;
+		-webkit-text-decoration: none !important;
+		-moz-text-decoration: none !important;
+		text-decoration-line: none !important;
+		-webkit-text-decoration-line: none !important;
+		-moz-text-decoration-line: none !important;
+	}
+}
+
+/* hover change bg for easier readability */
+tbody > tr {
+	@apply hover:bg-secondary;
+}
+
+/* top border above footer */
+article > div:last-child {
+	@apply pt-6 border-t;
+}
+
+/* .steps {
 	counter-reset: step;
 	border-left-width: 1px;
 	margin-left: 1rem;
@@ -107,4 +133,4 @@
 	display: flex;
 	position: absolute;
 	left: -1rem;
-}
+} */
