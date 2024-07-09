@@ -15,7 +15,7 @@ export default function Home() {
 			<main className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-8 mx-auto md:gap-24">
 				<div className="flex flex-col items-center justify-center w-full max-w-4xl gap-2 pt-6 md:pt-0">
 					<h1 className="text-5xl font-semibold">Dark GBF</h1>
-					<h3 className="text-2xl opacity-70">Tools for Dark Players</h3>
+					<h2 className="text-2xl opacity-70">Make your Dark better</h2>
 					<div className="flex items-center justify-center rounded-md size-14 bg-secondary">
 						<ModeToggle />
 					</div>
