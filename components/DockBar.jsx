@@ -5,6 +5,7 @@ import { Separator } from "./ui/separator"
 import Image from "next/image"
 // import Link from "next/link"
 
+import NextLink from "next/link"
 import { Link } from "next-view-transitions"
 
 import {
@@ -29,7 +30,7 @@ export default function DockBar() {
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger>
-							<Link
+							<NextLink
 								href="/"
 								className="size-10 hover:size-14"
 								aria-label="Home Page"
@@ -37,7 +38,7 @@ export default function DockBar() {
 								<div className="flex items-center justify-center w-full h-full">
 									<HomeIcon className="m-2 size-6" />
 								</div>
-							</Link>
+							</NextLink>
 						</TooltipTrigger>
 						<TooltipContent>
 							<p>Home</p>

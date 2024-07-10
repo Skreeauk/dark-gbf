@@ -1,3 +1,5 @@
+import { ViewTransitions } from "next-view-transitions"
+
 import DockBar from "@/components/DockBar"
 
 import dynamic from "next/dynamic"
@@ -16,10 +18,12 @@ export const metadata = {
 
 export default function Layout({ children }) {
 	return (
-		<div className="relative flex flex-col flex-1 md:overflow-hidden">
-			{children}
-			<DockBar />
-			<BackgroundCellCore />
-		</div>
+		<ViewTransitions>
+			<div className="relative flex flex-col flex-1 md:overflow-hidden">
+				{children}
+				<DockBar />
+				<BackgroundCellCore />
+			</div>
+		</ViewTransitions>
 	)
 }

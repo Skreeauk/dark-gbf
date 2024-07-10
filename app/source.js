@@ -13,7 +13,8 @@ export const { getPage, getPages, pageTree } = loader({
 	source: createMDXSource(map, {
 		schema: {
 			frontmatter: defaultSchemas.frontmatter.extend({
-				keywords: z.array(z.string().default([])),
+				keywords: z.array(z.string()).default([]),
+				wikiURL: z.string().default(""),
 			}),
 		},
 	}),

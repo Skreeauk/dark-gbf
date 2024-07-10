@@ -3,15 +3,10 @@ import { notFound } from "next/navigation"
 import { getPage, getPages } from "@/app/source"
 import { DocsPage, DocsBody } from "fumadocs-ui/page"
 
-import { Callout } from "fumadocs-ui/components/callout"
-import { Card, Cards } from "fumadocs-ui/components/card"
-import { Step, Steps } from "fumadocs-ui/components/steps"
-import { Tab, Tabs } from "fumadocs-ui/components/tabs"
-import { Accordion, Accordions } from "fumadocs-ui/components/accordion"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
-import { MDXTableList } from "./components/MDXTableList"
-import { MDXWeaponGrid } from "./components/MDXWeaponGrid"
-import { MDXCallout } from "./components/MDXCallout"
+import { SquareArrowOutUpRightIcon } from "lucide-react"
 
 import { openGraph } from "@/utils/meta"
 
@@ -54,24 +49,25 @@ export default async function Page({ params }) {
 				<div className="flex flex-col gap-3 mb-8">
 					<h1 className="p-0 m-0 text-4xl font-semibold">{page.data.title}</h1>
 					<span className="opacity-70">{page.data.description}</span>
+					{page.data.wikiURL && (
+						<Button
+							asChild
+							className="items-center justify-center h-auto px-3 py-1 w-fit"
+						>
+							<Link
+								href={page.data.wikiURL}
+								aria-label="gbf.wiki url"
+								target="_blank"
+								className="no-underline"
+							>
+								<span className="text-sm">gbf.wiki</span>
+								<SquareArrowOutUpRightIcon className="ml-2 size-3" />
+							</Link>
+						</Button>
+					)}
 				</div>
 				<div className="prose-h1:pb-1.5 prose-h1:border-b prose-h2:pb-1.5 prose-h2:border-b">
-					<MDX
-						components={{
-							Callout,
-							Cards,
-							Card,
-							Steps,
-							Step,
-							Tabs,
-							Tab,
-							Accordions,
-							Accordion,
-							MDXTableList,
-							MDXWeaponGrid,
-							MDXCallout,
-						}}
-					/>
+					<MDX />
 				</div>
 			</DocsBody>
 		</DocsPage>

@@ -3,8 +3,6 @@ import "@/css/globals.css"
 
 import { cn } from "@/lib/utils"
 
-import { ViewTransitions } from "next-view-transitions"
-
 import { RootProvider } from "fumadocs-ui/provider"
 
 import { openGraph, twitter } from "../utils/meta"
@@ -27,38 +25,36 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<ViewTransitions>
-			<html lang="en" suppressHydrationWarning>
-				<head>
-					<link rel="icon" href="/favicon.ico" />
-				</head>
-				<body
-					className={cn(
-						"antialiased min-h-screen bg-background flex flex-col relative",
-						inter.className
-					)}
+		<html lang="en" suppressHydrationWarning>
+			<head>
+				<link rel="icon" href="/favicon.ico" />
+			</head>
+			<body
+				className={cn(
+					"antialiased min-h-screen bg-background flex flex-col relative",
+					inter.className
+				)}
+			>
+				<RootProvider
+					search={{
+						links: [
+							["Celeste / Magna Guide", "/docs/celeste"],
+							["Hades / Primal Guide", "/docs/hades"],
+						],
+						options: {
+							delayMs: 1000,
+						},
+					}}
+					theme={{
+						attribute: "class",
+						defaultTheme: "system",
+						enableSystem: true,
+						disableTransitionOnChange: true,
+					}}
 				>
-					<RootProvider
-						search={{
-							links: [
-								["Celeste / Magna Guide", "/docs/celeste"],
-								["Hades / Primal Guide", "/docs/hades"],
-							],
-							options: {
-								delayMs: 1000,
-							},
-						}}
-						theme={{
-							attribute: "class",
-							defaultTheme: "system",
-							enableSystem: true,
-							disableTransitionOnChange: true,
-						}}
-					>
-						{children}
-					</RootProvider>
-				</body>
-			</html>
-		</ViewTransitions>
+					{children}
+				</RootProvider>
+			</body>
+		</html>
 	)
 }
