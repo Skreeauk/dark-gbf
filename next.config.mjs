@@ -13,6 +13,11 @@ const nextConfig = {
 			"fumadocs-ui",
 		],
 	},
+	// logging: {
+	// 	fetches: {
+	// 		fullUrl: true,
+	// 	},
+	// },
 }
 
 export default withMDX(nextConfig)

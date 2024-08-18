@@ -20,7 +20,12 @@ import WeaponFilter from "./WeaponFilter"
 
 import useDataStore from "@/store/dataStore"
 
-export default function WeaponCommand({ selectedID, open, setOpen, weapons }) {
+export default function WeaponCommand({
+	selectedID,
+	open,
+	setOpen,
+	weapons = [],
+}) {
 	const updateGridSlot = useDataStore((state) => state.updateGridSlot)
 
 	const [filters, setFilters] = useState(weapon_types)

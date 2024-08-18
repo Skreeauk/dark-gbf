@@ -43,6 +43,17 @@ export default function RootLayout({ children }) {
 						],
 						options: {
 							delayMs: 1000,
+							defaultTag: "celeste",
+							tags: [
+								{
+									name: "Celeste",
+									value: "celeste",
+								},
+								{
+									name: "Hades",
+									value: "hades",
+								},
+							],
 						},
 					}}
 					theme={{

@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { cn } from "@/lib/utils"
+import { getCachedWeapons, getCachedWeaponSkills } from "@/lib/db"
 
 export async function MDXWeaponGrid({
 	className,
@@ -10,29 +10,33 @@ export async function MDXWeaponGrid({
 	ultima_key = ["none", "229", "230"],
 	...props
 }) {
-	const weaponFetch = getWeapons()
-	const weaponSkillFetch = getWeaponSkills()
-	const [weaponData, weaponSkillData] = await Promise.all([
-		weaponFetch,
-		weaponSkillFetch,
+	const [weaponFetch, weaponSkillFetch] = await Promise.all([
+		getCachedWeapons(),
+		getCachedWeaponSkills(),
 	])
 
 	return (
-		<div className="flex flex-col gap-1 mx-auto md:gap-4 md:flex-row md:justify-center">
+		<div className="mx-auto flex flex-col gap-1 md:flex-row md:justify-center md:gap-4">
 			<Weapon weaponID={weapons[0]}></Weapon>
 
 			<div className="grid grid-cols-3 gap-1 md:gap-4">
 				{weapons?.slice(1).map((weaponID, i) => (
-					<Weapon weaponID={weapons[i + 1]} key={i + 1}></Weapon>
+					<Weapon
+						weaponID={weapons[i + 1]}
+						key={i + 1}
+						weaponFetch={weaponFetch}
+						weaponSkillFetch={weaponSkillFetch}
+					></Weapon>
 				))}
 			</div>
 		</div>
 	)
 }
 
-function Weapon({ weaponID }) {
+function Weapon({ weaponID, weaponFetch = [], weaponSkillFetch = [] }) {
+	const weaponData = weaponFetch.find((e) => e.id == weaponID)
 	return (
-		<div className="w-[84px] h-[48px] lg:w-[126px] lg:h-[72px] xl:w-[168px] xl:h-[96px] bg-gray-500 relative">
+		<div className="relative h-[48px] w-[84px] bg-gray-500 lg:h-[72px] lg:w-[126px] xl:h-[96px] xl:w-[168px]">
 			{weaponID != 0 && (
 				<Image
 					src={"/weapon/" + weaponID + ".webp"}
@@ -42,26 +46,13 @@ function Weapon({ weaponID }) {
 					className="not-prose"
 				/>
 			)}
-			<div className="absolute bottom-0 left-0 flex flex-row items-center justify-center w-full gap-1 bg-transparent/40 h-1/2 md:h-2/5"></div>
+			<WeaponSkills />
 		</div>
 	)
 }
 
-async function getWeapons() {
-	const res = await fetch(checkEnvironment() + "/api/weapons")
-	return res.json()
-}
-
-async function getWeaponSkills() {
-	const res = await fetch(checkEnvironment() + "/api/weapon_skills")
-	return res.json()
-}
-
-function checkEnvironment() {
-	let base_url =
-		process.env.NODE_ENV === "development"
-			? "http://localhost:3000"
-			: "https://dark-gbf.vercel.app"
-
-	return base_url
+function WeaponSkills({ weaponID }) {
+	return (
+		<div className="absolute bottom-0 left-0 flex h-1/2 w-full flex-row items-center justify-center gap-1 bg-transparent/40 md:h-2/5"></div>
+	)
 }

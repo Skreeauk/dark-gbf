@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority"
 import {
 	LightbulbIcon,
 	TriangleAlertIcon,
-	CircleAlertIcon,
+	OctagonAlertIcon,
 	InfoIcon,
 } from "lucide-react"
 
@@ -32,7 +32,7 @@ export function MDXCallout({ title, type = "default", children }) {
 					) : type === "warning" ? (
 						<TriangleAlertIcon className="size-5 basis-5 stroke-yellow-500" />
 					) : type === "danger" ? (
-						<CircleAlertIcon className="size-5 basis-5 stroke-rose-500" />
+						<OctagonAlertIcon className="size-5 basis-5 stroke-rose-500" />
 					) : (
 						<InfoIcon className="size-5 basis-5 stroke-blue-500" />
 					)}

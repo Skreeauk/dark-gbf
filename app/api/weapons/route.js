@@ -1,10 +1,7 @@
-import supabase from "@/utils/supabase"
+import { getCachedWeapons } from "@/lib/db"
 
 export async function GET() {
-	const { data, error } = await supabase
-		.from("weapons")
-		.select()
-		.order("name", { ascending: true })
+	const data = await getCachedWeapons()
 
 	return Response.json(data)
 }

@@ -1,7 +1,7 @@
-import supabase from "@/utils/supabase"
+import { getCachedCharacters } from "@/lib/db"
 
 export async function GET() {
-	const { data, error } = await supabase.from("characters").select()
+	const data = await getCachedCharacters()
 
 	return Response.json(data)
 }

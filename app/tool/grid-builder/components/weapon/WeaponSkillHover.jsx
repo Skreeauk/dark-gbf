@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { KeyTrigger } from "./keyModal/KeyTrigger"
+import { KeyTrigger } from "../keyModal/KeyTrigger"
 import { cn } from "@/lib/utils"
 
 export default function WeaponSkillHover({
