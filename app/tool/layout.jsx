@@ -5,7 +5,7 @@ import DockBar from "@/components/DockBar"
 import dynamic from "next/dynamic"
 
 const BackgroundCellCore = dynamic(() =>
-	import("@/components/BackgroundRipple")
+	import("@/components/aceternity/BackgroundRipple")
 )
 
 export const metadata = {

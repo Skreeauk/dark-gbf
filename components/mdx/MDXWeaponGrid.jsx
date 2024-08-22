@@ -22,7 +22,7 @@ export async function MDXWeaponGrid({
 			<div className="grid grid-cols-3 gap-1 md:gap-4">
 				{weapons?.slice(1).map((weaponID, i) => (
 					<Weapon
-						weaponID={weapons[i + 1]}
+						weaponID={weaponID}
 						key={i + 1}
 						weaponFetch={weaponFetch}
 						weaponSkillFetch={weaponSkillFetch}

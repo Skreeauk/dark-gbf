@@ -14,14 +14,17 @@ export default function BackgroundCellCore() {
 		<div className="absolute inset-0 hidden h-full md:block">
 			<div className="absolute inset-y-0 h-full overflow-hidden">
 				<div className="absolute h-full w-full pointer-events-none -bottom-2 z-40 bg-background [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
-				<Pattern className="opacity-[0.6]" cellClassName="border-neutral-700" />
+				<Pattern
+					className="opacity-[0.6]"
+					cellClassName="border-neutral-700 dark:border-border"
+				/>
 			</div>
 		</div>
 	)
 }
 
 function Pattern({ className, cellClassName }) {
-	const x = new Array(30).fill(0)
+	const x = new Array(35).fill(0)
 	const y = new Array(18).fill(0)
 	const matrix = x.map((_, i) => y.map((_, j) => [i, j]))
 	const [clickedCell, setClickedCell] = useState(null)
@@ -96,7 +99,7 @@ function Cell({ rowIdx, colIdx, clickedCell, setClickedCell, cellClassName }) {
 					ease: "backOut",
 				}}
 				animate={controls}
-				className="bg-[rgba(14,91,233,0.7)] dark:bg-[rgba(14,165,233,0.4)] size-16"
+				className="bg-purple-400 dark:bg-purple-950 size-16"
 			></m.div>
 		</div>
 	)

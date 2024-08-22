@@ -21,11 +21,11 @@ const items = [
 		url: "/tool/multiattack-calculator",
 	},
 	{
-		title: "Critical Calculator",
-		description: "Count on your chances.",
+		title: "Weapon Skills",
+		description: "Motocal redefined.",
 		header: <OrbitingIcons />,
 		className: "md:col-span-1",
-		url: "/tool/critical-calculator",
+		url: "/tool/weapon-skills",
 	},
 	{
 		title: "Grid Score",

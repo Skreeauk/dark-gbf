@@ -75,15 +75,12 @@ export default function DockBar() {
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger>
-							<Link
-								href="/tool/critical-calculator"
-								aria-label="Crit Calculator Page"
-							>
+							<Link href="/tool/weapon-skills" aria-label="Weapon Skills Page">
 								<Image src={Critical} alt="Critical" className="scale-105" />
 							</Link>
 						</TooltipTrigger>
 						<TooltipContent>
-							<p>Crit Calculator</p>
+							<p>Weapon Skills</p>
 						</TooltipContent>
 					</Tooltip>
 				</DockIcon>
