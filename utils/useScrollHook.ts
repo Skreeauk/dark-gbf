@@ -31,8 +31,9 @@ export default function useScrollHook(): [() => void, () => void] {
 			html.style.overflow = "hidden" /* [2] */
 		}
 
-		body.style.position = "relative" /* [1] */
+		body.style.position = "fixed" /* [1] */
 		body.style.overflow = "hidden" /* [2] */
+		body.style.width = "100%"
 		body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`
 
 		scrollBlocked.current = true
@@ -48,6 +49,7 @@ export default function useScrollHook(): [() => void, () => void] {
 
 		body.style.position = ""
 		body.style.overflow = ""
+		body.style.width = ""
 		body.style.paddingRight = ""
 
 		scrollBlocked.current = false
