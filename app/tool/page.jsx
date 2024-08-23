@@ -1,9 +1,9 @@
-import { BentoGrid, BentoGridItem } from "@/components/BentoGrid"
+import { BentoGrid, BentoGridItem } from "@/components/aceternity/BentoGrid"
 
-import { RadarIcons } from "@/components/RadarIcons"
-import { WordCycle } from "@/components/WordCycle"
-import { OrbitingIcons } from "@/components/OrbitingIcons"
-import { AnimatedBeams } from "@/components/Beams"
+import { RadarIcons } from "@/components/aceternity/RadarIcons"
+import { WordCycle } from "@/components/aceternity/WordCycle"
+import { OrbitingIcons } from "@/components/magicui/OrbitingIcons"
+import { AnimatedBeams } from "@/components/magicui/Beams"
 
 const items = [
 	{

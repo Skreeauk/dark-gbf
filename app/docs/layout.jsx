@@ -1,3 +1,5 @@
+export const revalidate = 2592000
+
 import { DocsLayout } from "fumadocs-ui/layout"
 import { RootToggle } from "fumadocs-ui/components/layout/root-toggle"
 import { pageTree } from "@/app/source"
@@ -22,6 +24,7 @@ export default function RootDocsLayout({ children }) {
 					),
 				}}
 				sidebar={{
+					prefetch: false,
 					banner: (
 						<RootToggle
 							options={[

@@ -1,4 +1,4 @@
-import { FlipWords } from "./aceternity/FlipWords"
+import { FlipWords } from "./FlipWords"
 
 export function WordCycle() {
 	return (

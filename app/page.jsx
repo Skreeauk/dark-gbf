@@ -1,13 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import dynamic from "next/dynamic"
 
-import { GlareCard } from "@/components/aceternity/GlareCard"
 import { ModeToggle } from "@/components/ModeToggle"
 import { PreLoader } from "@/components/PreLoader"
 import { BackgroundBeams } from "@/components/aceternity/BackgroundBeams"
-import { Card, CardContent } from "@/components/ui/card"
-import { BorderBeam } from "@/components/magicui/border-beam"
 import { RevealCard, CanvasReveal } from "@/components/aceternity/CanvasReveal"
 
 export default function Home() {

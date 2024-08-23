@@ -2,12 +2,7 @@ import Image from "next/image"
 import { KeyTrigger } from "../keyModal/KeyTrigger"
 import { cn } from "@/lib/utils"
 
-export default function WeaponSkillHover({
-	order,
-	weapon,
-	skillData,
-	showNumeric,
-}) {
+export default function WeaponSkillHover({ order, weapon, skillData }) {
 	return (
 		<KeyTrigger weapon={weapon}>
 			<div
@@ -31,7 +26,7 @@ export default function WeaponSkillHover({
 				<div className="flex flex-col flex-1">
 					<span className="font-semibold">{skillData?.name}</span>
 					<span className="flex-1 break-words opacity-75">
-						{showNumeric ? skillData?.desc_numeric : skillData?.desc}
+						{skillData?.desc_numeric}
 					</span>
 				</div>
 			</div>

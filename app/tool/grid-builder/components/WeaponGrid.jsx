@@ -50,7 +50,6 @@ export default function WeaponGrid({ weapons = [], weapon_skills = [] }) {
 
 	const [open, setOpen] = useState(false)
 	const [showSkill, setShowSkill] = useState(false)
-	const [showNumeric, setShowNumeric] = useState(false)
 	const [hover, setHover] = useState(true)
 	const [selectedID, setSelectedID] = useState(-1)
 
@@ -219,7 +218,6 @@ export default function WeaponGrid({ weapons = [], weapon_skills = [] }) {
 										order={i}
 										weapon={weapon_check}
 										skillData={skillData}
-										showNumeric={showNumeric}
 									/>
 								)
 							})}
@@ -290,13 +288,6 @@ export default function WeaponGrid({ weapons = [], weapon_skills = [] }) {
 								onCheckedChange={() => setShowSkill(!showSkill)}
 							/>
 							<Label htmlFor="skill-mode">Show Skills</Label>
-							<Switch
-								id="numeric-mode"
-								aria-label="Toggle Details"
-								checked={showNumeric}
-								onCheckedChange={() => setShowNumeric(!showNumeric)}
-							/>
-							<Label htmlFor="numeric-mode">Show Details</Label>
 						</div>
 						<Button
 							aria-label="Reset"

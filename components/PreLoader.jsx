@@ -5,6 +5,8 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import logo from "@/public/logo.webp"
 
+import useScrollHook from "@/utils/useScrollHook"
+
 const FADE_UP = {
 	hidden: { opacity: 0, y: 10 },
 	show: {
@@ -30,6 +32,7 @@ export function PreLoader() {
 	const arr = [0, 0, 0, 0, 0]
 
 	const [load, setLoad] = useState(true)
+	const [blockScroll, allowScroll] = useScrollHook()
 
 	useEffect(() => {
 		// Scroll to the top
@@ -39,14 +42,14 @@ export function PreLoader() {
 		})
 
 		// Disable scrolling
-		document.body.classList.add("overflow-y-hidden")
+		blockScroll()
 
 		setTimeout(() => {
 			setLoad(false)
 
 			// Re-enable scrolling
-			document.body.classList.remove("overflow-y-hidden")
-		}, 4000)
+			allowScroll()
+		}, 3500)
 	}, [])
 
 	return (
@@ -64,7 +67,7 @@ export function PreLoader() {
 							key={i}
 							custom={i}
 							variants={PULL_UP}
-							className="h-full w-1/4 bg-black"
+							className="w-1/4 h-full bg-black"
 						/>
 					)
 				})}
@@ -78,7 +81,7 @@ export function PreLoader() {
 							transition: { type: "spring", duration: 2, delay: 1.7 },
 						},
 					}}
-					className="text-white h-full w-full flex items-center justify-center flex-col md:flex-row fixed gap-8"
+					className="fixed flex flex-col items-center justify-center w-full h-full gap-8 text-white md:flex-row"
 				>
 					<motion.h1
 						className="text-center font-display text-4xl font-bold tracking-[-0.02em] drop-shadow-sm md:text-7xl md:leading-[5rem]"

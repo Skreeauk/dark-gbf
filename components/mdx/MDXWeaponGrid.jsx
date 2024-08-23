@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { getCachedWeapons, getCachedWeaponSkills } from "@/lib/db"
+import { getCachedWeaponsDocs, getCachedWeaponSkillsDocs } from "@/lib/db"
 
 export async function MDXWeaponGrid({
 	className,
@@ -11,12 +11,12 @@ export async function MDXWeaponGrid({
 	...props
 }) {
 	const [weaponFetch, weaponSkillFetch] = await Promise.all([
-		getCachedWeapons(),
-		getCachedWeaponSkills(),
+		getCachedWeaponsDocs(),
+		getCachedWeaponSkillsDocs(),
 	])
 
 	return (
-		<div className="mx-auto flex flex-col gap-1 md:flex-row md:justify-center md:gap-4">
+		<div className="flex flex-col gap-1 mx-auto md:flex-row md:justify-center md:gap-4">
 			<Weapon weaponID={weapons[0]}></Weapon>
 
 			<div className="grid grid-cols-3 gap-1 md:gap-4">
@@ -53,6 +53,6 @@ function Weapon({ weaponID, weaponFetch = [], weaponSkillFetch = [] }) {
 
 function WeaponSkills({ weaponID }) {
 	return (
-		<div className="absolute bottom-0 left-0 flex h-1/2 w-full flex-row items-center justify-center gap-1 bg-transparent/40 md:h-2/5"></div>
+		<div className="absolute bottom-0 left-0 flex flex-row items-center justify-center w-full gap-1 h-1/2 bg-transparent/40 md:h-2/5"></div>
 	)
 }

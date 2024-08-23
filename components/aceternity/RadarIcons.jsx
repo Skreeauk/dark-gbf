@@ -1,7 +1,7 @@
 "use client"
 
-import { Radar } from "./aceternity/Radar"
-import { IconContainer } from "./aceternity/IconContainer"
+import { Radar } from "./Radar"
+import { IconContainer } from "./IconContainer"
 import { LazyMotion, domAnimation } from "framer-motion"
 
 import Image from "next/image"

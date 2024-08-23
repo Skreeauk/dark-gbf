@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 import { RootProvider } from "fumadocs-ui/provider"
 
-import { openGraph, twitter } from "../utils/meta"
+import { openGraph, twitter } from "@/utils/meta"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
 							["Hades / Primal Guide", "/docs/hades"],
 						],
 						options: {
-							delayMs: 1000,
+							delayMs: 650,
 							defaultTag: "celeste",
 							tags: [
 								{

@@ -1,10 +1,10 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { AnimatedBeam } from "@/components/magicui/animated-beam"
+import { AnimatedBeam } from "./animated-beam"
 import React, { forwardRef, useRef, useState, useEffect } from "react"
 
-import { VercelGauge } from "./VercelGauge"
+import { VercelGauge } from "../VercelGauge"
 
 import Image from "next/image"
 
