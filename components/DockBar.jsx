@@ -5,7 +5,7 @@ import { Separator } from "./ui/separator"
 import Image from "next/image"
 
 // import Link from "next/link"
-// import NextLink from "next/link"
+import NextLink from "next/link"
 import { Link } from "next-view-transitions"
 
 import {
@@ -29,6 +29,18 @@ export default function DockBar() {
 				direction="middle"
 				className="fixed inset-x-0 z-50 bottom-6 bg-white/10 backdrop-blur-2xl"
 			>
+				<DockIcon>
+					<Tooltip>
+						<TooltipTrigger>
+							<NextLink href="/" className={"size-12 rounded-full"}>
+								<Image src={Home} alt="Home" />
+							</NextLink>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Home</p>
+						</TooltipContent>
+					</Tooltip>
+				</DockIcon>
 				{data.map((route, i) => (
 					<DockIcon key={i}>
 						<Tooltip>
@@ -67,7 +79,6 @@ export default function DockBar() {
 }
 
 const Icons = {
-	home: (props) => <Image src={Home} alt="Home" {...props} />,
 	grid: (props) => <Image src={GridBuilder} alt="Grid Builder" {...props} />,
 	ma: (props) => <Image src={MultiAttack} alt="Multi Attack" {...props} />,
 	skills: (props) => (
@@ -78,11 +89,6 @@ const Icons = {
 }
 
 const data = [
-	{
-		name: "Home",
-		url: "/",
-		icon: Icons.home,
-	},
 	{
 		name: "Grid Builder",
 		url: "/tool/grid-builder",
