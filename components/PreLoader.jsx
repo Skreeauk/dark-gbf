@@ -90,7 +90,7 @@ export function PreLoader() {
 						Dark GBF
 					</motion.h1>
 					<motion.div className="text-center" variants={FADE_UP}>
-						<Image src={logo} alt="logo" />
+						<Image src={logo} alt="logo" quality={100} />
 					</motion.div>
 				</motion.div>
 			</motion.div>

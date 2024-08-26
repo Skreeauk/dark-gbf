@@ -10,7 +10,7 @@ import Image from "next/image"
 
 import GridBuilder from "@/public/features/grid_building.webp"
 import MultiAttack from "@/public/features/multiattack.webp"
-import Critical from "@/public/features/critical.webp"
+import WeaponSkills from "@/public/features/weapon_skills.webp"
 import GridScore from "@/public/features/grid_score.webp"
 
 import { LazyMotion, domAnimation } from "framer-motion"
@@ -96,8 +96,8 @@ export function AnimatedBeams() {
 					<div className="flex flex-row items-center justify-between">
 						<FeatureCircle
 							ref={div2Ref}
-							src={Critical}
-							alt="Critical Calculator"
+							src={WeaponSkills}
+							alt="Weapon Skills"
 						/>
 						<FeatureCircle ref={div6Ref} src={GridScore} alt="Grid Score" />
 					</div>

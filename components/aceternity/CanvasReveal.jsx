@@ -267,7 +267,7 @@ export const RevealCard = ({ title, desc, icon, children }) => {
 		<div
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
-			className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem]"
+			className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[25rem] md:h-[30rem]"
 		>
 			<Icon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
 			<Icon className="absolute w-6 h-6 text-black -bottom-3 -left-3 dark:text-white" />
@@ -287,13 +287,10 @@ export const RevealCard = ({ title, desc, icon, children }) => {
 			</AnimatePresence>
 
 			<div className="relative z-20">
-				<div className="flex flex-col items-center justify-center w-full gap-8 mx-auto text-center transition duration-200 group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0">
+				<div className="flex flex-col items-center justify-center w-full gap-8 mx-auto text-center">
 					{icon}
 					<h1 className="text-xl font-bold">{title}</h1>
-				</div>
-				<div className="relative z-10 mt-4 text-black transition duration-200 opacity-0 dark:text-white group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2">
-					<h1 className="text-xl font-bold">{title}</h1>
-					<p>{desc}</p>
+					<p className="w-3/4 text-balance">{desc}</p>
 				</div>
 			</div>
 		</div>

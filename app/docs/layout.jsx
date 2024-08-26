@@ -16,7 +16,13 @@ export default function RootDocsLayout({ children }) {
 				nav={{
 					title: (
 						<>
-							<Image src={"/favicon.webp"} width={32} height={32} alt="logo" />
+							<Image
+								src={"/logo.webp"}
+								width={40}
+								height={40}
+								alt="logo"
+								className="size-10"
+							/>
 							<span className="font-medium max-md:[header_&]:hidden">
 								Dark GBF
 							</span>

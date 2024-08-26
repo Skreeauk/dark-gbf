@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google"
+import { Zen_Kaku_Gothic_New } from "next/font/google"
 import "@/css/globals.css"
 
 import { cn } from "@/lib/utils"
@@ -7,7 +7,12 @@ import { RootProvider } from "fumadocs-ui/provider"
 
 import { openGraph, twitter } from "@/utils/meta"
 
-const inter = Inter({ subsets: ["latin"] })
+const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
+	weight: ["300", "400", "500", "700", "900"],
+	subsets: ["latin"],
+	variable: "--font-zen-kaku-gothic",
+	display: "swap",
+})
 
 export const metadata = {
 	title: "Dark GBF",
@@ -32,7 +37,7 @@ export default function RootLayout({ children }) {
 			<body
 				className={cn(
 					"antialiased min-h-screen bg-background flex flex-col relative",
-					inter.className
+					ZenKakuGothicNew.className
 				)}
 			>
 				<RootProvider

@@ -1,21 +1,16 @@
 "use client"
-import { cn } from "@/lib/utils"
-import { cva } from "class-variance-authority"
-import {
-	m,
-	LazyMotion,
-	domAnimation,
-	useMotionValue,
-	useSpring,
-	useTransform,
-} from "framer-motion"
+
 import React, { useRef } from "react"
+import { cva } from "class-variance-authority"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+
+import { cn } from "@/lib/utils"
 
 const DEFAULT_MAGNIFICATION = 60
 const DEFAULT_DISTANCE = 140
 
 const dockVariants = cva(
-	"mx-auto w-max mt-8 h-[58px] p-2 flex items-end gap-2 rounded-2xl border dark:border-[#707070]"
+	"mx-auto w-max mt-8 h-[58px] p-2 flex gap-2 rounded-2xl border supports-backdrop-blur:bg-white/10 supports-backdrop-blur:dark:bg-black/10 backdrop-blur-md"
 )
 
 const Dock = React.forwardRef(
@@ -25,6 +20,7 @@ const Dock = React.forwardRef(
 			children,
 			magnification = DEFAULT_MAGNIFICATION,
 			distance = DEFAULT_DISTANCE,
+			direction = "bottom",
 			...props
 		},
 		ref
@@ -42,17 +38,19 @@ const Dock = React.forwardRef(
 		}
 
 		return (
-			<LazyMotion features={domAnimation}>
-				<m.div
-					ref={ref}
-					onMouseMove={(e) => mousex.set(e.pageX)}
-					onMouseLeave={() => mousex.set(Infinity)}
-					{...props}
-					className={cn(dockVariants({ className }), className)}
-				>
-					{renderChildren()}
-				</m.div>
-			</LazyMotion>
+			<motion.div
+				ref={ref}
+				onMouseMove={(e) => mousex.set(e.pageX)}
+				onMouseLeave={() => mousex.set(Infinity)}
+				{...props}
+				className={cn(dockVariants({ className }), {
+					"items-start": direction === "top",
+					"items-center": direction === "middle",
+					"items-end": direction === "bottom",
+				})}
+			>
+				{renderChildren()}
+			</motion.div>
 		)
 	}
 )
@@ -71,10 +69,7 @@ const DockIcon = ({
 	const ref = useRef(null)
 
 	const distanceCalc = useTransform(mousex, (val) => {
-		const bounds = ref.current?.getBoundingClientRect() ?? {
-			x: 0,
-			width: 0,
-		}
+		const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 }
 
 		return val - bounds.x - bounds.width / 2
 	})
@@ -92,17 +87,17 @@ const DockIcon = ({
 	})
 
 	return (
-		<m.div
+		<motion.div
 			ref={ref}
 			style={{ width }}
 			className={cn(
-				"flex aspect-square cursor-pointer items-center justify-center rounded-lg bg-neutral-400/40",
+				"flex aspect-square cursor-pointer items-center justify-center rounded-full",
 				className
 			)}
 			{...props}
 		>
 			{children}
-		</m.div>
+		</motion.div>
 	)
 }
 

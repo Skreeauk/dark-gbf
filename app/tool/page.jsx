@@ -2,7 +2,7 @@ import { BentoGrid, BentoGridItem } from "@/components/aceternity/BentoGrid"
 
 import { RadarIcons } from "@/components/aceternity/RadarIcons"
 import { WordCycle } from "@/components/aceternity/WordCycle"
-import { OrbitingIcons } from "@/components/magicui/OrbitingIcons"
+import { ChartPreview } from "@/components/ChartPreview"
 import { AnimatedBeams } from "@/components/magicui/Beams"
 
 const items = [
@@ -23,7 +23,7 @@ const items = [
 	{
 		title: "Weapon Skills",
 		description: "Motocal redefined.",
-		header: <OrbitingIcons />,
+		header: <ChartPreview />,
 		className: "md:col-span-1",
 		url: "/tool/weapon-skills",
 	},
@@ -40,7 +40,7 @@ export default function Page() {
 	return (
 		<main className="relative z-50 flex flex-col items-center justify-center flex-1 w-full max-w-5xl gap-8 mx-auto">
 			<div className="flex flex-col items-center justify-center w-full max-w-4xl pt-6 md:pt-0">
-				<h1 className="text-5xl font-semibold">Dark GBF Tool</h1>
+				<h1 className="text-5xl font-semibold">Tools / ツール</h1>
 			</div>
 			<BentoGrid className="max-w-5xl px-4 md:px-0 w-full mx-auto md:auto-rows-[20rem] pb-28">
 				{items.map((item, i) => (

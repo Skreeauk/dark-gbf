@@ -3,9 +3,9 @@ import { ModeToggle } from "./ModeToggle"
 import { Separator } from "./ui/separator"
 
 import Image from "next/image"
-// import Link from "next/link"
 
-import NextLink from "next/link"
+// import Link from "next/link"
+// import NextLink from "next/link"
 import { Link } from "next-view-transitions"
 
 import {
@@ -15,117 +15,97 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip"
 
-import { HomeIcon } from "@radix-ui/react-icons"
-
 import Contact from "@/public/features/contact.webp"
 import GridBuilder from "@/public/features/grid_building.webp"
 import MultiAttack from "@/public/features/multiattack.webp"
-import Critical from "@/public/features/critical.webp"
+import WeaponSkills from "@/public/features/weapon_skills.webp"
 import GridScore from "@/public/features/grid_score.webp"
+import Home from "@/public/features/home.webp"
 
 export default function DockBar() {
 	return (
-		<TooltipProvider delayDuration={400}>
-			<Dock className="fixed inset-x-0 z-50 bottom-6 bg-white/10 backdrop-blur-2xl">
+		<TooltipProvider>
+			<Dock
+				direction="middle"
+				className="fixed inset-x-0 z-50 bottom-6 bg-white/10 backdrop-blur-2xl"
+			>
+				{data.map((route, i) => (
+					<DockIcon key={i}>
+						<Tooltip>
+							<TooltipTrigger>
+								<Link href={route.url} className={"size-12 rounded-full"}>
+									<route.icon />
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent>
+								<p>{route.name}</p>
+							</TooltipContent>
+						</Tooltip>
+					</DockIcon>
+				))}
+
+				<Separator
+					orientation="vertical"
+					className="w-1 mx-1 rounded-full bg-primary/50"
+				/>
+
 				<DockIcon>
 					<Tooltip>
-						<TooltipTrigger>
-							<NextLink
-								href="/"
-								className="size-10 hover:size-14"
-								aria-label="Home Page"
-							>
-								<div className="flex items-center justify-center w-full h-full">
-									<HomeIcon className="m-2 size-6" />
-								</div>
-							</NextLink>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Home</p>
-						</TooltipContent>
-					</Tooltip>
-				</DockIcon>
-				<DockIcon>
-					<Tooltip>
-						<TooltipTrigger>
-							<Link href="/tool/grid-builder" aria-label="Grid Builder Page">
-								<Image src={GridBuilder} alt="Grid Builder" className="" />
-							</Link>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Grid Builder</p>
-						</TooltipContent>
-					</Tooltip>
-				</DockIcon>
-				<DockIcon>
-					<Tooltip>
-						<TooltipTrigger>
-							<Link
-								href="/tool/multiattack-calculator"
-								aria-label="Multiattack Calculator Page"
-							>
-								<Image src={MultiAttack} alt="MultiAttack" className="" />
-							</Link>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>MA Calculator</p>
-						</TooltipContent>
-					</Tooltip>
-				</DockIcon>
-				<DockIcon>
-					<Tooltip>
-						<TooltipTrigger>
-							<Link href="/tool/weapon-skills" aria-label="Weapon Skills Page">
-								<Image src={Critical} alt="Critical" className="scale-105" />
-							</Link>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Weapon Skills</p>
-						</TooltipContent>
-					</Tooltip>
-				</DockIcon>
-				<DockIcon>
-					<Tooltip>
-						<TooltipTrigger>
-							<Link href="/tool/grid-score" aria-label="Grid Score Page">
-								<Image src={GridScore} alt="Grid Score" className="" />
-							</Link>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Grid Score</p>
-						</TooltipContent>
-					</Tooltip>
-				</DockIcon>
-				<Separator orientation="vertical" className="w-1" />
-				<DockIcon>
-					<Tooltip>
-						<TooltipTrigger>
-							<Link href="/tool/about" aria-label="About Page">
-								<Image src={Contact} alt="Contact" className="" />
-							</Link>
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Contact</p>
-						</TooltipContent>
-					</Tooltip>
-				</DockIcon>
-				<DockIcon>
-					<Tooltip>
-						<TooltipTrigger asChild className="size-10 hover:size-14">
-							<div className="flex items-center justify-center w-full h-full">
-								<ModeToggle />
+						<TooltipTrigger asChild>
+							<div className="flex items-center justify-center size-12">
+								<ModeToggle className="rounded-full" />
 							</div>
 						</TooltipTrigger>
 						<TooltipContent>
 							<p>Light / Dark Mode</p>
 						</TooltipContent>
 					</Tooltip>
-					{/* <div className="flex items-center justify-center size-10">
-						<ModeToggle />
-					</div> */}
-					{/* <ModeToggle /> */}
 				</DockIcon>
 			</Dock>
 		</TooltipProvider>
 	)
 }
+
+const Icons = {
+	home: (props) => <Image src={Home} alt="Home" {...props} />,
+	grid: (props) => <Image src={GridBuilder} alt="Grid Builder" {...props} />,
+	ma: (props) => <Image src={MultiAttack} alt="Multi Attack" {...props} />,
+	skills: (props) => (
+		<Image src={WeaponSkills} alt="Weapon Skills" {...props} />
+	),
+	score: (props) => <Image src={GridScore} alt="Grid Score" {...props} />,
+	contact: (props) => <Image src={Contact} alt="Contact" {...props} />,
+}
+
+const data = [
+	{
+		name: "Home",
+		url: "/",
+		icon: Icons.home,
+	},
+	{
+		name: "Grid Builder",
+		url: "/tool/grid-builder",
+		icon: Icons.grid,
+	},
+	{
+		name: "MA Calculator",
+		url: "/tool/multiattack-calculator",
+		icon: Icons.ma,
+	},
+	{
+		name: "Weapon Skills",
+		url: "/tool/weapon-skills",
+		icon: Icons.skills,
+	},
+	{
+		name: "Grid Score",
+		url: "/tool/grid-score",
+		icon: Icons.score,
+	},
+	{
+		name: "Contact",
+		url: "/tool/about",
+		icon: Icons.contact,
+	},
+]

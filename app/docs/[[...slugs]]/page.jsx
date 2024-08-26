@@ -44,7 +44,11 @@ export default async function Page({ params }) {
 	const MDX = page.data.exports.default
 
 	return (
-		<DocsPage toc={page.data.exports.toc} full={page.data.full}>
+		<DocsPage
+			toc={page.data.exports.toc}
+			full={page.data.full}
+			tableOfContent={{ style: "clerk", single: false }}
+		>
 			<DocsBody className="dark:prose-invert md:min-w-full">
 				<div className="flex flex-col gap-3 mb-8">
 					<h1 className="p-0 m-0 text-4xl font-semibold">{page.data.title}</h1>
