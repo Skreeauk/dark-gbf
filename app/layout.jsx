@@ -3,7 +3,7 @@ import "@/css/globals.css"
 
 import { cn } from "@/lib/utils"
 
-import { RootProvider } from "fumadocs-ui/provider"
+import { Provider } from "@/components/Provider"
 
 import { openGraph, twitter } from "@/utils/meta"
 
@@ -40,36 +40,7 @@ export default function RootLayout({ children }) {
 					ZenKakuGothicNew.className
 				)}
 			>
-				<RootProvider
-					search={{
-						links: [
-							["Celeste / Magna Guide", "/docs/celeste"],
-							["Hades / Primal Guide", "/docs/hades"],
-						],
-						options: {
-							delayMs: 650,
-							defaultTag: "celeste",
-							tags: [
-								{
-									name: "Celeste",
-									value: "celeste",
-								},
-								{
-									name: "Hades",
-									value: "hades",
-								},
-							],
-						},
-					}}
-					theme={{
-						attribute: "class",
-						defaultTheme: "system",
-						enableSystem: true,
-						disableTransitionOnChange: true,
-					}}
-				>
-					{children}
-				</RootProvider>
+				<Provider>{children}</Provider>
 			</body>
 		</html>
 	)

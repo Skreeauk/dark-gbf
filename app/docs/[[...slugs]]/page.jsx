@@ -12,7 +12,7 @@ import { openGraph } from "@/utils/meta"
 
 export async function generateStaticParams() {
 	return getPages().map((page) => ({
-		slug: page.slugs,
+		slugs: page.slugs,
 	}))
 }
 
