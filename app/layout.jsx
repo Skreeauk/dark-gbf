@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 import { Provider } from "@/components/Provider"
 
-import { openGraph, twitter } from "@/utils/meta"
+import { openGraph, twitter } from "@/lib/utils/meta"
 
 const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
 	weight: ["400", "500", "700"],

@@ -8,7 +8,16 @@ import Link from "next/link"
 
 import { SquareArrowOutUpRightIcon } from "lucide-react"
 
-import { openGraph } from "@/utils/meta"
+function getImageMeta(baseUrl, slugs = []) {
+	return {
+		alt: "Dark GBF",
+		url: `/${[...baseUrl.split("/"), ...slugs, "og.png"]
+			.filter((v) => v.length > 0)
+			.join("/")}`,
+		width: 1200,
+		height: 630,
+	}
+}
 
 export async function generateStaticParams() {
 	return getPages().map((page) => ({
@@ -16,10 +25,20 @@ export async function generateStaticParams() {
 	}))
 }
 
+// openGraph: {
+// 	url: page.url,
+// 	type: "article",
+// 	publishedTime: "2024-07-06T00:00:00.000Z",
+// 	modifiedTime: "2024-07-06T00:00:00.000Z",
+// 	...openGraph,
+// },
+
 export function generateMetadata({ params }) {
 	const page = getPage(params.slugs)
 
 	if (page == null) notFound()
+
+	const ogImage = getImageMeta("og", page.slugs)
 
 	return {
 		title: page.data.title,
@@ -29,7 +48,13 @@ export function generateMetadata({ params }) {
 			type: "article",
 			publishedTime: "2024-07-06T00:00:00.000Z",
 			modifiedTime: "2024-07-06T00:00:00.000Z",
-			...openGraph,
+			images: ogImage,
+			siteName: "Dark GBF",
+		},
+		twitter: {
+			card: "summary_large_image",
+			images: ogImage,
+			creator: "@Skreeauk",
 		},
 	}
 }

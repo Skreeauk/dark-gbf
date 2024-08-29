@@ -9,19 +9,19 @@ import CharacterPanel from "./CharacterPanel"
 import SummonPanel from "./SummonPanel"
 import TAPanel from "./TAPanel"
 
-export default function MACalculator({ frameworks = [], primals = [] }) {
-	const [value, setValue] = useState("")
+export default function MACalculator({ characters, summons }) {
+	const [char, setChar] = useState("")
 
-	const [openPrimal1, setOpenPrimal1] = useState(false)
-	const [primal1, setPrimal1] = useState("")
+	const [openSummon1, setOpenSummon1] = useState(false)
+	const [summon1, setSummon1] = useState("")
 
-	const [openPrimal2, setOpenPrimal2] = useState(false)
-	const [primal2, setPrimal2] = useState("")
+	const [openSummon2, setOpenSummon2] = useState(false)
+	const [summon2, setSummon2] = useState("")
 
 	function handleReset() {
-		setValue("")
-		setPrimal1("")
-		setPrimal2("")
+		setChar("")
+		setSummon1("")
+		setSummon2("")
 	}
 
 	return (
@@ -36,24 +36,24 @@ export default function MACalculator({ frameworks = [], primals = [] }) {
 					<CardContent className="flex flex-col items-center w-full h-full gap-6 p-3 pt-3 md:p-6 md:pt-6 md:flex-row">
 						{/* Left */}
 						<CharacterPanel
-							frameworks={frameworks}
-							value={value}
-							setValue={setValue}
+							characters={characters}
+							char={char}
+							setChar={setChar}
 							handleReset={handleReset}
 						/>
 						{/* Right */}
 						<div className="flex flex-col flex-1 w-full h-full">
 							{/* Primal */}
 							<SummonPanel
-								primals={primals}
-								primal1={primal1}
-								primal2={primal2}
-								setPrimal1={setPrimal1}
-								setPrimal2={setPrimal2}
-								openPrimal1={openPrimal1}
-								openPrimal2={openPrimal2}
-								setOpenPrimal1={setOpenPrimal1}
-								setOpenPrimal2={setOpenPrimal2}
+								summons={summons}
+								summon1={summon1}
+								summon2={summon2}
+								setSummon1={setSummon1}
+								setSummon2={setSummon2}
+								openSummon1={openSummon1}
+								openSummon2={openSummon2}
+								setOpenSummon1={setOpenSummon1}
+								setOpenSummon2={setOpenSummon2}
 							/>
 							{/* TA Inputs */}
 							<TAPanel />

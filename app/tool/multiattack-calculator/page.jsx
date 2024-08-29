@@ -1,34 +1,23 @@
+import {
+	getCachedWeapons,
+	getCachedWeaponSkills,
+	getCachedCharacters,
+	getCachedSummons,
+} from "@/lib/db/db"
+
 import MACalculator from "./components/MACalculator"
 
-export default function Page() {
-	const frameworks = [
-		{
-			value: "Seox",
-			label: "Seox",
-		},
-		{
-			value: "Ilsa",
-			label: "Ilsa",
-		},
-		{
-			value: "Bowman",
-			label: "Bowman",
-		},
-	]
+export default async function Page() {
+	const [weapons, weapon_skills, characters, summons] = await Promise.all([
+		getCachedWeapons(),
+		getCachedWeaponSkills(),
+		getCachedCharacters(),
+		getCachedSummons(),
+	])
 
-	const primals = [
-		{
-			value: "Hades 250",
-			label: "Hades 250",
-		},
-		{
-			value: "Celeste 250",
-			label: "Celeste 250",
-		},
-	]
 	return (
 		<>
-			<MACalculator frameworks={frameworks} primals={primals} />
+			<MACalculator characters={characters} summons={summons} />
 		</>
 	)
 }

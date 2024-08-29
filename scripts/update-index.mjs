@@ -27,7 +27,6 @@ export async function updateSearchIndexes(indexes) {
 	await customSync(client, {
 		document: process.env.NEXT_PUBLIC_ALGOLIA_INDEX ?? "document",
 		documents: indexes.map((docs) => {
-			console.log(docs)
 			return {
 				_id: docs.id,
 				title: docs.title,
@@ -42,7 +41,7 @@ export async function updateSearchIndexes(indexes) {
 		}),
 	})
 
-	console.log("search updated")
+	console.log("Update Index: Algolia Search Updated")
 }
 
 async function setIndexSettings(index) {

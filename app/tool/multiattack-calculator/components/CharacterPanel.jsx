@@ -24,12 +24,16 @@ import {
 } from "@/components/ui/popover"
 
 export default function CharacterPanel({
-	frameworks = [],
-	value = "",
-	setValue,
+	characters = [],
+	char = "",
+	setChar,
 	handleReset,
 }) {
 	const [open, setOpen] = useState(false)
+
+	const charData = characters.find(
+		(character) => character.id.toString() === char
+	)
 
 	return (
 		<>
@@ -47,30 +51,29 @@ export default function CharacterPanel({
 									className="justify-between flex-1"
 									aria-label="Select Character"
 								>
-									{value
-										? frameworks.find((framework) => framework.value === value)
-												?.label
-										: "Select Character..."}
+									{char ? charData?.name : "Select Character..."}
 								</Button>
 							</PopoverTrigger>
 							<PopoverContent className="w-48 p-0">
 								<Command>
 									<CommandInput placeholder="Search..." />
-									<CommandEmpty>No framework found.</CommandEmpty>
+									<CommandEmpty>No character found.</CommandEmpty>
 									<CommandGroup>
 										<CommandList>
-											{frameworks.map((framework) => (
-												<CommandItem
-													key={framework.value}
-													value={framework.value}
-													onSelect={(currentValue) => {
-														setValue(currentValue === value ? "" : currentValue)
-														setOpen(false)
-													}}
-												>
-													{framework.label}
-												</CommandItem>
-											))}
+											{characters.map((character) => {
+												return (
+													<CommandItem
+														key={character.id.toString()}
+														value={character.id.toString()}
+														onSelect={(currentChar) => {
+															setChar(currentChar === char ? "" : currentChar)
+															setOpen(false)
+														}}
+													>
+														{character.name}
+													</CommandItem>
+												)
+											})}
 										</CommandList>
 									</CommandGroup>
 								</Command>
@@ -83,17 +86,19 @@ export default function CharacterPanel({
 					{/* Char Image Data */}
 					<div className="flex flex-col items-center gap-6 pt-6">
 						<div className="relative aspect-square size-40 md:size-64">
-							{value ? (
+							{char ? (
 								<Image src="/character/3040035000.jpg" fill alt="seox" />
 							) : (
 								<div className="w-full h-full bg-secondary"></div>
 							)}
 						</div>
 						<span className="text-xl font-semibold">
-							{value ? "Seox" : "Empty"}
+							{char ? charData?.name : "Empty"}
 						</span>
 						<span className="text-primary/55">
-							{value ? "100% DA / 0% TA" : "0% DA / 0% TA"}
+							{char
+								? `${charData?.da}% DA / ${charData?.ta}% TA`
+								: "0% DA / 0% TA"}
 						</span>
 					</div>
 				</CardContent>

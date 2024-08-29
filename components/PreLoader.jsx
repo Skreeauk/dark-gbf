@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import logo from "@/public/logo.webp"
 
-import useScrollHook from "@/utils/useScrollHook"
+import useScrollHook from "@/lib/hooks/useScrollHook"
 
 const FADE_UP = {
 	hidden: { opacity: 0, y: 10 },

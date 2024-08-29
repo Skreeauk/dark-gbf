@@ -1,4 +1,4 @@
-import { getCachedWeapons, getCachedWeaponSkills } from "@/lib/db"
+import { getCachedWeapons, getCachedWeaponSkills } from "@/lib/db/db"
 
 import WeaponGrid from "./components/WeaponGrid"
 

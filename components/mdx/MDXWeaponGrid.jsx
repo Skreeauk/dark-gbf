@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { getCachedWeaponsDocs, getCachedWeaponSkillsDocs } from "@/lib/db"
+import { getCachedWeaponsDocs, getCachedWeaponSkillsDocs } from "@/lib/db/db"
 
 export async function MDXWeaponGrid({
 	className,
