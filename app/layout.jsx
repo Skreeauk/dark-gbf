@@ -16,7 +16,7 @@ const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
 
 export const metadata = {
 	title: "Dark GBF",
-	description: "Make your Dark better",
+	description: "Be the 闇 you deserve",
 	metadataBase: "https://dark-gbf.vercel.app",
 	openGraph: {
 		url: "https://dark-gbf.vercel.app",
