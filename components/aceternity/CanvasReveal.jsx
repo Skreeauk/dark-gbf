@@ -286,11 +286,13 @@ export const RevealCard = ({ title, desc, icon, children }) => {
 				)}
 			</AnimatePresence>
 
-			<div className="relative z-20">
-				<div className="flex flex-col items-center justify-center w-full gap-8 mx-auto text-center">
-					{icon}
-					<h1 className="text-xl font-bold">{title}</h1>
-					<p className="w-3/4 text-balance">{desc}</p>
+			<div className="relative z-20 h-full">
+				<div className="flex flex-col items-center justify-center w-full h-full gap-8 text-center">
+					<div className="flex items-end basis-1/2">{icon}</div>
+					<div className="flex flex-col items-center flex-1 gap-4">
+						<h1 className="text-xl font-bold">{title}</h1>
+						<p className="w-3/4 text-balance">{desc}</p>
+					</div>
 				</div>
 			</div>
 		</div>
