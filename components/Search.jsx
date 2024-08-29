@@ -15,6 +15,9 @@ export default function CustomSearchDialog(props) {
 	return (
 		<SearchDialog
 			index={index}
+			searchOptions={{
+				delay: 700,
+			}}
 			defaultTag="celeste"
 			tags={[
 				{

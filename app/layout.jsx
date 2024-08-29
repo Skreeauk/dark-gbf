@@ -8,7 +8,7 @@ import { Provider } from "@/components/Provider"
 import { openGraph, twitter } from "@/utils/meta"
 
 const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
-	weight: ["300", "400", "500", "700", "900"],
+	weight: ["400", "500", "700"],
 	subsets: ["latin"],
 	variable: "--font-zen-kaku-gothic",
 	display: "swap",
