@@ -8,6 +8,8 @@ const useDataStore = create(
 			opus_key: ["224", "none"],
 			draco_key: ["226", "227"],
 			ultima_key: ["none", "229", "230"],
+			summon: [0, 0],
+			aura: [0, 0, 0, 0],
 			updateGridSlot: (i, weaponID) =>
 				set((state) => {
 					const updatedGrid = [...state.grid]
@@ -33,6 +35,8 @@ const useDataStore = create(
 				get().updateDraco(newDracoKeys)
 				get().updateUltima(newUltimaKeys)
 			},
+			updateSummon: (newSummon) => set({ summon: newSummon }),
+			updateAura: (newAura) => set({ aura: newAura }),
 			resetGrid: () => set({ grid: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }),
 			resetOpus: () => set({ opus_key: ["224", "none"] }),
 			resetDraco: () => set({ draco_key: ["226", "227"] }),
@@ -43,9 +47,15 @@ const useDataStore = create(
 				get().resetDraco()
 				get().resetUltima()
 			},
+			resetSummon: () => set({ summon: [0, 0] }),
+			resetAura: () => set({ aura: [0, 0, 0, 0] }),
+			resetSummonAura: () => {
+				get().resetSummon()
+				get().resetAura()
+			},
 		}),
 		{
-			name: "weaponData",
+			name: "DarkGBFData",
 		}
 	)
 )

@@ -25,15 +25,13 @@ import {
 
 export default function CharacterPanel({
 	characters = [],
-	char = "",
+	char = 0,
 	setChar,
 	handleReset,
 }) {
 	const [open, setOpen] = useState(false)
 
-	const charData = characters.find(
-		(character) => character.id.toString() === char
-	)
+	const charData = characters.find((character) => character.id === char)
 
 	return (
 		<>
@@ -63,10 +61,10 @@ export default function CharacterPanel({
 											{characters.map((character) => {
 												return (
 													<CommandItem
-														key={character.id.toString()}
-														value={character.id.toString()}
-														onSelect={(currentChar) => {
-															setChar(currentChar === char ? "" : currentChar)
+														key={character.id}
+														value={character.id}
+														onSelect={() => {
+															setChar(character.id)
 															setOpen(false)
 														}}
 													>
@@ -79,25 +77,30 @@ export default function CharacterPanel({
 								</Command>
 							</PopoverContent>
 						</Popover>
-						<Button aria-label="Reset" onClick={() => handleReset()}>
+						<Button aria-label="Reset" onClick={handleReset}>
 							<ResetIcon className="size-6" />
 						</Button>
 					</div>
 					{/* Char Image Data */}
 					<div className="flex flex-col items-center gap-6 pt-6">
 						<div className="relative aspect-square size-40 md:size-64">
-							{char ? (
-								<Image src="/character/3040035000.jpg" fill alt="seox" />
+							{charData ? (
+								<Image
+									src={`/character/${charData.id}.webp`}
+									fill
+									alt={charData.name}
+									quality={100}
+								/>
 							) : (
 								<div className="w-full h-full bg-secondary"></div>
 							)}
 						</div>
 						<span className="text-xl font-semibold">
-							{char ? charData?.name : "Empty"}
+							{charData ? charData?.name : "Empty"}
 						</span>
 						<span className="text-primary/55">
-							{char
-								? `${charData?.da}% DA / ${charData?.ta}% TA`
+							{charData
+								? `${charData.da}% DA / ${charData.ta}% TA`
 								: "0% DA / 0% TA"}
 						</span>
 					</div>

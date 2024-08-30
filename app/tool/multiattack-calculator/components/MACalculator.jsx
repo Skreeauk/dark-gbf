@@ -10,18 +10,18 @@ import SummonPanel from "./SummonPanel"
 import TAPanel from "./TAPanel"
 
 export default function MACalculator({ characters, summons }) {
-	const [char, setChar] = useState("")
+	const [char, setChar] = useState(0)
 
 	const [openSummon1, setOpenSummon1] = useState(false)
-	const [summon1, setSummon1] = useState("")
+	const [summon1, setSummon1] = useState(0)
 
 	const [openSummon2, setOpenSummon2] = useState(false)
-	const [summon2, setSummon2] = useState("")
+	const [summon2, setSummon2] = useState(0)
 
 	function handleReset() {
-		setChar("")
-		setSummon1("")
-		setSummon2("")
+		setChar(0)
+		setSummon1(0)
+		setSummon2(0)
 	}
 
 	return (

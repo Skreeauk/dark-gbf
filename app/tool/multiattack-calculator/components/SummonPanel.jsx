@@ -30,14 +30,21 @@ export default function SummonPanel({
 	setSummon1,
 	setSummon2,
 }) {
+	const summonData1 = summons.find((summon) => summon.id === summon1)
+	const summonData2 = summons.find((summon) => summon.id === summon2)
 	return (
 		<>
 			{/* Summon 1 */}
 			<div className="grid items-center w-full grid-cols-2 gap-6 p-4 md:p-6">
 				<div className="grid items-center gap-2">
 					<div className="bg-secondary relative aspect-[28/16]">
-						{summon1 ? (
-							<Image src="/summon/2040090000.jpg" fill alt="hades" />
+						{summonData1 ? (
+							<Image
+								src={`/summon/${summonData1.img_path}.webp`}
+								fill
+								alt={summonData1.name}
+								quality={100}
+							/>
 						) : (
 							<div className="w-full h-full bg-secondary"></div>
 						)}
@@ -51,9 +58,7 @@ export default function SummonPanel({
 								className="justify-between flex-1"
 								aria-label="Select Summon"
 							>
-								{summon1
-									? summons.find((summon) => summon.name === summon1)?.name
-									: "Select Summon..."}
+								{summon1 ? summonData1?.name : "Select Summon..."}
 							</Button>
 						</PopoverTrigger>
 						<PopoverContent className="w-40 p-0 md:w-72">
@@ -65,11 +70,9 @@ export default function SummonPanel({
 										{summons.map((summon) => (
 											<CommandItem
 												key={summon.id}
-												value={summon.name}
-												onSelect={(currentValue) => {
-													setSummon1(
-														currentValue === summon1 ? "" : currentValue
-													)
+												value={summon.id}
+												onSelect={() => {
+													setSummon1(summon.id)
 													setOpenSummon1(false)
 												}}
 											>
@@ -85,8 +88,13 @@ export default function SummonPanel({
 				{/* Summon 2 */}
 				<div className="grid items-center gap-2">
 					<div className="bg-secondary relative aspect-[28/16]">
-						{summon2 ? (
-							<Image src="/summon/2040090000.jpg" fill alt="hades" />
+						{summonData2 ? (
+							<Image
+								src={`/summon/${summonData2.img_path}.webp`}
+								fill
+								alt={summonData2.name}
+								quality={100}
+							/>
 						) : (
 							<div className="w-full h-full bg-secondary"></div>
 						)}
@@ -100,25 +108,21 @@ export default function SummonPanel({
 								className="justify-between flex-1"
 								aria-label="Select Summon"
 							>
-								{summon2
-									? summons.find((summon) => summon.name === summon2)?.name
-									: "Select Summon..."}
+								{summon2 ? summonData2?.name : "Select Summon..."}
 							</Button>
 						</PopoverTrigger>
 						<PopoverContent className="w-40 p-0 md:w-72">
 							<Command>
 								<CommandInput placeholder="Search..." />
-								<CommandEmpty>No framework found.</CommandEmpty>
+								<CommandEmpty>No summon found.</CommandEmpty>
 								<CommandGroup>
 									<CommandList>
 										{summons.map((summon) => (
 											<CommandItem
 												key={summon.id + "2"}
-												value={summon.name}
-												onSelect={(currentValue) => {
-													setSummon2(
-														currentValue === summon2 ? "" : currentValue
-													)
+												value={summon.id}
+												onSelect={() => {
+													setSummon2(summon.id)
 													setOpenSummon2(false)
 												}}
 											>
