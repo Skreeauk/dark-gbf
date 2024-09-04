@@ -36,7 +36,7 @@ const BLUR_OUT = {
 	show: {
 		opacity: 0,
 		filter: "blur(10px)",
-		transition: { type: "spring", duration: 2.2, delay: 1.7 },
+		transition: { type: "spring", duration: 2, delay: 1.5 },
 	},
 }
 
@@ -61,7 +61,7 @@ export function PreLoader() {
 
 			// Re-enable scrolling
 			allowScroll()
-		}, 3500)
+		}, 3000)
 	}, [])
 
 	return (
