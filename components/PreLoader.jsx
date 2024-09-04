@@ -16,20 +16,32 @@ const FADE_UP = {
 	},
 }
 
-const PULL_UP = {
-	hidden: { y: 0 },
-	show: (i) => ({
-		y: "-100%",
-		transition: {
-			type: "spring",
-			delay: 2 + i * 0.15,
-			duration: 2,
-		},
-	}),
+// const PULL_UP = {
+// 	hidden: { y: 0 },
+// 	show: (i) => ({
+// 		y: "-100%",
+// 		transition: {
+// 			type: "spring",
+// 			delay: 2 + i * 0.15,
+// 			duration: 2,
+// 		},
+// 	}),
+// }
+
+const BLUR_OUT = {
+	hidden: {
+		opacity: 1,
+		filter: "blur(0px)",
+	},
+	show: {
+		opacity: 0,
+		filter: "blur(10px)",
+		transition: { type: "spring", duration: 2.2, delay: 1.7 },
+	},
 }
 
 export function PreLoader() {
-	const arr = [0, 0, 0, 0, 0]
+	// const arr = [0, 0, 0, 0, 0]
 
 	const [load, setLoad] = useState(true)
 	const [blockScroll, allowScroll] = useScrollHook()
@@ -58,10 +70,10 @@ export function PreLoader() {
 				initial="hidden"
 				animate="show"
 				viewport={{ once: true }}
-				className="text-primary z-[100] w-screen h-screen flex absolute overflow-hidden"
-				// variants={SCROLL_DOWN}
+				className="text-primary z-[100] w-screen h-screen flex absolute overflow-hidden bg-black"
+				variants={BLUR_OUT}
 			>
-				{arr.map((e, i) => {
+				{/* {arr.map((e, i) => {
 					return (
 						<motion.div
 							key={i}
@@ -70,17 +82,9 @@ export function PreLoader() {
 							className="w-1/4 h-full bg-black"
 						/>
 					)
-				})}
+				})} */}
 				<motion.div
 					viewport={{ once: true }}
-					variants={{
-						hidden: {},
-						show: {
-							opacity: 0,
-							y: -10,
-							transition: { type: "spring", duration: 2, delay: 1.7 },
-						},
-					}}
 					className="fixed flex flex-col items-center justify-center w-full h-full gap-8 text-white md:flex-row"
 				>
 					<motion.h1

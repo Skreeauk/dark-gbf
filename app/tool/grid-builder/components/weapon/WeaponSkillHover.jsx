@@ -7,11 +7,8 @@ export default function WeaponSkillHover({ order, weapon, skillData }) {
 		<KeyTrigger weapon={weapon}>
 			<div
 				className={cn(
-					"flex flex-row items-center justify-center w-full gap-2 px-4 py-2 rounded-lg",
-					order == 0 && "pt-4",
-					order == 2 && "pb-4",
-					weapon != "none" &&
-						"hover:bg-black/15 dark:hover:bg-white/15 cursor-pointer"
+					"flex flex-row items-center justify-center w-full gap-2 p-4 rounded-lg",
+					weapon != "none" && "hover:bg-primary/15 cursor-pointer"
 				)}
 			>
 				<div className="relative rounded-lg size-7 md:size-10">

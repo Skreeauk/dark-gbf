@@ -15,7 +15,7 @@ module.exports = {
 	prefix: "",
 	theme: {
 		container: {
-			center: true,
+			center: "true",
 			padding: "2rem",
 			screens: {
 				"2xl": "1400px",
@@ -98,7 +98,9 @@ module.exports = {
 					},
 				},
 				"accordion-down": {
-					from: { height: "0" },
+					from: {
+						height: "0",
+					},
 					to: {
 						height: "var(--radix-accordion-content-height)",
 					},
@@ -107,7 +109,9 @@ module.exports = {
 					from: {
 						height: "var(--radix-accordion-content-height)",
 					},
-					to: { height: "0" },
+					to: {
+						height: "0",
+					},
 				},
 			},
 			animation: {
