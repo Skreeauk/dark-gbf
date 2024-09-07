@@ -3,6 +3,8 @@ import { RootToggle } from "fumadocs-ui/components/layout/root-toggle"
 import { source } from "@/app/source"
 import { Banner } from "fumadocs-ui/components/banner"
 
+import { UwuToggle } from "@/components/UwuToggle"
+
 import Image from "next/image"
 
 export default function RootDocsLayout({ children }) {
@@ -21,9 +23,7 @@ export default function RootDocsLayout({ children }) {
 								alt="logo"
 								className="size-10"
 							/>
-							<span className="font-medium max-md:[header_&]:hidden">
-								Dark GBF
-							</span>
+							<h6 className="font-medium max-md:[header_&]:hidden">Dark GBF</h6>
 						</>
 					),
 				}}
@@ -77,6 +77,7 @@ export default function RootDocsLayout({ children }) {
 							]}
 						/>
 					),
+					footer: <UwuToggle className="mr-4 size-10 hover:bg-accent" />,
 				}}
 			>
 				{children}

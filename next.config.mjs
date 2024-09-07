@@ -20,6 +20,7 @@ const nextConfig = {
 			"fumadocs-core",
 			"fumadocs-mdx",
 			"fumadocs-ui",
+			"usehooks-ts",
 		],
 	},
 	// logging: {

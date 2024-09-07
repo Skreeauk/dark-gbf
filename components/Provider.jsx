@@ -7,6 +7,14 @@ const SearchDialog = dynamic(() => import("@/components/Search"), {
 	ssr: false,
 })
 
+const inject = `
+const item = localStorage.getItem('uwu')
+    
+if (item === 'true') {
+    document.documentElement.classList.add("uwu")
+}    
+`
+
 export function Provider({ children }) {
 	return (
 		<RootProvider
@@ -20,6 +28,10 @@ export function Provider({ children }) {
 				disableTransitionOnChange: true,
 			}}
 		>
+			<script
+				suppressHydrationWarning
+				dangerouslySetInnerHTML={{ __html: inject }}
+			/>
 			{children}
 		</RootProvider>
 	)

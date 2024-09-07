@@ -5,6 +5,7 @@ import { ModeToggle } from "@/components/ModeToggle"
 import { PreLoader } from "@/components/PreLoader"
 import { BackgroundBeams } from "@/components/aceternity/BackgroundBeams"
 import { RevealCard, CanvasReveal } from "@/components/aceternity/CanvasReveal"
+import { UwuToggle } from "@/components/UwuToggle"
 
 // import { Client } from "@gradio/client"
 
@@ -29,8 +30,9 @@ export default async function Home() {
 					<div className="flex flex-col items-center justify-center w-full max-w-4xl gap-2 pt-6 md:pt-0">
 						<h1 className="text-5xl font-semibold">Dark GBF</h1>
 						<h2 className="text-2xl opacity-70">Be the 闇 you deserve</h2>
-						<div className="flex items-center justify-center mt-2 rounded-md size-14 bg-secondary">
-							<ModeToggle />
+						<div className="flex items-center justify-center gap-4 mt-2 hover:*:bg-accent *:size-12">
+							<ModeToggle className="p-3" />
+							<UwuToggle />
 						</div>
 					</div>
 					<div className="flex flex-col gap-8 mb-10 lg:flex-row ">

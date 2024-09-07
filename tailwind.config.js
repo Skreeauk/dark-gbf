@@ -24,6 +24,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				zen_kaku_gothic: ["var(--font-zen-kaku-gothic)"],
+				yuruka: ["var(--font-yuruka)"],
 			},
 			colors: {
 				border: "hsl(var(--border))",

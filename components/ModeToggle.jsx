@@ -7,6 +7,8 @@ import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
 
+import { cn } from "@/lib/utils"
+
 export function ModeToggle({ className }) {
 	const [mounted, setMounted] = useState(false)
 	const { resolvedTheme, setTheme } = useTheme()
@@ -24,7 +26,7 @@ export function ModeToggle({ className }) {
 		<Button
 			variant="ghost"
 			size="icon"
-			className="p-2 hover:bg-transparent"
+			className={cn("p-2 hover:bg-transparent", className)}
 			onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
 			aria-label="Toggle Light / Dark mode"
 		>
