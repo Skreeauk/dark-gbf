@@ -23,7 +23,7 @@ export default function RootDocsLayout({ children }) {
 								alt="logo"
 								className="size-10"
 							/>
-							<h6 className="font-medium max-md:[header_&]:hidden">Dark GBF</h6>
+							<h6 className="text-xl max-md:[header_&]:hidden">Dark GBF</h6>
 						</>
 					),
 				}}

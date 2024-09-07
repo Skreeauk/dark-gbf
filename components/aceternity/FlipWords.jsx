@@ -60,7 +60,7 @@ export function FlipWords({ className }) {
 					key={currentWord}
 				>
 					{currentWord.split("").map((letter, index) => (
-						<m.span
+						<m.h5
 							key={currentWord + index}
 							initial={{
 								opacity: 0,
@@ -79,7 +79,7 @@ export function FlipWords({ className }) {
 							className="inline-block"
 						>
 							{letter}
-						</m.span>
+						</m.h5>
 					))}
 				</m.div>
 			</AnimatePresence>

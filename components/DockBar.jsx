@@ -1,5 +1,6 @@
 import { Dock, DockIcon } from "@/components/magicui/dock"
 import { ModeToggle } from "./ModeToggle"
+import { UwuToggle } from "./UwuToggle"
 import { Separator } from "./ui/separator"
 
 import Image from "next/image"
@@ -64,8 +65,20 @@ export default function DockBar() {
 				<DockIcon>
 					<Tooltip>
 						<TooltipTrigger asChild>
-							<div className="flex items-center justify-center size-12">
-								<ModeToggle className="rounded-full" />
+							<div>
+								<UwuToggle className="size-12" />
+							</div>
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>uwu</p>
+						</TooltipContent>
+					</Tooltip>
+				</DockIcon>
+				<DockIcon>
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<div>
+								<ModeToggle className="flex items-center justify-center p-3 size-12" />
 							</div>
 						</TooltipTrigger>
 						<TooltipContent>

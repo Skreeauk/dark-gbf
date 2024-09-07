@@ -34,12 +34,12 @@ export const BentoGridItem = ({
 		>
 			{header}
 			<div className="transition duration-200 group-hover/bento:translate-x-2 *:font-zen_kaku_gothic">
-				<div className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
+				<h4 className="mt-2 mb-2 font-sans font-bold text-neutral-600 dark:text-neutral-200">
 					{title}
-				</div>
-				<div className="font-sans text-xs text-neutral-600 dark:text-neutral-300">
+				</h4>
+				<span className="font-sans text-xs text-neutral-600 dark:text-neutral-300">
 					{description}
-				</div>
+				</span>
 			</div>
 			{highlight && (
 				<BorderBeam

@@ -19,7 +19,7 @@ export function ChartPreview() {
 		// <div className="relative flex h-96 mb-3 w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background">
 		// </div>
 		<Carousel
-			className="relative flex h-96 mb-3 w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background"
+			className="relative flex min-h-[13.5rem] w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border bg-background"
 			plugins={[plugin.current]}
 		>
 			<CarouselContent>
