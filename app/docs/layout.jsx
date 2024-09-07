@@ -38,11 +38,11 @@ export default function RootDocsLayout({ children }) {
 									url: "/docs/celeste",
 									icon: (
 										<Image
-											src={"/docs/icon/magna.webp"}
-											width={40}
-											height={40}
+											src={"/docs/icon/celeste.webp"}
+											width={56}
+											height={56}
 											alt="magna"
-											className="p-1 rounded-md bg-purple-400/50 size-10 shrink-0"
+											className="size-14 shrink-0"
 										/>
 									),
 								},
@@ -52,11 +52,11 @@ export default function RootDocsLayout({ children }) {
 									url: "/docs/hades",
 									icon: (
 										<Image
-											src={"/docs/icon/primal.webp"}
-											width={40}
-											height={40}
+											src={"/docs/icon/hades.webp"}
+											width={56}
+											height={56}
 											alt="primal"
-											className="p-1 rounded-md bg-blue-400/50 size-10 shrink-0"
+											className="size-14 shrink-0"
 										/>
 									),
 								},
@@ -66,11 +66,11 @@ export default function RootDocsLayout({ children }) {
 									url: "/tool",
 									icon: (
 										<Image
-											src={"/docs/icon/tool.webp"}
-											width={40}
-											height={40}
+											src={"/docs/icon/mommy.webp"}
+											width={56}
+											height={56}
 											alt="tool"
-											className="p-1 rounded-md bg-teal-400/50 size-10 shrink-0"
+											className="size-14 shrink-0"
 										/>
 									),
 								},
