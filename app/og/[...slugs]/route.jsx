@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og"
 import { readFileSync } from "node:fs"
 
-import { getPage, getPages } from "@/app/source"
+import { source } from "@/app/source"
 import { notFound } from "next/navigation"
 
 // if edge
@@ -17,7 +17,7 @@ const logoSrc = Uint8Array.from(logoData).buffer
 export async function GET(req, { params }) {
 	// if (zenkaku) console.log("Font Fetched")
 
-	const page = getPage(params.slugs.slice(0, -1))
+	const page = source.getPage(params.slugs.slice(0, -1))
 	if (!page) notFound()
 
 	return new ImageResponse(
@@ -79,7 +79,11 @@ export async function GET(req, { params }) {
 }
 
 export async function generateStaticParams() {
-	return getPages().map((page) => ({
-		slugs: [...page.slugs, "og.png"],
+	// console.log(source.generateParams("slugs"))
+	const slugs = source.generateParams("slugs").map((param) => ({
+		...param,
+		slugs: [...param.slugs, "og.png"],
 	}))
+	// console.log("Slugs:", slugs)
+	return slugs
 }

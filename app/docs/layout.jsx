@@ -1,8 +1,6 @@
-export const revalidate = 2592000
-
 import { DocsLayout } from "fumadocs-ui/layout"
 import { RootToggle } from "fumadocs-ui/components/layout/root-toggle"
-import { pageTree } from "@/app/source"
+import { source } from "@/app/source"
 import { Banner } from "fumadocs-ui/components/banner"
 
 import Image from "next/image"
@@ -12,7 +10,7 @@ export default function RootDocsLayout({ children }) {
 		<>
 			<Banner id="wip-alert">Docs is still WIP</Banner>
 			<DocsLayout
-				tree={pageTree}
+				tree={source.pageTree}
 				nav={{
 					title: (
 						<>

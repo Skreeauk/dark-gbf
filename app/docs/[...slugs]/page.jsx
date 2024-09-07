@@ -1,7 +1,18 @@
 import { notFound } from "next/navigation"
 
-import { getPage, getPages } from "@/app/source"
+import { source } from "@/app/source"
 import { DocsPage, DocsBody } from "fumadocs-ui/page"
+
+import defaultMdxComponents from "fumadocs-ui/mdx"
+
+import { Card, Cards } from "fumadocs-ui/components/card"
+import { Step, Steps } from "fumadocs-ui/components/steps"
+import { Tab, Tabs } from "fumadocs-ui/components/tabs"
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion"
+
+import { MDXTableList } from "@/components/mdx/MDXTableList"
+import { MDXWeaponGrid } from "@/components/mdx/MDXWeaponGrid"
+import { MDXCallout } from "@/components/mdx/MDXCallout"
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -19,10 +30,8 @@ function getImageMeta(baseUrl, slugs = []) {
 	}
 }
 
-export async function generateStaticParams() {
-	return getPages().map((page) => ({
-		slugs: page.slugs,
-	}))
+export function generateStaticParams() {
+	return source.generateParams("slugs")
 }
 
 // openGraph: {
@@ -34,7 +43,7 @@ export async function generateStaticParams() {
 // },
 
 export function generateMetadata({ params }) {
-	const page = getPage(params.slugs)
+	const page = source.getPage(params.slugs)
 
 	if (page == null) notFound()
 
@@ -60,17 +69,17 @@ export function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-	const page = getPage(params.slugs)
+	const page = source.getPage(params.slugs)
 
 	if (page == null) {
 		notFound()
 	}
 
-	const MDX = page.data.exports.default
+	const MDX = page.data.body
 
 	return (
 		<DocsPage
-			toc={page.data.exports.toc}
+			toc={page.data.toc}
 			full={page.data.full}
 			tableOfContent={{ style: "clerk", single: false }}
 		>
@@ -96,7 +105,22 @@ export default async function Page({ params }) {
 					)}
 				</div>
 				<div className="prose-h1:pb-1.5 prose-h1:border-b prose-h2:pb-1.5 prose-h2:border-b">
-					<MDX />
+					<MDX
+						components={{
+							...defaultMdxComponents,
+							Cards,
+							Card,
+							Steps,
+							Step,
+							Tabs,
+							Tab,
+							Accordions,
+							Accordion,
+							MDXTableList,
+							MDXWeaponGrid,
+							MDXCallout,
+						}}
+					/>
 				</div>
 			</DocsBody>
 		</DocsPage>

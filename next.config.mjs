@@ -1,12 +1,11 @@
-import createMDX from "fumadocs-mdx/config"
+import { createMDX } from "fumadocs-mdx/next"
 
-const withMDX = createMDX({
-	buildSearchIndex: {},
-})
+const withMDX = createMDX()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	output: "export",
+	reactStrictMode: true,
 	eslint: {
 		// Replaced by root workspace command
 		ignoreDuringBuilds: true,

@@ -1,7 +1,11 @@
 import algosearch from "algoliasearch"
-import { sync, updateDocuments } from "fumadocs-core/search-algolia/server"
 
-export async function updateSearchIndexes(indexes) {
+import { updateDocuments } from "fumadocs-core/search-algolia/server"
+import { createGetUrl, getSlugs, parseFilePath } from "fumadocs-core/source"
+
+import path from "node:path"
+
+export async function updateSearchIndexes(manifest) {
 	if (!process.env.ALGOLIA_WRITE_KEY) {
 		console.warn("Algolia API Key not found, skip updating search index.")
 		return
@@ -9,6 +13,11 @@ export async function updateSearchIndexes(indexes) {
 
 	if (!process.env.NEXT_PUBLIC_ALGOLIA_APP_ID) {
 		console.warn("Algolia App ID not found, skip updating search index.")
+		return
+	}
+
+	if (!manifest?.files) {
+		console.warn("Manifest file array empty, return early")
 		return
 	}
 
@@ -24,21 +33,53 @@ export async function updateSearchIndexes(indexes) {
 		}
 	)
 
+	console.log("Initialize Algosearch Client")
+
+	const getUrl = createGetUrl("/docs")
+
+	console.log("Get Docs URL")
+
+	// await customSync(client, {
+	// 	document: process.env.NEXT_PUBLIC_ALGOLIA_INDEX ?? "document",
+	// 	documents: indexes.map((docs) => {
+	// 		return {
+	// 			_id: docs.id,
+	// 			title: docs.title,
+	// 			description: docs.description,
+	// 			url: docs.url,
+	// 			structured: docs.structuredData,
+	// 			tag: docs.url.split("/")[2],
+	// 			extra_data: {
+	// 				keywords: docs._data.frontmatter.keywords,
+	// 			},
+	// 		}
+	// 	}),
+	// })
+
 	await customSync(client, {
 		document: process.env.NEXT_PUBLIC_ALGOLIA_INDEX ?? "document",
-		documents: indexes.map((docs) => {
-			return {
-				_id: docs.id,
-				title: docs.title,
-				description: docs.description,
-				url: docs.url,
-				structured: docs.structuredData,
-				tag: docs.url.split("/")[2],
-				extra_data: {
-					keywords: docs._data.frontmatter.keywords,
-				},
-			}
-		}),
+		documents: manifest.files
+			.filter((file) => file.collection === "docs")
+			.map((docs) => {
+				const url = getUrl(
+					getSlugs(parseFilePath(path.relative("content/docs", docs.path)))
+				)
+
+				if (!docs.data.structuredData)
+					throw new Error("`structuredData` is required")
+
+				return {
+					_id: docs.path,
+					title: docs.data.frontmatter.title,
+					description: docs.data.frontmatter.description,
+					url,
+					structured: docs.data.structuredData,
+					tag: url.split("/")[2],
+					extra_data: {
+						keywords: docs.data.frontmatter.keywords,
+					},
+				}
+			}),
 	})
 
 	console.log("Update Index: Algolia Search Updated")

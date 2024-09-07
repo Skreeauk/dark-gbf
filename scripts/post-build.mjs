@@ -6,11 +6,13 @@ import { readFile } from "node:fs/promises"
 env.loadEnvConfig(process.cwd())
 
 async function main() {
-	const indexes = JSON.parse(
-		(await readFile(".next/server/chunks/fumadocs_search.json")).toString()
+	const manifest = JSON.parse(
+		(await readFile(".source/manifest.json")).toString()
 	)
 
-	await Promise.all([updateSearchIndexes(indexes)])
+	console.log("Successfully retrieved manifest")
+
+	await Promise.all([updateSearchIndexes(manifest)])
 }
 
 await main().catch((e) => {
