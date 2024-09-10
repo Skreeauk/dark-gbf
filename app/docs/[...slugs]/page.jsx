@@ -5,7 +5,6 @@ import { DocsPage, DocsBody } from "fumadocs-ui/page"
 
 import defaultMdxComponents from "fumadocs-ui/mdx"
 
-import { Card, Cards } from "fumadocs-ui/components/card"
 import { Step, Steps } from "fumadocs-ui/components/steps"
 import { Tab, Tabs } from "fumadocs-ui/components/tabs"
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion"
@@ -108,8 +107,6 @@ export default async function Page({ params }) {
 					<MDX
 						components={{
 							...defaultMdxComponents,
-							Cards,
-							Card,
 							Steps,
 							Step,
 							Tabs,
