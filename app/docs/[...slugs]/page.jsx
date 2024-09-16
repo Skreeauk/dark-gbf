@@ -86,22 +86,41 @@ export default async function Page({ params }) {
 				<div className="flex flex-col gap-3 mb-8">
 					<h1 className="p-0 m-0 text-4xl font-semibold">{page.data.title}</h1>
 					<span className="opacity-70">{page.data.description}</span>
-					{page.data.wikiURL && (
-						<Button
-							asChild
-							className="items-center justify-center h-auto px-3 py-1 w-fit"
-						>
-							<Link
-								href={page.data.wikiURL}
-								aria-label="gbf.wiki url"
-								target="_blank"
-								className="no-underline"
+					<div className="flex gap-3">
+						{page.data.wikiURL && (
+							<Button
+								asChild
+								className="items-center justify-center h-auto px-3 py-1 w-fit"
 							>
-								<span className="text-sm">gbf.wiki</span>
-								<SquareArrowOutUpRightIcon className="ml-2 size-3" />
-							</Link>
-						</Button>
-					)}
+								<Link
+									href={page.data.wikiURL}
+									aria-label="gbf.wiki url"
+									target="_blank"
+									className="no-underline"
+								>
+									<span className="text-sm">GBF Wiki</span>
+									<SquareArrowOutUpRightIcon className="ml-2 size-3" />
+								</Link>
+							</Button>
+						)}
+
+						{page.data.gbfguide && (
+							<Button
+								asChild
+								className="items-center justify-center h-auto px-3 py-1 w-fit"
+							>
+								<Link
+									href={page.data.gbfguide}
+									aria-label="gbfguide url"
+									target="_blank"
+									className="no-underline"
+								>
+									<span className="text-sm">GBF Guide</span>
+									<SquareArrowOutUpRightIcon className="ml-2 size-3" />
+								</Link>
+							</Button>
+						)}
+					</div>
 				</div>
 				<div className="prose-h1:pb-1.5 prose-h1:border-b prose-h2:pb-1.5 prose-h2:border-b">
 					<MDX

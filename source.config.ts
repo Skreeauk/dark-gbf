@@ -11,6 +11,7 @@ export const { docs, meta } = defineDocs({
 		schema: frontmatterSchema.extend({
 			keywords: z.array(z.string()).default([]),
 			wikiURL: z.string().default(""),
+			gbfguide: z.string().default(""),
 		}),
 	},
 })

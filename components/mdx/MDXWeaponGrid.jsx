@@ -19,7 +19,7 @@ export async function MDXWeaponGrid({
 
 	return (
 		<div className="flex flex-col gap-1 mx-auto md:flex-row md:justify-center md:gap-4">
-			<Weapon weapon={mh} weaponSkillFetch={weaponSkillFetch}></Weapon>
+			<Weapon weapon={mh} weaponSkillFetch={weaponSkillFetch} />
 
 			<div className="grid grid-cols-3 gap-1 md:gap-4">
 				{weapons?.slice(1).map((weaponID, i) => {
@@ -30,7 +30,7 @@ export async function MDXWeaponGrid({
 							key={i + 1}
 							weapon={weapon}
 							weaponSkillFetch={weaponSkillFetch}
-						></Weapon>
+						/>
 					)
 				})}
 			</div>
@@ -40,17 +40,19 @@ export async function MDXWeaponGrid({
 
 function Weapon({ weapon, weaponSkillFetch }) {
 	return (
-		<div className="relative h-[48px] w-[84px] bg-gray-500 lg:h-[72px] lg:w-[126px] xl:h-[96px] xl:w-[168px]">
-			{weapon && (
-				<Image
-					src={"/weapon/" + weapon?.id + ".webp"}
-					fill
-					sizes="(max-width: 1024px) 84px, (max-width: 1280) 126px, 168px"
-					alt={weapon?.id}
-					className="not-prose"
-				/>
-			)}
-			<div className="absolute bottom-0 left-0 flex items-center justify-center w-full gap-1 h-2/5 bg-transparent/40">
+		<div className="flex flex-col gap-1 w-fit">
+			<div className="relative h-[48px] w-[84px] bg-gray-500 lg:h-[72px] lg:w-[126px] xl:h-[96px] xl:w-[168px]">
+				{weapon && (
+					<Image
+						src={"/weapon/" + weapon?.id + ".webp"}
+						fill
+						sizes="(max-width: 1024px) 84px, (max-width: 1280) 126px, 168px"
+						alt={weapon?.id}
+						className="not-prose"
+					/>
+				)}
+			</div>
+			<div className="flex items-center justify-center w-full gap-1">
 				{weapon?.skills &&
 					weapon?.skills.map((skillID, i) => {
 						const skill = weaponSkillFetch.find((e) => e.id == skillID)
