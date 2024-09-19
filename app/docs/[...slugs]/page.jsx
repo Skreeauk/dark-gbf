@@ -122,7 +122,7 @@ export default async function Page({ params }) {
 						)}
 					</div>
 				</div>
-				<div className="prose-h1:pb-1.5 prose-h1:border-b prose-h2:pb-1.5 prose-h2:border-b">
+				<div className="prose-h1:pb-1.5 prose-h1:border-b prose-h2:pb-1.5 prose-h2:border-b prose-p:after:content-none prose-p:before:content-none">
 					<MDX
 						components={{
 							...defaultMdxComponents,
