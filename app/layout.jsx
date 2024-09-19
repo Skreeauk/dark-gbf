@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 
 import { Provider } from "@/components/Provider"
 
-import { openGraph, twitter } from "@/lib/utils/meta"
+import { openGraph, twitter, baseURL } from "@/lib/utils/meta"
 
 const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
 	weight: ["500", "700"],
@@ -25,9 +25,9 @@ const Yuruka = localFont({
 export const metadata = {
 	title: "Dark GBF",
 	description: "Be the 闇 you deserve",
-	metadataBase: "https://dark-gbf.vercel.app",
+	metadataBase: baseURL,
 	openGraph: {
-		url: "https://dark-gbf.vercel.app",
+		url: baseURL,
 		type: "website",
 		...openGraph,
 	},

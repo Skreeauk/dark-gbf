@@ -12,7 +12,7 @@ const FADE_UP = {
 	show: {
 		opacity: 1,
 		y: 0,
-		transition: { type: "spring", duration: 2 },
+		transition: { type: "spring", duration: 1.5 },
 	},
 }
 
@@ -36,7 +36,7 @@ const BLUR_OUT = {
 	show: {
 		opacity: 0,
 		filter: "blur(10px)",
-		transition: { type: "spring", duration: 2, delay: 1.5 },
+		transition: { type: "spring", duration: 1.2, delay: 1.2 },
 	},
 }
 
