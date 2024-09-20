@@ -44,6 +44,11 @@ export default function RootLayout({ children }) {
 			className={cn(ZenKakuGothicNew.variable, Yuruka.variable)}
 		>
 			<head>
+				<meta
+					name="google-site-verification"
+					content="YcHNuPro0k5yKiPu3t7F-TorYUGC3VHpkdx1bJWg2kA"
+				/>
+
 				<link rel="icon" href="/favicon.ico" />
 			</head>
 			<body
