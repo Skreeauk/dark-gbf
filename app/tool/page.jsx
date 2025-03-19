@@ -1,9 +1,9 @@
-import { BentoGrid, BentoGridItem } from "@/components/aceternity/BentoGrid"
+import { BentoGrid, BentoGridItem } from "@/components/aceternity/BentoGrid";
 
-import { RadarIcons } from "@/components/aceternity/RadarIcons"
-import { WordCycle } from "@/components/aceternity/WordCycle"
-import { ChartPreview } from "@/components/ChartPreview"
-import { AnimatedBeams } from "@/components/magicui/Beams"
+import { RadarIcons } from "@/components/aceternity/RadarIcons";
+import { WordCycle } from "@/components/aceternity/WordCycle";
+import { ChartPreview } from "@/components/ChartPreview";
+import { AnimatedBeams } from "@/components/magicui/Beams";
 
 const items = [
 	{
@@ -14,27 +14,27 @@ const items = [
 		url: "/tool/grid-builder",
 	},
 	{
-		title: "Multiattack Calculator",
+		title: "Multiattack Calculator (WIP)",
 		description: "Make your life easier with this tool.",
 		header: <WordCycle />,
 		className: "md:col-span-1",
 		url: "/tool/multiattack-calculator",
 	},
 	{
-		title: "Weapon Skills",
+		title: "Weapon Skills (WIP)",
 		description: "Motocal redefined.",
 		header: <ChartPreview />,
 		className: "md:col-span-1",
 		url: "/tool/weapon-skills",
 	},
 	{
-		title: "Grid Score",
+		title: "Grid Score (WIP)",
 		description: "Rate your grid with our own CV rating system.",
 		header: <AnimatedBeams />,
 		className: "md:col-span-2",
 		url: "/tool/grid-score",
 	},
-]
+];
 
 export default function Page() {
 	return (
@@ -56,5 +56,5 @@ export default function Page() {
 				))}
 			</BentoGrid>
 		</main>
-	)
+	);
 }
